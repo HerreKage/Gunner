@@ -42,6 +42,7 @@
                 <TextBox TextWrapping="Wrap" Text="TextBox" Width="266" FontSize="24"/>
             </ListBox>
             <TextBlock HorizontalAlignment="Center" Margin="270,10,201,0" TextWrapping="Wrap" Text="Produkt og Resurser" VerticalAlignment="Top" FontSize="30" Width="294" Height="70" Grid.Column="1" Grid.RowSpan="2"/>
+            
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="608" Margin="37,1,0,0" VerticalAlignment="Top" Width="165" Grid.Row="2">
                 <CheckBox Content="Jeg har ændret noget" FontSize="22" Width="141" Height="75"/>
                 <CheckBox Content="Jeg prøver igen" FontSize="22" Width="141" Height="75"/>
@@ -72,6 +73,8 @@
             <Button Grid.ColumnSpan="2" Content="Opret Ordre" HorizontalAlignment="Left" Margin="599,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20
                     "/>
             <Button Grid.ColumnSpan="2" Content="Fortryd" HorizontalAlignment="Left" Margin="408,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20"/>
+            <Button Grid.ColumnSpan="2" Name="CustomorPage" Content="CostumorPage" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CustomorPage_Click"/>
+
 
 
 
