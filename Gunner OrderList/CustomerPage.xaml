@@ -8,7 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderBrush="#FFE80000">
-        <ListView HorizontalAlignment="Left" Height="3" Margin="1,7,0,0" VerticalAlignment="Top" Width="7" BorderThickness="2" BorderBrush="Black" Background="Black"/>
-
+        <ListView HorizontalAlignment="Left" Height="186" Margin="210,147,0,0" VerticalAlignment="Top" Width="521" BorderBrush="Black" BorderThickness="2"/>
     </Grid>
 </Page>
