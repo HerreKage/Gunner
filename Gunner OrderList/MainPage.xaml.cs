@@ -51,5 +51,11 @@ namespace Gunner_OrderList
         {
 
         }
+
+        // Sends us to costomorpage
+        private void CustomorPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CustomerPage), null);
+        }
     }
 }

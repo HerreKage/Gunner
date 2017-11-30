@@ -13,7 +13,7 @@
         <Grid HorizontalAlignment="Left" Height="613" Margin="913,339,0,0" VerticalAlignment="Top" Width="443" BorderThickness="0,2,2,2" BorderBrush="Black">
             <TextBox HorizontalAlignment="Left" Height="36" Margin="188,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="181"/>
             <TextBlock HorizontalAlignment="Left" Height="36" Margin="10,69,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="136"/>
-            <TextBox BorderBrush="#FFE80000" Text="Hej"></TextBox>
+            <TextBox BorderBrush="#FFE80000" Text="Jeg har ændret noget Greg"></TextBox>
         </Grid>
 
 
