@@ -25,31 +25,7 @@ namespace Gunner_OrderList
         {
         }
 
-       /* public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
-        public string Email
-        {
-            get => _email;
-            set => _email = value;
-        }
-        public string PhoneNumber
-        {
-            get => _phoneNumber;
-            set => _phoneNumber = value;
-        }
-        public string Address
-        {
-            get => _address;
-            set => _address = value;
-        }
-        public string CompanyNumber
-        {
-            get => _companyNumber;
-            set => _companyNumber = value;
-        }*/
+        internal Customer Customer { get => _customer; set => _customer = value; }
         public string Description { get => _description; set => _description = value; }
         public bool Checkbox1 { get => checkbox1; set => checkbox1 = value; }
         public bool Checkbox2 { get => checkbox2; set => checkbox2 = value; }
@@ -59,5 +35,6 @@ namespace Gunner_OrderList
         public bool Checkbox6 { get => checkbox6; set => checkbox6 = value; }
         public bool Checkbox7 { get => checkbox7; set => checkbox7 = value; }
         public bool Checkbox8 { get => checkbox8; set => checkbox8 = value; }
+        
     }
 }

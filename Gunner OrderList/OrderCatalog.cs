@@ -20,10 +20,13 @@ namespace Gunner_OrderList
 
         private OrderCatalog()
         {
+            _currentOrders = new ObservableCollection<Order>();
+            _unapprovedOrders = new ObservableCollection<Order>();
+            _historyOrders = new ObservableCollection<Order>();
+            _invoiceOrders = new ObservableCollection<Order>();
         }
 
         public static OrderCatalog Instance
-
         {
             get
             {
@@ -33,9 +36,6 @@ namespace Gunner_OrderList
                 }
                 return _instance;
             }
-
-
-
         }
 
         public ObservableCollection<Order> CurrentOrders
