@@ -7,16 +7,18 @@ using System.Collections.ObjectModel;
 
 namespace Gunner_OrderList
 {
-    public class CustomerCatalog
+    class CustomerCatalog
     {
-        ObservableCollection<Customer> _customers;
+        ObservableCollection<Customer> _customers;  //List of customers
 
         private static CustomerCatalog instance=null;
 
-        private CustomerCatalog() { _customers= new ObservableCollection<Customer> }
+        private CustomerCatalog()
+        {
+            _customers = new ObservableCollection<Customer>();
+        }
 
         public static CustomerCatalog Instance
-
         { 
             get
             {
@@ -26,11 +28,12 @@ namespace Gunner_OrderList
                 }
                 return instance;
             }
-
-
         }
 
-
-
+        public ObservableCollection<Customer> Customers
+        {
+            get { return _customers; }
+            set { _customers = value; }
+        }
     }
 }

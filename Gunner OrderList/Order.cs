@@ -8,8 +8,9 @@ namespace Gunner_OrderList
 {
     class Order
     {
-        private string _name;
+        private Customer _customer;
         private string _description;
+
         private bool checkbox1;
         private bool checkbox2;
         private bool checkbox3;
@@ -24,7 +25,7 @@ namespace Gunner_OrderList
         {
         }
 
-        public string Name { get => _name; set => _name = value; }
+        internal Customer Customer { get => _customer; set => _customer = value; }
         public string Description { get => _description; set => _description = value; }
         public bool Checkbox1 { get => checkbox1; set => checkbox1 = value; }
         public bool Checkbox2 { get => checkbox2; set => checkbox2 = value; }
@@ -34,5 +35,6 @@ namespace Gunner_OrderList
         public bool Checkbox6 { get => checkbox6; set => checkbox6 = value; }
         public bool Checkbox7 { get => checkbox7; set => checkbox7 = value; }
         public bool Checkbox8 { get => checkbox8; set => checkbox8 = value; }
+        
     }
 }
