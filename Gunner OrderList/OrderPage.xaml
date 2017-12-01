@@ -19,20 +19,21 @@
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="___ListName_" SelectionChanged="___ListName__SelectionChanged" RenderTransformOrigin="0.496,0.499" Margin="-718,0,10,29" Height="960" VerticalAlignment="Bottom" Grid.RowSpan="3">
-                <TextBlock TextWrapping="Wrap" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" SelectionChanged="TextBlock_SelectionChanged" Height="40" RenderTransformOrigin="0.421,0.462"/>
+            <StackPanel x:Name="___ListName_" RenderTransformOrigin="0.496,0.499" Margin="-718,0,10,29" Height="960" VerticalAlignment="Bottom" Grid.RowSpan="3">
+                <TextBlock TextWrapping="Wrap" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Height="40" RenderTransformOrigin="0.421,0.462"/>
                 <TextBlock TextWrapping="Wrap" Text="Email" FontSize="24" Height="44"/>
                 <TextBlock TextWrapping="Wrap" Text="Phone Number" FontSize="24" HorizontalAlignment="Left" Height="48"/>
                 <TextBlock TextWrapping="Wrap" Text="Adress" FontSize="24" Height="36"/>
                 <TextBlock TextWrapping="Wrap" Text="Miscellaneous" FontSize="24" Height="42"/>
                 <TextBlock TextWrapping="Wrap" Text="Miscellaneous" FontSize="24" Height="48"/>
-                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="138" Width="312" SelectionChanged="TextBlock_SelectionChanged_2" FontSize="36">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="138" Width="312" FontSize="36">
                     <Run Text="Opgavebeskrivelse og prisestimering"/>
                     <Run Text=":"/>
                 </TextBlock>
                 <Rectangle Fill="#FFF4F4F5" Height="150" Stroke="Black" Width="647"/>
-
-            </ListBox>
+            </StackPanel>
+            
+            
             <ListBox Height="441" VerticalAlignment="Top" Margin="-309,0,10,0" Grid.RowSpan="3">
                 <TextBox TextWrapping="Wrap" Text="TextBox" Width="266" FontSize="24"/>
                 <TextBox TextWrapping="Wrap" Text="TextBox" Width="266" FontSize="24"/>

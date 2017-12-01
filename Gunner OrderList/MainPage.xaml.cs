@@ -57,5 +57,10 @@ namespace Gunner_OrderList
         {
             this.Frame.Navigate(typeof(CustomerPage), null);
         }
+
+        private void TextBlock_SelectionChanged_3(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
