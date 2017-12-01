@@ -10,6 +10,7 @@ namespace Gunner_OrderList
     {
         private string _name;
         private string _description;
+
         private bool checkbox1;
         private bool checkbox2;
         private bool checkbox3;
