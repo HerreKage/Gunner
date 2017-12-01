@@ -9,23 +9,30 @@ namespace Gunner_OrderList
     class Order
     {
         private string _name;
-        private string _email;
-        private string _phoneNumber;
-        private string _address;
-        private string _blank;
-        private string _blank2;
         private string _description;
+        private bool checkbox1;
+        private bool checkbox2;
+        private bool checkbox3;
+        private bool checkbox4;
+        private bool checkbox5;
+        private bool checkbox6;
+        private bool checkbox7;
+        private bool checkbox8;
+
 
         public Order()
         {
         }
 
         public string Name { get => _name; set => _name = value; }
-        public string Email { get => _email; set => _email = value; }
-        public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
-        public string Address { get => _address; set => _address = value; }
-        public string Blank { get => _blank; set => _blank = value; }
-        public string Blank2 { get => _blank2; set => _blank2 = value; }
         public string Description { get => _description; set => _description = value; }
+        public bool Checkbox1 { get => checkbox1; set => checkbox1 = value; }
+        public bool Checkbox2 { get => checkbox2; set => checkbox2 = value; }
+        public bool Checkbox3 { get => checkbox3; set => checkbox3 = value; }
+        public bool Checkbox4 { get => checkbox4; set => checkbox4 = value; }
+        public bool Checkbox5 { get => checkbox5; set => checkbox5 = value; }
+        public bool Checkbox6 { get => checkbox6; set => checkbox6 = value; }
+        public bool Checkbox7 { get => checkbox7; set => checkbox7 = value; }
+        public bool Checkbox8 { get => checkbox8; set => checkbox8 = value; }
     }
 }
