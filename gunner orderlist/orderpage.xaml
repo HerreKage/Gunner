@@ -57,20 +57,20 @@
             <Button Grid.ColumnSpan="2" Content="Fortryd" HorizontalAlignment="Left" Margin="408,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="1056" Margin="-9,-16,0,-40" VerticalAlignment="Top" Width="729" BorderBrush="Black" BorderThickness="0,0,2,0" Grid.ColumnSpan="2">
-            <TextBlock TextWrapping="Wrap" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Height="40" RenderTransformOrigin="0.421,0.462" Margin="84,93,0,923"/>
-            <TextBlock TextWrapping="Wrap" Text="Email" FontSize="24" Margin="84,227,580,795"/>
-            <TextBlock TextWrapping="Wrap" Text="Phone Number" FontSize="24" HorizontalAlignment="Left" Height="48" Margin="84,138,0,870"/>
-            <TextBlock TextWrapping="Wrap" Text="Adress" FontSize="24" Height="36" Margin="84,186,569,834"/>
-            <TextBlock TextWrapping="Wrap" Text="Miscellaneous" FontSize="24" Height="42" Margin="84,309,490,705"/>
-            <TextBlock TextWrapping="Wrap" Text="Miscellaneous" FontSize="24" Margin="84,266,486,747"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="36" Margin="71,370,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,93,102,923" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="53,474,46,76"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,138,106,878" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,178,110,838" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,218,110,798" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="317,258,112,758" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="315,298,114,718" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Height="40" RenderTransformOrigin="0.421,0.462" Margin="84,119,0,897"/>
+            <TextBlock TextWrapping="Wrap" Text="Email" FontSize="24" Margin="84,258,582,764"/>
+            <TextBlock TextWrapping="Wrap" Text="Phone Number" FontSize="24" HorizontalAlignment="Left" Height="48" Margin="84,164,0,844"/>
+            <TextBlock TextWrapping="Wrap" Text="Adress" FontSize="24" Height="36" Margin="84,217,571,803"/>
+            <TextBlock TextWrapping="Wrap" Text="Miscellaneous" FontSize="24" Height="42" Margin="84,346,492,668"/>
+            <TextBlock TextWrapping="Wrap" Text="Company Number" FontSize="24" Margin="53,298,464,718"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="36" Margin="53,547,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,118,104,898" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="53,637,28,76"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="317,163,110,853" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,208,112,808" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,253,112,763" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,298,112,718" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="317,346,114,670" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
     </Grid>
 </Page>
