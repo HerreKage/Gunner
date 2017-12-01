@@ -26,5 +26,11 @@ namespace Gunner_OrderList
         {
             this.InitializeComponent();
         }
+
+        private void TextBox_TextChanged(System.Object sender, TextChangedEventArgs e)
+        {
+
+        }
+
     }
 }
