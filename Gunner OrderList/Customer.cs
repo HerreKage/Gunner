@@ -12,17 +12,16 @@ namespace Gunner_OrderList
         private string _email;
         private string _phoneNumber;
         private string _address;
-        private string _blank;
+        private string _companyNumber;
 
         public Customer()
-        {
-            
+        {    
         }
 
         public string Name { get => _name; set => _name = value; }
         public string Email { get => _email; set => _email = value; }
         public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
         public string Address { get => _address; set => _address = value; }
-        public string Blank { get => _blank; set => _blank = value; }
+        public string CompanyNumber { get => _companyNumber; set => _companyNumber = value; }
     }
 }
