@@ -6,81 +6,71 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Store.Preview.InstallControl;
+using Windows.UI.Xaml;
 
 namespace Gunner_OrderList
 {
     class OrderVM : INotifyPropertyChanged
     {
-        // Instance Field starts
-        private Order _newOrder;
-        private Customer _newcustomer;
-
+        private Order _selectedOrder;
         private OrderCatalog _orderCatalog;
-        // Instance Field Ends
 
-        // Constructor starts
+        private ObservableCollection<Order> _displayedOrders;
+
         public OrderVM()
         {
-            _newcustomer = new Customer();
-            _newOrder = new Order();
-
             _orderCatalog = OrderCatalog.Instance;
-        }
-        // Constructor ends
 
-        // Properties for Data Binding start
-        #region ObservableCollections
-        public ObservableCollection<Order> CurrentOrders
-        {
-            get { return _orderCatalog.CurrentOrders; }
+        
+            _displayedOrders = _orderCatalog.DummyInfo;
         }
-        public ObservableCollection<Order> HistoryOrders
-        {
-            get { return _orderCatalog.HistoryOrders; }
-        }
-        public ObservableCollection<Order> UnapprovedOrders
-        {
-            get { return _orderCatalog.UnapprovedOrders; }
-        }
-        public ObservableCollection<Order> InvoiOrders
-        {
-            get { return _orderCatalog.InvoiceOrders; }
-        }
-        #endregion 
 
+        public ObservableCollection<Order> DisplayedOrders
+        {
+            get { return _displayedOrders; }
+        }
+        
         #region Customer
         public string Name
         {
-            get { return _newcustomer.Name; }
+            get { return _selectedOrder.Customer.Name; }
         }
         public string Email
         {
-            get { return _newcustomer.Email; }
+            get { return _selectedOrder.Customer.Email; }
         }
         public string PhoneNumber
         {
-            get { return _newcustomer.PhoneNumber; }
+            get { return _selectedOrder.Customer.PhoneNumber; }
         }
         public string Address
         {
-            get { return _newcustomer.Address; }
+            get { return _selectedOrder.Customer.Address; }
         }
         public string CompanyNumber
         {
-            get { return _newcustomer.CompanyNumber; }
+            get { return _selectedOrder.Customer.CompanyNumber; }
         }
         #endregion
 
         #region Order
+
+        public string Product
+        {
+            get { return _selectedOrder.Product; }
+        }
+
+        public string Deadline
+        {
+            get { return _selectedOrder.Deadline; }
+        }
+
         public string Description
         {
-            get { return _newOrder.Description; }
+            get { return _selectedOrder.Description; }
         }
         #endregion
-
-        // Properties for Data Binding ends
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

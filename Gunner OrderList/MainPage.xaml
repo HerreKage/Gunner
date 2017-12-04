@@ -7,6 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Height="720" Width="1280">
 
+    <Page.DataContext>
+        <local:OrderVM/>
+    </Page.DataContext>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -15,19 +19,36 @@
             </Grid.ColumnDefinitions>
 
             <Grid>
-                
+
                 <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Kunde liste" Margin="200,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Ikke godkendte" Margin="350,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Færdige ordrer" Margin="500,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Til forside" Margin="650,50,0,0" VerticalAlignment="Top" Width="125"/>
+
+                <ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="243" VerticalAlignment="Top" Width="641" BorderBrush="Black" BorderThickness="2" Margin="67,359,0,0" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Order">
+                            <StackPanel Orientation="Horizontal" Height="59" Width="625" BorderThickness="0,0,0,2" BorderBrush="Black">
+                                <!--Order Number-->
+                                <TextBlock Text="{Binding OrderNumber}" Margin="15,15,15,15" MaxWidth="220" Width="33"/>
+                                <!--Customer-->
+                                <TextBlock Text="{Binding Customer.Name}" Margin="15,15,15,15"/>
+                                <!--Product-->
+                                <TextBlock Text="{Binding Product}" Margin="15,15,15,15" />
+                                <!--Deadline-->
+                                <TextBlock Text="{Binding Deadline}" Margin="15,15,15,15" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
             <Button Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="86,50,0,0" VerticalAlignment="Top" Width="150"/>
             <Button Content="Gem ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="310,50,0,0" VerticalAlignment="Top" Width="150"/>
         </Grid>
-        
+
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="50,95,0,0" Text="IGANGVÆRENDE ORDRER:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
-        
+
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="50,125,0,0" Text="Ordre nr:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="160,125,0,0" Text="Kunde:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="354,125,0,0" Text="Produkt:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold"/>
