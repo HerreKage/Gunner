@@ -10,13 +10,13 @@ namespace Gunner_OrderList.Viewmodel
 {
     class DeleteCommand :ICommand
     {
-        private Catalog _catalog;
+        private CustomerCatalog _catalog;
 
         private Customer _customer;
 
 
 
-        public DeleteCommand(Catalog catalog, Customer customer);
+        public DeleteCommand(CustomerCatalog catalog, Customer customer)
 
 
         {
