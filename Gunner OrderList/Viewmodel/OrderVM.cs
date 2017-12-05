@@ -13,9 +13,10 @@ namespace Gunner_OrderList
 {
     class OrderVM : INotifyPropertyChanged
     {
-        private Order _selectedOrder;
         private OrderCatalog _orderCatalog;
         private ObservableCollection<Order> _displayedOrders;
+        private Order _selectedOrder = null;
+        private Customer _selectedOrderCustomer = null;
 
         public OrderVM()
         {
@@ -27,55 +28,88 @@ namespace Gunner_OrderList
         {
             get { return _displayedOrders; }
         }
-        
-        #region Customer
-        public string Name
-        {
-            get { return _selectedOrder.Customer.Name; }
-        }
-        public string Email
-        {
-            get { return _selectedOrder.Customer.Email; }
-        }
-        public string PhoneNumber
-        {
-            get { return _selectedOrder.Customer.PhoneNumber; }
-        }
-        public string Address
-        {
-            get { return _selectedOrder.Customer.Address; }
-        }
-        public string CompanyNumber
-        {
-            get { return _selectedOrder.Customer.CompanyNumber; }
-        }
-        #endregion
 
-        #region Order
+
 
         public Order SelectedOrder
         {
             get { return _selectedOrder; }
-            set { _selectedOrder = value; }
+            set
+            {
+                _selectedOrder = value;
+                _selectedOrderCustomer = _selectedOrder.Customer;
+                OnPropertyChanged("SelectedOrderCustomer");
+                OnPropertyChanged();
+            }
         }
+        #region Order
+        //public string Product
+        //{
+        //    get { return _selectedOrder.Product; }
+        //    set { _selectedOrder.Product = value; }
+        //}
 
-        public string Product
-        {
-            get { return _selectedOrder.Product; }
-        }
+        //public string Deadline
+        //{
+        //    get { return _selectedOrder.Deadline; }
+        //    set { _selectedOrder.Deadline = value; }
+        //}
 
-        public string Deadline
-        {
-            get { return _selectedOrder.Deadline; }
-        }
+        //public string Description
+        //{
+        //    get { return _selectedOrder.Description; }
+        //    set { _selectedOrder.Description = value; }
+        //}
 
-        public string Description
+        //public string Price
+        //{
+        //    get { return _selectedOrder.Price; }
+        //    set { _selectedOrder.Price = value; }
+        //}
+
+        //public int OrderNumber
+        //{
+        //    get { return _selectedOrder.OrderNumber; }
+        //}
+    #endregion
+
+        public Customer SelectedOrderCustomer
         {
-            get { return _selectedOrder.Description; }
+            get
+            {
+                return _selectedOrderCustomer;
+            }
+            set
+            {
+                _selectedOrderCustomer = value; 
+                OnPropertyChanged();
+            }
         }
+        #region Customer
+        //public string Name
+        //{
+        //    get { return _selectedOrder.Customer.Name; }
+        //}
+        //public string Email
+        //{
+        //    get { return _selectedOrder.Customer.Email; }
+        //}
+        //public string PhoneNumber
+        //{
+        //    get { return _selectedOrder.Customer.PhoneNumber; }
+        //}
+        //public string Address
+        //{
+        //    get { return _selectedOrder.Customer.Address; }
+        //}
+        //public string CompanyNumber
+        //{
+        //    get { return _selectedOrder.Customer.CompanyNumber; }
+        //}
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
+
+    public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

@@ -19,8 +19,7 @@ namespace Gunner_OrderList
 
 
         private ObservableCollection<Order> _dummyInfo;  //Testing info
-        Order _newOrder = new Order();
-
+        private static int _orderNumber;  //This will be the ordernumber that is assigned to each order when added (will be updated)
         private OrderCatalog()
         {
             _currentOrders = new ObservableCollection<Order>();  //Load in from stored data later
@@ -30,6 +29,7 @@ namespace Gunner_OrderList
             
             DummyOrder _dummyOrders = new DummyOrder();  //Testing Info
             DummyInfo = _dummyOrders.DummyInfo;         //Testing Info
+            _orderNumber = 2; //This number needs to be stored
         }
 
         public static OrderCatalog Instance
@@ -42,12 +42,6 @@ namespace Gunner_OrderList
                 }
                 return _instance;
             }
-        }
-
-        public Order SelectedOrder
-        {
-            get { return _selectedOrder; }
-            set { _selectedOrder = value; }
         }
 
         public ObservableCollection<Order> CurrentOrders
