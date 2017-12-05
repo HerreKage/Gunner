@@ -14,8 +14,6 @@ namespace Gunner_OrderList.Viewmodel
 
         private Customer _customer;
 
-
-
         public DeleteCommand(CustomerCatalog catalog, Customer customer)
 
 
@@ -23,12 +21,6 @@ namespace Gunner_OrderList.Viewmodel
             _catalog = catalog;
             _customer = customer;
         }
-
-
-
-
-
-
 
     public bool CanExecute(object parameter)
         {

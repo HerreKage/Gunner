@@ -10,6 +10,7 @@ namespace Gunner_OrderList
     class CustomerCatalog
     {
         ObservableCollection<Customer> _customers;  //List of customers
+        private Customer _newCustomer = new Customer();
 
         private static CustomerCatalog instance=null;
 
