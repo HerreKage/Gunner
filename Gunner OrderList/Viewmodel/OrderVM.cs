@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.ApplicationModel.Store.Preview.InstallControl;
 using Windows.UI.Xaml;
+using Gunner_OrderList.Viewmodel;
 
 namespace Gunner_OrderList
 {
@@ -17,18 +20,20 @@ namespace Gunner_OrderList
         private ObservableCollection<Order> _displayedOrders;
         private Order _selectedOrder = null;
         private Customer _selectedOrderCustomer = null;
+        private DeleteCommand _deleteCommand;
 
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
-            _displayedOrders = _orderCatalog.DummyInfo;  //For now just display dummyinfo
+            _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo                
         }
 
         public ObservableCollection<Order> DisplayedOrders
         {
             get { return _displayedOrders; }
         }
-
+       
+        
 
 
         public Order SelectedOrder
@@ -42,36 +47,9 @@ namespace Gunner_OrderList
                 OnPropertyChanged();
             }
         }
-        #region Order
-        //public string Product
-        //{
-        //    get { return _selectedOrder.Product; }
-        //    set { _selectedOrder.Product = value; }
-        //}
-
-        //public string Deadline
-        //{
-        //    get { return _selectedOrder.Deadline; }
-        //    set { _selectedOrder.Deadline = value; }
-        //}
-
-        //public string Description
-        //{
-        //    get { return _selectedOrder.Description; }
-        //    set { _selectedOrder.Description = value; }
-        //}
-
-        //public string Price
-        //{
-        //    get { return _selectedOrder.Price; }
-        //    set { _selectedOrder.Price = value; }
-        //}
-
-        //public int OrderNumber
-        //{
-        //    get { return _selectedOrder.OrderNumber; }
-        //}
-    #endregion
+        
+        
+    
 
         public Customer SelectedOrderCustomer
         {
@@ -85,28 +63,11 @@ namespace Gunner_OrderList
                 OnPropertyChanged();
             }
         }
-        #region Customer
-        //public string Name
-        //{
-        //    get { return _selectedOrder.Customer.Name; }
-        //}
-        //public string Email
-        //{
-        //    get { return _selectedOrder.Customer.Email; }
-        //}
-        //public string PhoneNumber
-        //{
-        //    get { return _selectedOrder.Customer.PhoneNumber; }
-        //}
-        //public string Address
-        //{
-        //    get { return _selectedOrder.Customer.Address; }
-        //}
-        //public string CompanyNumber
-        //{
-        //    get { return _selectedOrder.Customer.CompanyNumber; }
-        //}
-        #endregion
+
+        public ICommand deletionCommand
+        {
+            get { return _deleteCommand; }
+        }
 
 
     public event PropertyChangedEventHandler PropertyChanged;
