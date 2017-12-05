@@ -17,11 +17,14 @@ namespace Gunner_OrderList
         private ObservableCollection<Order> _displayedOrders;
         private Order _selectedOrder = null;
         private Customer _selectedOrderCustomer = null;
+        private AddComand _addComand;
 
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
             _displayedOrders = _orderCatalog.DummyInfo;  //For now just display dummyinfo
+         
+            _addComand = new AddComand();
         }
 
         public ObservableCollection<Order> DisplayedOrders
@@ -42,6 +45,7 @@ namespace Gunner_OrderList
                 OnPropertyChanged();
             }
         }
+
         #region Order
         //public string Product
         //{
