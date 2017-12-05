@@ -35,7 +35,7 @@ namespace Gunner_OrderList.Viewmodel
             _catalog.Delete(_customerVM.SelectedCustomer);
 
 
-
+            
         }
 
         public event EventHandler CanExecuteChanged;

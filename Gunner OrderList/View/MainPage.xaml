@@ -21,12 +21,12 @@
             <Grid>
 
                 <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125"/>
-                <Button Content="Kunde liste" Margin="200,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Kunde liste" Margin="200,50,0,0" VerticalAlignment="Top" Width="125" Click="CustomorPage_Click" />
                 <Button Content="Ikke godkendte" Margin="350,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Færdige ordrer" Margin="500,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Til forside" Margin="650,50,0,0" VerticalAlignment="Top" Width="125"/>
 
-                <ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="243" VerticalAlignment="Top" Width="641" BorderBrush="Black" BorderThickness="2" Margin="67,359,0,0" >
+                <ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="243" VerticalAlignment="Top" Width="641" BorderBrush="Black" BorderThickness="2" Margin="67,359,0,0" SelectionChanged="ListView_SelectionChanged_1" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Order">
                             <StackPanel Orientation="Horizontal" Height="59" Width="625" BorderThickness="0,0,0,2" BorderBrush="Black">
