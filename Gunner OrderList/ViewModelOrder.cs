@@ -52,11 +52,14 @@ namespace Gunner_OrderList
             get { return _newOrder.Description; }
         }
         // Properties for Data Binding ends
+
+        // OnPropertyChange start
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        // OnPropertyChange ends
     }
 }
