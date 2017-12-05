@@ -21,8 +21,6 @@ namespace Gunner_OrderList
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
-
-        
             _displayedOrders = _orderCatalog.DummyInfo;
         }
 
