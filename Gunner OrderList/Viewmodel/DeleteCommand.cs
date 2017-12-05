@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.Devices.Input;
 
 
 namespace Gunner_OrderList.Viewmodel
@@ -13,6 +14,7 @@ namespace Gunner_OrderList.Viewmodel
         private CustomerCatalog _catalog;
 
         private Customer _customer;
+       
 
         public DeleteCommand(CustomerCatalog catalog, Customer customer)
 
@@ -22,15 +24,21 @@ namespace Gunner_OrderList.Viewmodel
             _customer = customer;
         }
 
-    public bool CanExecute(object parameter)
+
+        public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return _customer !=null;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            _catalog.delete();
+
+            _catalog.
+
         }
+
+
 
         public event EventHandler CanExecuteChanged;
     }
