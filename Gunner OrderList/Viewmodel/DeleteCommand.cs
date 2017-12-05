@@ -32,9 +32,6 @@ namespace Gunner_OrderList.Viewmodel
 
         public void Execute(object parameter)
         {
-            _catalog.delete();
-
-            _catalog.
 
         }
 

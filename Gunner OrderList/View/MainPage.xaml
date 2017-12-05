@@ -29,7 +29,7 @@
                 <ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="243" VerticalAlignment="Top" Width="641" BorderBrush="Black" BorderThickness="2" Margin="67,359,0,0" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Order">
-                            <StackPanel Orientation="Horizontal" Height="59" Width="625" BorderThickness="0,0,0,2" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal" Height="51" Width="619" BorderThickness="0,0,0,2" BorderBrush="Black">
                                 <!--Order Number-->
                                 <TextBlock Text="{Binding OrderNumber}" Margin="15,15,15,15" MaxWidth="220" Width="33"/>
                                 <!--Customer-->
