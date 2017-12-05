@@ -39,15 +39,11 @@ namespace Gunner_OrderList
         }
 
         public void Delete (Customer customer)
-
         {
-            
             if (_customers.Contains(customer))
             {
                 _customers.Remove(customer);
             }
         }
-
-        
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.ViewManagement;
 
 namespace Gunner_OrderList
@@ -17,7 +18,6 @@ namespace Gunner_OrderList
         private ObservableCollection<Order> _historyOrders;
         private ObservableCollection<Order> _invoiceOrders;
         private List<Order> _order;
-
 
         private ObservableCollection<Order> _dummyInfo;  //Testing info
         private static int _orderNumber;  //This will be the ordernumber that is assigned to each order when added (will be updated)

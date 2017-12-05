@@ -18,24 +18,35 @@ namespace Gunner_OrderList
     {
         private OrderCatalog _orderCatalog;
         private ObservableCollection<Order> _displayedOrders;
+
         private Order _selectedOrder = null;
         private Customer _selectedOrderCustomer = null;
-        private DeleteCommand _deleteCommand;
+
+        private Order _newOrder = new Order();
+        private AddComand _addCommand;
 
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
-            _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo                
+            _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo           
         }
 
         public ObservableCollection<Order> DisplayedOrders
         {
             get { return _displayedOrders; }
         }
-       
-        
 
+        public Order NewOrder
+        {
+            get { return _newOrder; }
+            set
+            {
+                _newOrder = value;
+                OnPropertyChanged();
+            }
+        }
 
+        #region Selected
         public Order SelectedOrder
         {
             get { return _selectedOrder; }
@@ -48,9 +59,6 @@ namespace Gunner_OrderList
             }
         }
         
-        
-    
-
         public Customer SelectedOrderCustomer
         {
             get
@@ -63,11 +71,18 @@ namespace Gunner_OrderList
                 OnPropertyChanged();
             }
         }
+        #endregion
 
-        public ICommand deletionCommand
+
+        public ICommand AddCommand
         {
-            get { return _deleteCommand; }
+            get
+            {
+                _addCommand = new AddComand(_newOrder);
+                return _addCommand;
+            }
         }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

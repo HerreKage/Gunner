@@ -8,7 +8,7 @@ namespace Gunner_OrderList
 {
     class Order 
     {
-        private Customer _customer;
+        private Customer _customer = new Customer();
         private string _description;
 
         // These varriables need to be added to the order page

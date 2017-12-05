@@ -52,6 +52,8 @@ namespace Gunner_OrderList
             DummyInfo = new ObservableCollection<Order>();
             DummyInfo.Add(order1);
             DummyInfo.Add(order2);
+
+
         }
 
         internal ObservableCollection<Order> DummyInfo { get => _dummyInfo; set => _dummyInfo = value; }

@@ -92,12 +92,13 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AddComand.cs" />
+    <Compile Include="Viewmodel\AddComand.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\CustomerCatalog.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Viewmodel\CustomerVM.cs" />
     <Compile Include="View\CustomerPage.xaml.cs">
       <DependentUpon>CustomerPage.xaml</DependentUpon>
@@ -152,6 +153,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
