@@ -62,15 +62,15 @@
             <TextBlock TextWrapping="Wrap" Text="Phone Number" FontSize="24" HorizontalAlignment="Left" Height="48" Margin="84,164,0,844"/>
             <TextBlock TextWrapping="Wrap" Text="Adress" FontSize="24" Height="36" Margin="84,217,571,803"/>
             <TextBlock TextWrapping="Wrap" Text="Miscellaneous" FontSize="24" Height="42" Margin="84,346,492,668"/>
-            <TextBlock TextWrapping="Wrap" Text="Company Number" FontSize="24" Margin="53,298,464,718"/>
+            <TextBlock TextWrapping="Wrap" Text="Company Number" FontSize="24" Margin="84,298,443,718"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="36" Margin="53,547,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,118,104,898" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,118,106,898" RenderTransformOrigin="0.5,0.5"/>
             <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="53,637,28,76"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="317,163,110,853" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,208,112,808" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,253,112,763" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,298,112,718" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="317,346,114,670" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,163,106,853" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,208,106,808" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,253,106,763" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,298,106,718" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,346,106,670" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
     </Grid>
 </Page>
