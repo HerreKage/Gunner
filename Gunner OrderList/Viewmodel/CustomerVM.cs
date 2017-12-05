@@ -4,12 +4,16 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Gunner_OrderList.Viewmodel;
 
 namespace Gunner_OrderList
 {
     class CustomerVM
     {
         private ObservableCollection<Customer> _customers;
+        private DeleteCommand _deleteCommand;
+
 
         public CustomerVM()
         {
@@ -54,5 +58,13 @@ namespace Gunner_OrderList
             get { return _selectedCustomer.CompanyNumber; }
             set { _selectedCustomer.CompanyNumber = value; }
         }
+
+        public ICommand DeletionCommand
+
+        {
+            get { return _deleteCommand; }
+        }
     }
+
+   
 }
