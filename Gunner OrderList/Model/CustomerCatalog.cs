@@ -15,7 +15,7 @@ namespace Gunner_OrderList
 
         private CustomerCatalog()
         {
-            _customers = new ObservableCollection<Customer>();
+            _customers = new ObservableCollection<Customer>();  //Should load from database later
         }
 
         public static CustomerCatalog Instance

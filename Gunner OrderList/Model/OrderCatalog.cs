@@ -10,20 +10,28 @@ namespace Gunner_OrderList
 {
     class OrderCatalog
     {
+        private static OrderCatalog _instance = null;
 
         private ObservableCollection<Order> _currentOrders;
         private ObservableCollection<Order> _unapprovedOrders;
         private ObservableCollection<Order> _historyOrders;
         private ObservableCollection<Order> _invoiceOrders;
 
-        private static OrderCatalog _instance = null;
+        private ObservableCollection<Order> _dummyInfo;  //Testing info
+        Order _newOrder = new Order();
 
         private OrderCatalog()
         {
+            _currentOrders = new ObservableCollection<Order>();  //Load in from stored data later
+            _unapprovedOrders = new ObservableCollection<Order>();
+            _historyOrders = new ObservableCollection<Order>();
+            _invoiceOrders = new ObservableCollection<Order>();
+            
+            DummyOrder _dummyOrders = new DummyOrder();  //Testing Info
+            DummyInfo = _dummyOrders.DummyInfo;         //Testing Info
         }
 
         public static OrderCatalog Instance
-
         {
             get
             {
@@ -33,9 +41,12 @@ namespace Gunner_OrderList
                 }
                 return _instance;
             }
+        }
 
-
-
+        public Order SelectedOrder
+        {
+            get { return _selectedOrder; }
+            set { _selectedOrder = value; }
         }
 
         public ObservableCollection<Order> CurrentOrders
@@ -61,5 +72,7 @@ namespace Gunner_OrderList
             get { return _invoiceOrders; }
             set { _invoiceOrders = value; }
         }
+
+        internal ObservableCollection<Order> DummyInfo { get => _dummyInfo; set => _dummyInfo = value; } //Testing Info
     }
 }

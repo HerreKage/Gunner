@@ -15,8 +15,7 @@ namespace Gunner_OrderList
         private string _companyNumber;
 
         public Customer()
-        {
-            
+        {    
         }
 
         public string Name { get => _name; set => _name = value; }
