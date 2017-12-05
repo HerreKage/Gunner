@@ -19,6 +19,7 @@ namespace Gunner_OrderList
         {
             CustomerCatalog customerCatalog = CustomerCatalog.Instance;
             _customers = customerCatalog.Customers;
+            _deleteCommand=new DeleteCommand(this, customerCatalog);
         }
         private Customer _selectedCustomer = new Customer();
 
