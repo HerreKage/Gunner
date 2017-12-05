@@ -97,7 +97,7 @@
     </Compile>
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\CustomerCatalog.cs" />
-    <Compile Include="Model\CustomerVM.cs" />
+    <Compile Include="Viewmodel\CustomerVM.cs" />
     <Compile Include="View\CustomerPage.xaml.cs">
       <DependentUpon>CustomerPage.xaml</DependentUpon>
     </Compile>
@@ -112,7 +112,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Viewmodel\DeleteCommand.cs" />
-    <Compile Include="Model\OrderVM.cs" />
+    <Compile Include="Viewmodel\OrderVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

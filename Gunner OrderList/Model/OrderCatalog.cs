@@ -16,9 +16,8 @@ namespace Gunner_OrderList
         private ObservableCollection<Order> _unapprovedOrders;
         private ObservableCollection<Order> _historyOrders;
         private ObservableCollection<Order> _invoiceOrders;
-        private ObservableCollection<Order> _dummyInfo;  //Testing info
 
-        private Order _selectedOrder;
+        private ObservableCollection<Order> _dummyInfo;  //Testing info
         Order _newOrder = new Order();
 
         private OrderCatalog()

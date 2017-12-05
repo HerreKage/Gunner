@@ -15,15 +15,12 @@ namespace Gunner_OrderList
     {
         private Order _selectedOrder;
         private OrderCatalog _orderCatalog;
-
         private ObservableCollection<Order> _displayedOrders;
 
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
-
-        
-            _displayedOrders = _orderCatalog.DummyInfo;
+            _displayedOrders = _orderCatalog.DummyInfo;  //For now just display dummyinfo
         }
 
         public ObservableCollection<Order> DisplayedOrders
@@ -55,6 +52,12 @@ namespace Gunner_OrderList
         #endregion
 
         #region Order
+
+        public Order SelectedOrder
+        {
+            get { return _selectedOrder; }
+            set { _selectedOrder = value; }
+        }
 
         public string Product
         {
