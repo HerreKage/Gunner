@@ -11,11 +11,13 @@ namespace Gunner_OrderList
     class OrderCatalog
     {
         private static OrderCatalog _instance = null;
-
+        private ObservableCollection<Order> _selectedOrder;
         private ObservableCollection<Order> _currentOrders;
         private ObservableCollection<Order> _unapprovedOrders;
         private ObservableCollection<Order> _historyOrders;
         private ObservableCollection<Order> _invoiceOrders;
+        private List<Order> _order;
+
 
         private ObservableCollection<Order> _dummyInfo;  //Testing info
         private static int _orderNumber;  //This will be the ordernumber that is assigned to each order when added (will be updated)
@@ -30,7 +32,11 @@ namespace Gunner_OrderList
             DummyInfo = _dummyOrders.DummyInfo;         //Testing Info
             _orderNumber = 2; //This number needs to be stored
         }
+        public void AddOrder(Order newOrder)
+        {
+            _order.Add(newOrder);
 
+        }
         public static OrderCatalog Instance
         {
             get

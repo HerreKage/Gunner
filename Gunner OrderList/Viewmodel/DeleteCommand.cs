@@ -32,6 +32,9 @@ namespace Gunner_OrderList.Viewmodel
 
         public void Execute(object parameter)
         {
+            _catalog.Delete(_customer.);
+
+           
 
         }
 
