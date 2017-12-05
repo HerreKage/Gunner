@@ -14,7 +14,9 @@ namespace Gunner_OrderList
         // These varriables need to be added to the order page
         private int orderNumber;
         private string _product;
+        private string _startdate;
         private string _deadline;
+        private string _price;
         //End
 
         private bool checkbox1;
@@ -36,6 +38,7 @@ namespace Gunner_OrderList
         public int OrderNumber { get => orderNumber; set => orderNumber = value; }
         public string Product { get => _product; set => _product = value; }
         public string Deadline { get => _deadline; set => _deadline = value; }
+        public string Price { get => _price; set => _price = value; }
 
         //public bool Checkbox1 { get => checkbox1; set => checkbox1 = value; }
         //public bool Checkbox2 { get => checkbox2; set => checkbox2 = value; }
