@@ -11,11 +11,12 @@ namespace Gunner_OrderList
     class OrderCatalog
     {
         private static OrderCatalog _instance = null;
-
+        private ObservableCollection<Order> _selectedOrder;
         private ObservableCollection<Order> _currentOrders;
         private ObservableCollection<Order> _unapprovedOrders;
         private ObservableCollection<Order> _historyOrders;
         private ObservableCollection<Order> _invoiceOrders;
+
 
         private ObservableCollection<Order> _dummyInfo;  //Testing info
         Order _newOrder = new Order();
