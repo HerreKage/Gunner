@@ -10,13 +10,13 @@ namespace Gunner_OrderList
     class CustomerCatalog
     {
         ObservableCollection<Customer> _customers;  //List of customers
-        private Customer _newCustomer = new Customer();
 
         private static CustomerCatalog instance=null;
 
         private CustomerCatalog()
         {
-            _customers = new ObservableCollection<Customer>();
+            _customers = new ObservableCollection<Customer>(); //Should load from database later
+            
         }
 
         public static CustomerCatalog Instance
@@ -35,6 +35,19 @@ namespace Gunner_OrderList
         {
             get { return _customers; }
             set { _customers = value; }
+
         }
+
+        public void Delete (Customer customer)
+
+        {
+            
+            if (_customers.Contains(customer))
+            {
+                _customers.Remove(customer);
+            }
+        }
+
+        
     }
 }

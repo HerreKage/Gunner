@@ -8,6 +8,7 @@ namespace Gunner_OrderList
 {
     class Customer
     {
+        private string _company;
         private string _name;
         private string _email;
         private string _phoneNumber;
@@ -23,5 +24,6 @@ namespace Gunner_OrderList
         public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
         public string Address { get => _address; set => _address = value; }
         public string CompanyNumber { get => _companyNumber; set => _companyNumber = value; }
+        public string Company { get => _company; set => _company = value; }
     }
 }

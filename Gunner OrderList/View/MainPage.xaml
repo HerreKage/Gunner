@@ -29,7 +29,7 @@
                 <ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="243" VerticalAlignment="Top" Width="641" BorderBrush="Black" BorderThickness="2" Margin="67,359,0,0" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Order">
-                            <StackPanel Orientation="Horizontal" Height="59" Width="625" BorderThickness="0,0,0,2" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal" Height="51" Width="619" BorderThickness="0,0,0,2" BorderBrush="Black">
                                 <!--Order Number-->
                                 <TextBlock Text="{Binding OrderNumber}" Margin="15,15,15,15" MaxWidth="220" Width="33"/>
                                 <!--Customer-->
@@ -45,6 +45,8 @@
             </Grid>
             <Button Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="86,50,0,0" VerticalAlignment="Top" Width="150"/>
             <Button Content="Gem ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="310,50,0,0" VerticalAlignment="Top" Width="150"/>
+            <Button Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Margin="86,655,0,0" VerticalAlignment="Top" Click="Button_Click" Width="84"
+                   Command="{Binding deletionCommand}"/>
         </Grid>
 
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="50,95,0,0" Text="IGANGVÆRENDE ORDRER:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
@@ -73,17 +75,17 @@
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="538,245,0,0" Text="01-01-2018" VerticalAlignment="Top" Width="100"/>
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="708,245,0,0" Text="Bemærk" VerticalAlignment="Top" Width="100"/>
         <Grid Margin="850,150,50,130" BorderBrush="Black" BorderThickness="2">
-            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="Account aps" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Firma" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="254521" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Company}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.OrderNumber}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Ordrenummer" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="3 biler" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Product}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Produkt" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="4150.00" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Price}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Pris" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="Ole Olsen" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Name}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " VerticalAlignment="Top" Width="225" MinHeight="50" Height="Auto"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedOrder.Description}" VerticalAlignment="Top" Width="225" MinHeight="50" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Bemærkninger" VerticalAlignment="Top" FontWeight="Bold"/>
         </Grid>
 
