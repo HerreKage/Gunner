@@ -14,7 +14,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
 
         
-        <ListView ItemsSource="{Binding Customers }" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" 
+        <ListView ItemsSource="{Binding DisplayedCustomers }" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" 
                   HorizontalAlignment="Left" Height="309" VerticalAlignment="Top" Width="659" BorderBrush="Black" BorderThickness="2" Margin="177,310,0,0" SelectionChanged="ListView_SelectionChanged_1" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Customer">
@@ -44,7 +44,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedOrder.Description}" VerticalAlignment="Top" Width="225" MinHeight="50" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Bemærkninger" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Button Content="Delete" HorizontalAlignment="Left" Margin="107,494,0,0" VerticalAlignment="Top" Width="83"/>
+            <Button Content="Delete" HorizontalAlignment="Left" Margin="-680,105,0,0" VerticalAlignment="Top" Width="83"/>
         </Grid>
 
 

@@ -14,6 +14,7 @@ namespace Gunner_OrderList
         private ObservableCollection<Customer> _customers;
         private DeleteCommand _deleteCommand;
 
+        private ObservableCollection<Customer> _displayedCustomers;
 
         public CustomerVM()
         {
@@ -22,6 +23,12 @@ namespace Gunner_OrderList
             _deleteCommand=new DeleteCommand(this, customerCatalog);
         }
         private Customer _selectedCustomer = new Customer();
+
+        public ObservableCollection<Customer> DisplayedCustomers
+        {
+            get { return _displayedCustomers; }
+        }
+
 
         public ObservableCollection<Customer> Customers
         {

@@ -23,7 +23,7 @@ namespace Gunner_OrderList
             customer1.PhoneNumber = "50652415";
             customer1.CompanyNumber = "21-23-65-23";
             customer1.Email = "apple@gmail.com";
-            
+
             Order order1 = new Order();
             order1.Customer = customer1;
             order1.Deadline = "16/12/17";
