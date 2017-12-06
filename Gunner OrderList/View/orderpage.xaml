@@ -31,31 +31,31 @@
 
             <TextBlock HorizontalAlignment="Center" Margin="270,10,201,0" TextWrapping="Wrap" Text="Produkt og Resurser" VerticalAlignment="Top" FontSize="30" Width="294" Height="70" Grid.Column="1" Grid.RowSpan="2"/>
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="608" Margin="37,1,0,0" VerticalAlignment="Top" Width="165" Grid.Row="2">
-                <CheckBox Content="Jeg har ændret noget" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="HA HA" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Mål" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="Medie" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="Medie" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="751c" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="751c" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="751c" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="" FontSize="22" Width="141" Height="75"/>
             </StackPanel>
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="608" Margin="270,1,0,0" VerticalAlignment="Top" Width="141" Grid.Row="2">
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="hjhjkhj" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Antal" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="lam." FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="lam." FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="3 mm sand" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="10 mm PVC" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="Vi monterer" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="Afhentes" FontSize="22" Width="141" Height="75"/>
             </StackPanel>
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="510" Margin="512,1,0,0" VerticalAlignment="Top" Width="135" Grid.Row="2">
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Pris kr." FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="dtp kr." FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Fragt kr." FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="Op til 10%" FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Lev. antal" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="Se vedlagte" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="" FontSize="22" Width="141" Height="75"/>
             </StackPanel>
             <Button Grid.ColumnSpan="2" Command="{Binding AddCommand}" Content="Opret Ordre" HorizontalAlignment="Left" Margin="599,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20">
                 <Interactivity:Interaction.Behaviors>
