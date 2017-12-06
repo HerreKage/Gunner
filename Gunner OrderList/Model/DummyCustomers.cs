@@ -16,7 +16,7 @@ namespace Gunner_OrderList
         {
             #region customer1 - Customer1
             Customer customer1 = new Customer();
-            customer1.Company = "Apple";
+            customer1.CompanyNumber = "Apple";
             customer1.Name = "David";
             customer1.Address = "Birkemosvej 8";
             customer1.PhoneNumber = "50652415";

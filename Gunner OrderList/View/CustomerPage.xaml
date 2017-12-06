@@ -5,15 +5,17 @@
     xmlns:local="using:Gunner_OrderList"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
     <Page.DataContext>
         <local:CustomerVM/>
     </Page.DataContext>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
 
-        
+
         <ListView ItemsSource="{Binding DisplayedCustomers }" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" 
                   HorizontalAlignment="Left" Height="309" VerticalAlignment="Top" Width="659" BorderBrush="Black" BorderThickness="2" Margin="177,310,0,0" SelectionChanged="ListView_SelectionChanged_1" >
             <ListView.ItemTemplate>
@@ -32,21 +34,27 @@
             </ListView.ItemTemplate>
         </ListView>
         <Grid Margin="873,148,45,239" BorderBrush="Black" BorderThickness="2">
-            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Company}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Name}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.OrderNumber}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Ordrenummer" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Product}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Produkt" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Price}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Pris" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Name}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Address}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Gerningsted" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Company}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Firma" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.CompanyNumber}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Nummer" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Email}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedOrder.Description}" VerticalAlignment="Top" Width="225" MinHeight="50" Height="Auto"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedCustomer.PhoneNumber}" VerticalAlignment="Top" Width="225" MinHeight="50" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Bemærkninger" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Button Content="Delete" HorizontalAlignment="Left" Margin="-680,105,0,0" VerticalAlignment="Top" Width="83"/>
+            <Button Content="Delete" Command="{Binding DeletionCommand}" HorizontalAlignment="Left" Margin="-674,100,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.521,0.398"/>
         </Grid>
-
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="356,249,0,0" VerticalAlignment="Top" Width="83">
+        <Interactivity:Interaction.Behaviors>
+            <core:EventTriggerBehavior EventName="Click">
+                <core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+            </core:EventTriggerBehavior>
+        </Interactivity:Interaction.Behaviors>
+        </Button>
 
     </Grid>
 </Page>
