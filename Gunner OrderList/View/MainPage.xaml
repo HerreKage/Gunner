@@ -59,8 +59,7 @@
             </Grid>
             <Button Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="86,50,0,0" VerticalAlignment="Top" Width="150"/>
             <Button Content="Gem ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="310,50,0,0" VerticalAlignment="Top" Width="150"/>
-            <Button Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Margin="86,652,0,0" VerticalAlignment="Top" Click="Button_Click" Width="84"
-                   Command="{Binding DeleteCommand}"/>
+            <Button Command="{Binding DeleteCommand}" Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Margin="86,652,0,0" VerticalAlignment="Top"  Width="84"/>
         </Grid>
 
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="50,95,0,0" Text="IGANGVÆRENDE ORDRER:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>

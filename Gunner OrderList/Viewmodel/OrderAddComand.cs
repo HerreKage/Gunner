@@ -8,12 +8,12 @@ using System.Windows.Input;
 
 namespace Gunner_OrderList
 {
-    class AddComand : ICommand
+    class OrderAddComand : ICommand
     {
         private ObservableCollection<Order> _unapprovedOrders;
         Order _order;
 
-        public AddComand(Order order)
+        public OrderAddComand(Order order)
         {
             _order = order;
             OrderCatalog _orders = OrderCatalog.Instance;
@@ -23,7 +23,7 @@ namespace Gunner_OrderList
 
         public bool CanExecute(object parameter)
         {
-            return _order != null; //??Need to change equal function for orders  ??
+            return _order != null; //should check if minimum information is added
         }
 
         public void Execute(object parameter)

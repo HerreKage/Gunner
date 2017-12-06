@@ -19,16 +19,19 @@ namespace Gunner_OrderList
         private OrderCatalog _orderCatalog;
         private ObservableCollection<Order> _displayedOrders;
 
-        private Order _selectedOrder = null;
-        private Customer _selectedOrderCustomer = null;
+        private Order _selectedOrder;
+        private Customer _selectedOrderCustomer;
 
         private Order _newOrder = new Order();
-        private AddComand _addCommand;
+        private OrderAddComand _addCommand;
+        private OrderDeleteCommand _deleteCommand;
 
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
-            _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo           
+            _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo       
+
+            _deleteCommand = new OrderDeleteCommand(DoDeleteRelay, OrderIsSelected);
         }
 
         public ObservableCollection<Order> DisplayedOrders
@@ -53,9 +56,14 @@ namespace Gunner_OrderList
             set
             {
                 _selectedOrder = value;
-                _selectedOrderCustomer = _selectedOrder.Customer;
+                if (_selectedOrder != null)
+                {
+                    _selectedOrderCustomer = _selectedOrder.Customer;
+                }
                 OnPropertyChanged("SelectedOrderCustomer");
                 OnPropertyChanged();
+
+                _deleteCommand.RaiseCanExecuteChanged();
             }
         }
         
@@ -73,19 +81,47 @@ namespace Gunner_OrderList
         }
         #endregion
 
-
+        #region AddCommand
         public ICommand AddCommand
         {
             get
             {
-                _addCommand = new AddComand(_newOrder);
+                _addCommand = new OrderAddComand(_newOrder);
                 return _addCommand;
             }
         }
+        #endregion
 
+        #region DeleteCommand
 
+        public void DoDeleteRelay() // Added
+        {
+            Delete();
+        }
 
-    public event PropertyChangedEventHandler PropertyChanged;
+        public bool OrderIsSelected() // Added
+        {
+            return SelectedOrder != null;
+        }
+
+        public ICommand DeleteCommand // Added
+        {
+            get { return _deleteCommand; }
+        }
+
+        public void Delete()
+        {
+            if (_displayedOrders.Contains(_selectedOrder))
+            {
+                _displayedOrders.Remove(_selectedOrder);
+                _selectedOrder = null;
+                _selectedOrderCustomer = null;
+            }
+        }
+
+        #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
