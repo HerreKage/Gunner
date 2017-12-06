@@ -5,17 +5,78 @@
     xmlns:local="using:Gunner_OrderList"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Height="720" Width="1280">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+    <Page.DataContext>
+        <local:OrderVM/>
+    </Page.DataContext>
 
-        <ListView HorizontalAlignment="Left" Height="613" Margin="90,339,0,0" VerticalAlignment="Top" Width="823" BorderBrush="Black" BorderThickness="2"/>
-        <Grid HorizontalAlignment="Left" Height="613" Margin="913,339,0,0" VerticalAlignment="Top" Width="443" BorderThickness="0,2,2,2" BorderBrush="Black">
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="188,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="181"/>
-            <TextBlock HorizontalAlignment="Left" Height="36" Margin="10,69,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="136"/>
-            <TextBox  Text="Jeg har ændret noget Greg" TextChanged="TextBox_TextChanged"></TextBox>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Kunde liste" Margin="190,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Ikke godkendte" Margin="340,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Færdige ordrer" Margin="490,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="51,149,0,521" BorderBrush="Black" BorderThickness="2">
+
+                    <TextBlock Text="Kunde:" Margin="15,10,15,10" Width="125" FontWeight="Bold"/>
+                    <TextBlock Text="Att:" Margin="15,10,15,10" Width="75" FontWeight="Bold"/>
+                    <TextBlock Text="Adresse:" Margin="15,10,15,10" Width="75" FontWeight="Bold"/>
+                    <TextBlock Text="Postnummer" Margin="15,10,5,10" Width="75" FontWeight="Bold" />
+                    <TextBlock Text="By" Margin="15,10,5,10" Width="75" FontWeight="Bold" />
+
+                </StackPanel>
+                <ListView ItemsSource="{Binding DisplayedCustomers}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="51,197,0,0" MaxHeight="225">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Order">
+                            <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="Red">
+                                <!--Company-->
+                                <TextBlock Text="{Binding Customer.Name}" Margin="15,10,15,10" Width="50"/>
+                                <!--Contact person-->
+                                <TextBlock Text="{Binding Customer.Name}" Margin="15,10,15,10" Width="125"/>
+                                <!--Adress-->
+                                <TextBlock Text="{Binding Customer.Address}" Margin="15,10,15,10" Width="125"/>
+                                <!--Zipcode-->
+                                <TextBlock Text="{Binding Customer}" Margin="15,10,15,10" Width="75"/>
+                                <!--Town-->
+                                <TextBlock Text="{Binding Customer}" Margin="15,10,15,10" Width="75"/>
+                                <!--Phone-->
+                                <TextBlock Text="{Binding Customer.PhoneNumber}" Margin="15,10,15,10" Width="75"/>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,99,0,0" Text="Kundeliste:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
+
+        <Grid Margin="850,150,50,130" BorderBrush="Black" BorderThickness="2">
+            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Company}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Customer}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Att:" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Address}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.ZipCode}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Postnummer:" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Name}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="By:" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Town}" VerticalAlignment="Top" Width="225" MinHeight="50" Height="Auto"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Bemærkninger" VerticalAlignment="Top" FontWeight="Bold"/>
         </Grid>
 
 
     </Grid>
+
+
+
 </Page>
