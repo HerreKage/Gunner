@@ -92,7 +92,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="OrderDeleteCommand.cs" />
+    <Compile Include="OrderEditCommand.cs" />
+    <Compile Include="Viewmodel\OrderDeleteCommand.cs" />
     <Compile Include="Viewmodel\OrderAddComand.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

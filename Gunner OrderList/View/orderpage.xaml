@@ -64,7 +64,7 @@
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
-            
+
             <Button Grid.ColumnSpan="2" Content="Fortryd" HorizontalAlignment="Left" Margin="408,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
@@ -78,16 +78,24 @@
             <TextBlock TextWrapping="Wrap" Text="Email" FontSize="24" Margin="84,258,582,764"/>
             <TextBlock TextWrapping="Wrap" Text="Phone Number" FontSize="24" HorizontalAlignment="Left" Height="48" Margin="84,164,0,844"/>
             <TextBlock TextWrapping="Wrap" Text="Adress" FontSize="24" Height="36" Margin="84,217,571,803"/>
-            <TextBlock TextWrapping="Wrap" Text="Miscellaneous" FontSize="24" Height="42" Margin="84,346,492,668"/>
+            <TextBlock TextWrapping="Wrap" Text="Product" FontSize="24" Height="42" Margin="84,377,494,637"/>
             <TextBlock TextWrapping="Wrap" Text="Company Number" FontSize="24" Margin="84,298,443,718"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="36" Margin="53,547,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="36" Margin="69,506,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
             <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Name, Mode=TwoWay}" FontSize="24" Margin="319,118,106,898" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Description, Mode=TwoWay}" FontSize="24" Margin="53,637,28,76"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Description, Mode=TwoWay}" FontSize="24" Margin="53,573,30,140"/>
             <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.PhoneNumber, Mode=TwoWay}" FontSize="24" Margin="319,163,106,853" RenderTransformOrigin="0.5,0.5"/>
             <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Address, Mode=TwoWay}" FontSize="24" Margin="319,208,106,808" RenderTransformOrigin="0.5,0.5"/>
             <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Email, Mode=TwoWay}" FontSize="24" Margin="319,253,106,763" RenderTransformOrigin="0.5,0.5"/>
             <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.CompanyNumber, Mode=TwoWay}"  FontSize="24" Margin="319,298,106,718" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="No current Binding" FontSize="24" Margin="319,346,106,670" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Product, Mode=TwoWay}" FontSize="24" Margin="319,379,108,637" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="Start Date" FontSize="24" Margin="32,438,584,587"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Startdate, Mode=TwoWay}" FontSize="24" Margin="152,441,445,575" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="End Date" FontSize="24" Margin="322,441,296,584"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Deadline, Mode=TwoWay}" FontSize="24" Margin="440,441,159,575" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="Price" FontSize="24" Margin="451,959,212,66"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Price, Mode=TwoWay}" FontSize="24" Margin="520,959,34,57" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="Company" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Height="40" RenderTransformOrigin="0.421,0.462" Margin="84,74,0,942"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" FontSize="24" Margin="319,78,110,938" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
     </Grid>
 </Page>

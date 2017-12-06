@@ -57,7 +57,13 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            <Button Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="86,50,0,0" VerticalAlignment="Top" Width="150"/>
+            <Button Command="{Binding EditCommand}" Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="86,50,0,0" VerticalAlignment="Top" Width="150">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
             <Button Content="Gem ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="310,50,0,0" VerticalAlignment="Top" Width="150"/>
             <Button Command="{Binding DeleteCommand}" Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Margin="86,652,0,0" VerticalAlignment="Top"  Width="84"/>
         </Grid>

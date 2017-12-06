@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 
 namespace Gunner_OrderList
 {
-    public class OrderDeleteCommand : ICommand
+    public class OrderDeleteCommand : ICommand   //editcommand and deletecommand are just relaycommands
     {
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;

@@ -39,6 +39,7 @@ namespace Gunner_OrderList
         public string Product { get => _product; set => _product = value; }
         public string Deadline { get => _deadline; set => _deadline = value; }
         public string Price { get => _price; set => _price = value; }
+        public string Startdate { get => _startdate; set => _startdate = value; }
 
         //public bool Checkbox1 { get => checkbox1; set => checkbox1 = value; }
         //public bool Checkbox2 { get => checkbox2; set => checkbox2 = value; }

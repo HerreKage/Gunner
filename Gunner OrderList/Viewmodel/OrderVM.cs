@@ -22,16 +22,20 @@ namespace Gunner_OrderList
         private Order _selectedOrder;
         private Customer _selectedOrderCustomer;
 
-        private Order _newOrder = new Order();
+        private Order _newOrder;
+
         private OrderAddComand _addCommand;
         private OrderDeleteCommand _deleteCommand;
+        private OrderEditCommand _editCommand;
 
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
             _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo       
+            _newOrder = new Order();
 
             _deleteCommand = new OrderDeleteCommand(DoDeleteRelay, OrderIsSelected);
+            _editCommand = new OrderEditCommand(DoEditRelay, OrderIsSelected);
         }
 
         public ObservableCollection<Order> DisplayedOrders
@@ -64,6 +68,7 @@ namespace Gunner_OrderList
                 OnPropertyChanged();
 
                 _deleteCommand.RaiseCanExecuteChanged();
+                _editCommand.RaiseCanExecuteChanged();
             }
         }
         
@@ -118,7 +123,24 @@ namespace Gunner_OrderList
                 _selectedOrderCustomer = null;
             }
         }
+        #endregion
 
+        #region EditCommand
+        public void DoEditRelay() // Added
+        {
+            Edit();
+        }
+
+        public ICommand EditCommand // Added
+        {
+            get { return _editCommand; }
+        }
+
+        public void Edit()
+        {
+            NewOrder = _selectedOrder;
+            OnPropertyChanged("NewOrder");
+        }
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
