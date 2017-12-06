@@ -4,25 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using System.Globalization;
 
 namespace Gunner_OrderList
 {
     class CustomerCatalog
     {
-        private ObservableCollection<Customer> _customers;  //List of customers
-        
-        private static CustomerCatalog instance=null;
+        ObservableCollection<Customer> _customers;  //List of customers
 
-        private ObservableCollection<Customer> _dummyInfoCustomer;
-        private static int _customerNumber;
-        private List<Customer> _customer;
+        private static CustomerCatalog instance=null;
 
         private CustomerCatalog()
         {
-            DummyCustomers _customerorders=new DummyCustomers(); //Should load from database later
-            DummyInfo = _customerorders.DummyInfo;
-            _customerNumber = 2;
+            _customers = new ObservableCollection<Customer>(); //Should load from database later
+            
         }
 
         public static CustomerCatalog Instance
@@ -45,15 +39,11 @@ namespace Gunner_OrderList
         }
 
         public void Delete (Customer customer)
-
         {
-            
             if (_customers.Contains(customer))
             {
                 _customers.Remove(customer);
             }
         }
-
-        internal ObservableCollection<Customer> DummyInfo { get => _dummyInfoCustomer ; set => _dummyInfoCustomer = value; }
     }
 }
