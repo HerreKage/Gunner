@@ -18,39 +18,60 @@ namespace Gunner_OrderList
     {
         private OrderCatalog _orderCatalog;
         private ObservableCollection<Order> _displayedOrders;
-        private Order _selectedOrder = null;
-        private Customer _selectedOrderCustomer = null;
-        private DeleteCommand _deleteCommand;
+
+        private Order _selectedOrder;
+        private Customer _selectedOrderCustomer;
+
+        private Order _newOrder;
+
+        private OrderAddComand _addCommand;
+        private OrderDeleteCommand _deleteCommand;
+        private OrderEditCommand _editCommand;
 
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
-            _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo                
+            _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo       
+            _newOrder = new Order();
+
+            _deleteCommand = new OrderDeleteCommand(DoDeleteRelay, OrderIsSelected);
+            _editCommand = new OrderEditCommand(DoEditRelay, OrderIsSelected);
         }
 
         public ObservableCollection<Order> DisplayedOrders
         {
             get { return _displayedOrders; }
         }
-       
-        
 
+        public Order NewOrder
+        {
+            get { return _newOrder; }
+            set
+            {
+                _newOrder = value;
+                OnPropertyChanged();
+            }
+        }
 
+        #region Selected
         public Order SelectedOrder
         {
             get { return _selectedOrder; }
             set
             {
                 _selectedOrder = value;
-                _selectedOrderCustomer = _selectedOrder.Customer;
+                if (_selectedOrder != null)
+                {
+                    _selectedOrderCustomer = _selectedOrder.Customer;
+                }
                 OnPropertyChanged("SelectedOrderCustomer");
                 OnPropertyChanged();
+
+                _deleteCommand.RaiseCanExecuteChanged();
+                _editCommand.RaiseCanExecuteChanged();
             }
         }
         
-        
-    
-
         public Customer SelectedOrderCustomer
         {
             get
@@ -63,14 +84,66 @@ namespace Gunner_OrderList
                 OnPropertyChanged();
             }
         }
+        #endregion
 
-        public ICommand deletionCommand
+        #region AddCommand
+        public ICommand AddCommand
+        {
+            get
+            {
+                _addCommand = new OrderAddComand(_newOrder);
+                return _addCommand;
+            }
+        }
+        #endregion
+
+        #region DeleteCommand
+
+        public void DoDeleteRelay() // Added
+        {
+            Delete();
+        }
+
+        public bool OrderIsSelected() // Added
+        {
+            return SelectedOrder != null;
+        }
+
+        public ICommand DeleteCommand // Added
         {
             get { return _deleteCommand; }
         }
 
+        public void Delete()
+        {
+            if (_displayedOrders.Contains(_selectedOrder))
+            {
+                _displayedOrders.Remove(_selectedOrder);
+                _selectedOrder = null;
+                _selectedOrderCustomer = null;
+            }
+        }
+        #endregion
 
-    public event PropertyChangedEventHandler PropertyChanged;
+        #region EditCommand
+        public void DoEditRelay() // Added
+        {
+            Edit();
+        }
+
+        public ICommand EditCommand // Added
+        {
+            get { return _editCommand; }
+        }
+
+        public void Edit()
+        {
+            NewOrder = _selectedOrder;
+            OnPropertyChanged("NewOrder");
+        }
+        #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

@@ -1,10 +1,11 @@
 ﻿<Page
-    x:Class="Gunner_OrderList.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Gunner_OrderList"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="Gunner_OrderList.MainPage"
     mc:Ignorable="d" Height="720" Width="1280">
 
     <Page.DataContext>
@@ -20,8 +21,21 @@
 
             <Grid>
 
-                <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125"/>
-                <Button Content="Kunde liste" Margin="200,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+
+                <Button Content="Kunde liste" Margin="200,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
                 <Button Content="Ikke godkendte" Margin="350,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Færdige ordrer" Margin="500,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Til forside" Margin="650,50,0,0" VerticalAlignment="Top" Width="125"/>
@@ -43,10 +57,15 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            <Button Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="86,50,0,0" VerticalAlignment="Top" Width="150"/>
+            <Button Command="{Binding EditCommand}" Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="86,50,0,0" VerticalAlignment="Top" Width="150">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
             <Button Content="Gem ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="310,50,0,0" VerticalAlignment="Top" Width="150"/>
-            <Button Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Margin="86,655,0,0" VerticalAlignment="Top" Click="Button_Click" Width="84"
-                   Command="{Binding deletionCommand}"/>
+            <Button Command="{Binding DeleteCommand}" Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Margin="86,652,0,0" VerticalAlignment="Top"  Width="84"/>
         </Grid>
 
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="50,95,0,0" Text="IGANGVÆRENDE ORDRER:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>

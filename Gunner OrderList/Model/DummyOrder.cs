@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Security.Cryptography.Core;
 
 namespace Gunner_OrderList
 {
@@ -11,6 +12,8 @@ namespace Gunner_OrderList
     {
         private ObservableCollection<Order> _dummyInfo;
         public DummyOrder()
+
+      
         {
             #region Order1 - Customer1
             Customer customer1 = new Customer();
@@ -52,6 +55,9 @@ namespace Gunner_OrderList
             DummyInfo = new ObservableCollection<Order>();
             DummyInfo.Add(order1);
             DummyInfo.Add(order2);
+
+
+
         }
 
         internal ObservableCollection<Order> DummyInfo { get => _dummyInfo; set => _dummyInfo = value; }
