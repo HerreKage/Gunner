@@ -65,7 +65,8 @@
                 <TextBox HorizontalAlignment="Left" Margin="130,530,0,0" TextWrapping="Wrap" Text="***" VerticalAlignment="Top" Height="10" Width="160"/>
                 <CheckBox Content="751C" HorizontalAlignment="Left" Margin="50,605,0,0" VerticalAlignment="Top" Width="71" />
                 <TextBox HorizontalAlignment="Left" Margin="130,605,0,0" TextWrapping="Wrap" Text="***" VerticalAlignment="Top" Height="10" Width="160"/>
-                <CheckBox Content="Mål" HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="Top" Width="71" />
+               
+                <CheckBox Content="Antal" HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="Top" Width="71" />
                 <TextBox HorizontalAlignment="Left" Margin="375,150,0,0" TextWrapping="Wrap" Text="***" VerticalAlignment="Top" Height="10" Width="160"/>
                 <CheckBox Content="Lam." HorizontalAlignment="Left" Margin="300,225,0,0" VerticalAlignment="Top" Width="71" />
                 <TextBox HorizontalAlignment="Left" Margin="375,225,0,0" TextWrapping="Wrap" Text="***" VerticalAlignment="Top" Height="10" Width="160"/>
