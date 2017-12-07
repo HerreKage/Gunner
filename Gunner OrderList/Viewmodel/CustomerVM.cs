@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.ApplicationModel.Store.Preview.InstallControl;
 using Gunner_OrderList.Annotations;
 using Gunner_OrderList.Viewmodel;
 
@@ -14,17 +15,24 @@ namespace Gunner_OrderList
 {
     class CustomerVM : INotifyPropertyChanged
     {
-        private ObservableCollection<Customer> _customers;
+        private  ObservableCollection<Customer> _customers;
         private DeleteCommand _deleteCommand;
         private Customer _selectedCustomer = null;
+        private  ObservableCollection<Customer> _displayCustomers;
+        private  CustomerCatalog _customerCatalog;
 
         public CustomerVM()
         {
-            CustomerCatalog customerCatalog = CustomerCatalog.Instance;
-            _customers = customerCatalog.Customers;
-            _deleteCommand= new DeleteCommand(this, customerCatalog);
+            _customerCatalog = CustomerCatalog.Instance;
+            _customers = _customerCatalog.Customers;
+            _deleteCommand= new DeleteCommand(this, _customerCatalog);
+            _displayCustomers = _customerCatalog.Customers;
         }
 
+        public ObservableCollection<Customer> DisplayCustomers
+        {
+            get { return _displayCustomers; }
+        }
 
         public ObservableCollection<Customer> Customers
         {
