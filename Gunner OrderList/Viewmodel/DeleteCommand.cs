@@ -15,11 +15,20 @@ namespace Gunner_OrderList.Viewmodel
 
         private Customer _customer;
         private CustomerVM _customerVM;
+        private CustomerVM customerVM;
+        private DeleteCommand _deleteCommand;
 
         public DeleteCommand(CustomerVM Customer, CustomerCatalog customerCatalog)
         {
             _catalog = customerCatalog;
             _customerVM = Customer;
+            
+        }
+
+        public DeleteCommand(CustomerVM customerVM, DeleteCommand deleteCommand)
+        {
+            this.customerVM = customerVM;
+            _deleteCommand = deleteCommand;
         }
 
         public bool CanExecute(object parameter)
