@@ -21,7 +21,14 @@
 
             <Grid>
 
-                <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+                
                 <Button Content="Kunde liste" Margin="190,50,0,0" VerticalAlignment="Top" Width="125" Click="CustomorPage_Click"/>
                 <Button Content="Ikke godkendte" Margin="340,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Content="Færdige ordrer" Margin="490,50,0,0" VerticalAlignment="Top" Width="125"/>
