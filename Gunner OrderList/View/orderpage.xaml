@@ -31,7 +31,7 @@
 
             <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="0 20 0 0" TextWrapping="Wrap" Text="Produkt og Resurser" VerticalAlignment="Top" FontSize="30" Width="400" Height="70" Grid.Column="1" Grid.RowSpan="2"/>
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="608" Margin="10 130 0 0" VerticalAlignment="Top" Width="170" Grid.Row="2">
-                <TextBox Text="Mål" FontSize="22" Width="141" Height="75" Margin="0 0 32 0"/>
+                <TextBox Text="Mål" FontSize="18" Width="165" Height="75" Margin="0 0 32 0"/>
                 <CheckBox Content="Medie" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
                 <CheckBox Content="Medie" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
                 <TextBox Text="751c" FontSize="22" Width="141" Height="75" Margin="0 0 20 0"/>
@@ -39,8 +39,8 @@
                 <TextBox Text="751c" FontSize="22" Width="141" Height="75" Margin="0 0 20 0"/>
                 <!--<CheckBox Content="" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>-->
             </StackPanel>
-            <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="608" Margin="230,130,0,0" VerticalAlignment="Top" Width="141" Grid.Row="2">
-                <TextBox Text="Antal" FontSize="22" Width="141" Height="75"/>
+            <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="608" Margin="230,130,0,0" VerticalAlignment="Top" Width="165" Grid.Row="2">
+                <TextBox Text="Antal" FontSize="22" Width="165" Height="75"/>
                 <CheckBox Content="lam." FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
                 <CheckBox Content="lam." FontSize="22" Width="141" Height="75" Margin="0 -20 0 0" Padding="5 0 0 0"/>
                 <CheckBox Content="3 mm sand" FontSize="22" Width="141" Height="75" Margin="0 -20 0 0" Padding="5 0 0 0"/>
@@ -49,12 +49,12 @@
                 <CheckBox Content="Afhentes" FontSize="22" Width="141" Height="75" Margin="0 -20 0 0" Padding="5 0 0 0"/>
                 <CheckBox Content="Fil i mappe" FontSize="22" Width="141" Height="75" Margin="0 -20 0 0" Padding="5 0 0 0"/>
             </StackPanel>
-            <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="510" Margin="440,130,0,0" VerticalAlignment="Top" Width="145" Grid.Row="2">
-                <TextBox Text="{Binding NewOrder.Price, Mode=TwoWay}" PlaceholderText="Pris kr." FontSize="22" Width="141" Height="75"/>
-                <TextBox Text="dtp kr." FontSize="22" Width="141" Height="75"/>
-                <TextBox Text="Fragt kr." FontSize="22" Width="141" Height="75"/>
+            <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="510" Margin="440,130,0,0" VerticalAlignment="Top" Width="165" Grid.Row="2">
+                <TextBox Text="{Binding NewOrder.Price, Mode=TwoWay}" PlaceholderText="Pris kr." FontSize="18" Width="165" Height="75"/>
+                <TextBox Text="dtp kr." FontSize="20" Width="165" Height="75"/>
+                <TextBox Text="Fragt kr." FontSize="22" Width="165" Height="75"/>
                 <CheckBox Content="Op til 10%" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
-                <TextBox Text="Lev. antal" FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Lev. antal" FontSize="18" Width="165" Height="75"/>
                 <CheckBox Content="Se vedlagte" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
                 <!--<CheckBox Content="" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>-->
             </StackPanel>
@@ -82,19 +82,19 @@
             <TextBlock TextWrapping="Wrap" Text="Adress" FontSize="24" Height="36" Margin="84 0 0 360"/>
             <TextBlock TextWrapping="Wrap" Text="Product" FontSize="24" Height="42" Margin="84 0 0 130"/>
             <TextBlock TextWrapping="Wrap" Text="Company Number" FontSize="24" Height="40" Margin="84 0 0 200"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="34" Margin="60,400,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" FontSize="24" Margin="210,0,0,600" Width="205" Height="30" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Name, Mode=TwoWay}" FontSize="24" Margin="210,0,0,510" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Description, Mode=TwoWay}" FontSize="24" Margin="53,0,0,-310" Width="500" Height="140"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.PhoneNumber, Mode=TwoWay}" FontSize="24" Margin="210,0,0,430" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Address, Mode=TwoWay}" FontSize="24" Margin="210,0,0,360" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Email, Mode=TwoWay}" FontSize="24" Margin="210,0,0,280" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.CompanyNumber, Mode=TwoWay}"  FontSize="24" Margin="210,0,0,200" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="34" Margin="60,440,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" FontSize="20" Margin="210,0,0,600" Width="205" Height="30" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Name, Mode=TwoWay}" FontSize="20" Margin="210,0,0,510" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Description, Mode=TwoWay}" FontSize="24" Margin="53,0,0,-410" Width="500" Height="140"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.PhoneNumber, Mode=TwoWay}" FontSize="20" Margin="210,0,0,430" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Address, Mode=TwoWay}" FontSize="20" Margin="210,0,0,360" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Email, Mode=TwoWay}" FontSize="20" Margin="210,0,0,280" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.CompanyNumber, Mode=TwoWay}"  FontSize="20" Margin="210,0,0,200" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
             <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Product, Mode=TwoWay}" FontSize="24" Margin="210,0,0,140" RenderTransformOrigin="0.5,0.5" Width="205" Height="30"/>
             <TextBlock TextWrapping="Wrap" Text="Start Date" FontSize="24" Margin="32 0 0 0" Height="40"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Startdate, Mode=TwoWay}" FontSize="24" Margin="0,0,220,0" Width="100" Height="30"/>
-            <TextBlock TextWrapping="Wrap" Text="End Date" FontSize="24" Margin="50,0,0,0" Width="100" Height="40"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Deadline, Mode=TwoWay}" FontSize="18" Margin="260,0,0,0" Width="100" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Startdate, Mode=TwoWay}" FontSize="24" Margin="0,0,180,0" Width="150" Height="30"/>
+            <TextBlock TextWrapping="Wrap" Text="End Date" FontSize="24" Margin="0,100,450,0" Width="100" Height="40"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Deadline, Mode=TwoWay}" FontSize="18" Margin="0,100,180,0" Width="150" Height="30"/>
             <!--<TextBlock TextWrapping="Wrap" Text="Price" FontSize="24" Margin="350,10,0,-500" Height="40"/>
             <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Price, Mode=TwoWay}" FontSize="24" Margin="290,0,0,-505" Width="100" Height="40" RenderTransformOrigin="0.5,0.5"/>
             -->
