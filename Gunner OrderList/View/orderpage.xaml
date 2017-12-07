@@ -5,7 +5,12 @@
     xmlns:local="using:Gunner_OrderList"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local:OrderVM/>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -26,51 +31,71 @@
 
             <TextBlock HorizontalAlignment="Center" Margin="270,10,201,0" TextWrapping="Wrap" Text="Produkt og Resurser" VerticalAlignment="Top" FontSize="30" Width="294" Height="70" Grid.Column="1" Grid.RowSpan="2"/>
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="608" Margin="37,1,0,0" VerticalAlignment="Top" Width="165" Grid.Row="2">
-                <CheckBox Content="Jeg har ændret noget" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="HA HA" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Mål" FontSize="22" Width="141" Height="75" />
+                <CheckBox Content="Medie" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="Medie" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="751c" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="751c" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="751c" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
             </StackPanel>
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="608" Margin="270,1,0,0" VerticalAlignment="Top" Width="141" Grid.Row="2">
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="hjhjkhj" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Antal" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="lam." FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="lam." FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="3 mm sand" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="10 mm PVC" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="Vi monterer" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="Afhentes" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
             </StackPanel>
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="510" Margin="512,1,0,0" VerticalAlignment="Top" Width="135" Grid.Row="2">
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
-                <CheckBox Content="CheckBox" FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Pris kr." FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="dtp kr." FontSize="22" Width="141" Height="75"/>
+                <TextBox Text="Fragt kr." FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="Op til 10%" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <TextBox Text="Lev. antal" FontSize="22" Width="141" Height="75"/>
+                <CheckBox Content="Se vedlagte" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
+                <CheckBox Content="" FontSize="22" Width="141" Height="75" Padding="5 0 0 0"/>
             </StackPanel>
-            <Button Grid.ColumnSpan="2" Content="Opret Ordre" HorizontalAlignment="Left" Margin="599,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20
-                    "/>
-            <Button Grid.ColumnSpan="2" Content="Fortryd" HorizontalAlignment="Left" Margin="408,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20"/>
+            <Button Grid.ColumnSpan="2" Command="{Binding AddCommand}" Content="Opret Ordre" HorizontalAlignment="Left" Margin="599,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+
+            <Button Grid.ColumnSpan="2" Content="Fortryd" HorizontalAlignment="Left" Margin="408,579.5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="66" Width="149" FontSize="20">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="1056" Margin="-9,-16,0,-40" VerticalAlignment="Top" Width="729" BorderBrush="Black" BorderThickness="0,0,2,0" Grid.ColumnSpan="2">
             <TextBlock TextWrapping="Wrap" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Height="40" RenderTransformOrigin="0.421,0.462" Margin="84,119,0,897"/>
             <TextBlock TextWrapping="Wrap" Text="Email" FontSize="24" Margin="84,258,582,764"/>
             <TextBlock TextWrapping="Wrap" Text="Phone Number" FontSize="24" HorizontalAlignment="Left" Height="48" Margin="84,164,0,844"/>
             <TextBlock TextWrapping="Wrap" Text="Adress" FontSize="24" Height="36" Margin="84,217,571,803"/>
-            <TextBlock TextWrapping="Wrap" Text="Miscellaneous" FontSize="24" Height="42" Margin="84,346,492,668"/>
-            <TextBlock TextWrapping="Wrap" Text="Company Number" FontSize="24" Margin="53,298,464,718"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="36" Margin="53,547,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,118,104,898" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="53,637,28,76"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="317,163,110,853" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,208,112,808" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,253,112,763" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="319,298,112,718" RenderTransformOrigin="0.5,0.5"/>
-            <TextBox TextWrapping="Wrap" Text="TextBox" FontSize="24" Margin="317,346,114,670" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="Product" FontSize="24" Height="42" Margin="84,377,494,637"/>
+            <TextBlock TextWrapping="Wrap" Text="Company Number" FontSize="24" Margin="84,298,443,718"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="630" FontSize="36" Margin="69,506,0,0" Text ="Opgavebeskrivelse og prisestimering"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Name, Mode=TwoWay}" FontSize="24" Margin="319,118,106,898" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Description, Mode=TwoWay}" FontSize="24" Margin="53,573,30,140"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.PhoneNumber, Mode=TwoWay}" FontSize="24" Margin="319,163,106,853" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Address, Mode=TwoWay}" FontSize="24" Margin="319,208,106,808" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Email, Mode=TwoWay}" FontSize="24" Margin="319,253,106,763" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.CompanyNumber, Mode=TwoWay}"  FontSize="24" Margin="319,298,106,718" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Product, Mode=TwoWay}" FontSize="24" Margin="319,379,108,637" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="Start Date" FontSize="24" Margin="32,438,584,587"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Startdate, Mode=TwoWay}" FontSize="24" Margin="152,441,445,575" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="End Date" FontSize="24" Margin="322,441,296,584"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Deadline, Mode=TwoWay}" FontSize="24" Margin="440,441,159,575" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="Price" FontSize="24" Margin="451,959,212,66"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Price, Mode=TwoWay}" FontSize="24" Margin="520,959,34,57" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock TextWrapping="Wrap" Text="Company" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Height="40" RenderTransformOrigin="0.421,0.462" Margin="84,74,0,942"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" FontSize="24" Margin="319,78,110,938" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
     </Grid>
 </Page>

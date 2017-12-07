@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Gunner_OrderList.Annotations;
+using Gunner_OrderList.Viewmodel;
 
 namespace Gunner_OrderList
 {
-    class CustomerVM
+    class CustomerVM : INotifyPropertyChanged
     {
         private ObservableCollection<Customer> _customers;
+        private DeleteCommand _deleteCommand;
+        private Customer _selectedCustomer = null;
 
         public CustomerVM()
         {
             CustomerCatalog customerCatalog = CustomerCatalog.Instance;
             _customers = customerCatalog.Customers;
+            _deleteCommand= new DeleteCommand(this, customerCatalog);
         }
-        private Customer _selectedCustomer = new Customer();
+
 
         public ObservableCollection<Customer> Customers
         {
@@ -26,7 +34,12 @@ namespace Gunner_OrderList
         public Customer SelectedCustomer
         {
             get { return _selectedCustomer; }
-            set { _selectedCustomer = value; }
+            set
+            {
+                _selectedCustomer = value; 
+                _deleteCommand.RaiseCanExecuteChanged();
+                OnPropertyChanged();
+            }
         }
 
         public string Name
@@ -54,5 +67,21 @@ namespace Gunner_OrderList
             get { return _selectedCustomer.CompanyNumber; }
             set { _selectedCustomer.CompanyNumber = value; }
         }
+
+        public ICommand DeletionCommand
+
+        {
+            get { return _deleteCommand; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
+
+   
 }

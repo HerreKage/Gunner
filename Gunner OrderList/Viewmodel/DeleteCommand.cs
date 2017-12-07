@@ -14,31 +14,28 @@ namespace Gunner_OrderList.Viewmodel
         private CustomerCatalog _catalog;
 
         private Customer _customer;
-       
+        private CustomerVM _customerVM;
 
-        public DeleteCommand(CustomerCatalog catalog, Customer customer)
-
-
+        public DeleteCommand(CustomerVM Customer, CustomerCatalog customerCatalog)
         {
-            _catalog = catalog;
-            _customer = customer;
+            _catalog = customerCatalog;
+            _customerVM = Customer;
         }
-
 
         public bool CanExecute(object parameter)
         {
-            return _customer !=null;
+            return _customerVM.SelectedCustomer != null;
         }
 
         public void Execute(object parameter)
         {
-            //_catalog.delete();
-
-            //_catalog.
-
+            _catalog.Delete(_customerVM.SelectedCustomer);
         }
 
-
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         public event EventHandler CanExecuteChanged;
     }
