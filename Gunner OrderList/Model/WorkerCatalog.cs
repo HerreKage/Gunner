@@ -8,5 +8,21 @@ namespace Gunner_OrderList.Model
 {
     class WorkerCatalog
     {
+        private static WorkerCatalog instance = null;
+        
+
+        public static WorkerCatalog Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new WorkerCatalog();
+                }
+                return instance;
+            }
+        }
+        
+
     }
 }
