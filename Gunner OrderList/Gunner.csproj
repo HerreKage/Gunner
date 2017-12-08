@@ -126,6 +126,7 @@
     <None Include="Gunner OrderList_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\mobilreklame.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -155,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.1</Version>
+      <Version>6.0.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
       <Version>2.0.0</Version>
