@@ -35,13 +35,9 @@
 
         </Grid>
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="472,152,0,0" Text="Opret Bruger" VerticalAlignment="Top" Width="584" FontWeight="Bold" FontSize="20" Foreground="White" />
-        <Button Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black">
-            <Interactivity:I4nteraction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:I4nteraction.Behaviors>
-        </Button>
+        <Button Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
+        
+
 
     </Grid>
 </Page>
