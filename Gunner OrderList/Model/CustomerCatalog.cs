@@ -9,24 +9,16 @@ namespace Gunner_OrderList
 {
     class CustomerCatalog
     {
-        private ObservableCollection<Customer> _customers;  //List of customers
-        //private ObservableCollection<Customer> _dummyInfoCustomer;
-        private static CustomerCatalog instance=null;
+        private ObservableCollection<Customer> _customers;  //Dummy Info
+        private static CustomerCatalog instance = null;
 
         private CustomerCatalog()
         {
-            _customers = new ObservableCollection<Customer>(); //Should load from database later
-
-
-            
             DummyCustomers customers = new DummyCustomers();
-            foreach (var customer in customers.DummyInfo)
-            {
-                _customers.Add(customer);
-            }
-           
+            _customers = customers.DummyInfo; //Should load from database later
         }
 
+        #region Singleton
         public static CustomerCatalog Instance
         { 
             get
@@ -38,6 +30,8 @@ namespace Gunner_OrderList
                 return instance;
             }
         }
+        #endregion
+
 
         public ObservableCollection<Customer> Customers
         {
@@ -53,6 +47,5 @@ namespace Gunner_OrderList
                 _customers.Remove(customer);
             }
         }
-        //internal ObservableCollection<Customer> DummyInfo { get => _dummyInfoCustomer; set => _dummyInfoCustomer = value; }
     }
 }

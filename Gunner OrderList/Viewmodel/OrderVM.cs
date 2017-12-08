@@ -71,7 +71,7 @@ namespace Gunner_OrderList
                 _editCommand.RaiseCanExecuteChanged();
             }
         }
-        
+
         public Customer SelectedOrderCustomer
         {
             get
@@ -80,7 +80,7 @@ namespace Gunner_OrderList
             }
             set
             {
-                _selectedOrderCustomer = value; 
+                _selectedOrderCustomer = value;
                 OnPropertyChanged();
             }
         }
