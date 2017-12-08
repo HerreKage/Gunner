@@ -5,7 +5,10 @@
     xmlns:local="using:Gunner_OrderList.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
+
+
 
     <Grid Background="#7F00AEEB">
 
@@ -26,9 +29,19 @@
             <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
             <TextBox HorizontalAlignment="Left" Margin="130,360,0,20" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Height="Auto" Foreground="White"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,360,0,0" TextWrapping="Wrap" Text="Kodeord" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <Button Content="Opret" HorizontalAlignment="Left" Margin="376,685,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" Width="177"/>
+            <Button Content="Opret" HorizontalAlignment="Left" Margin="381,416,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" Width="177" Command ="{Binding WorkerCatalog}"/>
+
+
 
         </Grid>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="472,152,0,0" Text="Opret Bruger" VerticalAlignment="Top" Width="584" FontWeight="Bold" FontSize="20" Foreground="White" />
+        <Button Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black">
+            <Interactivity:I4nteraction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:I4nteraction.Behaviors>
+        </Button>
 
     </Grid>
 </Page>

@@ -26,5 +26,6 @@ namespace Gunner_OrderList.View
         {
             this.InitializeComponent();
         }
+        
     }
 }
