@@ -27,5 +27,9 @@ namespace Gunner_OrderList
             this.InitializeComponent();
         }
 
+        private void ComboBox_SelectionChanged()
+        {
+
+        }
     }
 }

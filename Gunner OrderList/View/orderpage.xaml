@@ -164,6 +164,18 @@
             </Grid>
             <Button Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="83,48,0,0" VerticalAlignment="Top" Width="125"/>
             <Button Content="Gem ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="310,50,0,0" VerticalAlignment="Top" Width="150"/>
+
+
+            <ComboBox ItemsSource="{Binding DisplayedCustomerList}" 
+                      SelectedItem="{Binding SelectedCustomer}"
+                      
+                      
+     
+                      MaxDropDownHeight="250"
+            Grid.Column="1" HorizontalAlignment="Left" Height="42" Margin="305,107,0,0" VerticalAlignment="Top" Width="155" IsDropDownOpen="True"/>
+            <!--IsTextSearchEnabled="True"-->
+        
+        
         </Grid>
 
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,99,0,0" Text="Ordrer og ressourcer:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
