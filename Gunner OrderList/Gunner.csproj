@@ -92,6 +92,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Model\Worker.cs" />
     <Compile Include="OrderEditCommand.cs" />
     <Compile Include="Viewmodel\ChangeCommand.cs" />
     <Compile Include="Viewmodel\OrderDeleteCommand.cs" />
