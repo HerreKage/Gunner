@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Store.Preview.InstallControl;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Gunner_OrderList.Viewmodel;
 
@@ -28,6 +29,12 @@ namespace Gunner_OrderList
         private OrderDeleteCommand _deleteCommand;
         private OrderEditCommand _editCommand;
 
+        private CustomerCatalog customerCatalog;
+        private ObservableCollection<Customer> _customers;
+        private ObservableCollection<string> _displayedCustomerList = new ObservableCollection<string>();
+        private string _searchCustomerList;
+        private Customer _selectedCustomer;
+
         public OrderVM()
         {
             _orderCatalog = OrderCatalog.Instance;
@@ -36,11 +43,21 @@ namespace Gunner_OrderList
 
             _deleteCommand = new OrderDeleteCommand(DoDeleteRelay, OrderIsSelected);
             _editCommand = new OrderEditCommand(DoEditRelay, OrderIsSelected);
+
+            customerCatalog = CustomerCatalog.Instance;
+            _customers = customerCatalog.Customers;
         }
 
         public ObservableCollection<Order> DisplayedOrders
         {
-            get { return _displayedOrders; }
+            get
+            {
+                foreach (Customer customer in _customers)
+                {
+                    
+                }
+                return _displayedOrders;
+            }
         }
 
         public Order NewOrder
@@ -141,6 +158,79 @@ namespace Gunner_OrderList
             NewOrder = _selectedOrder;
             OnPropertyChanged("NewOrder");
         }
+        #endregion
+
+        #region AutoFill
+
+        public void SortDisplayedList()
+        {
+            ObservableCollection<Customer> _newDisplayedList = new ObservableCollection<Customer>();
+            foreach (Customer customer in _customers)
+            {
+                string customerCompany = customer.Company.ToLower();
+                string searchedCustomerList = _searchCustomerList.ToLower();
+
+                if (  customerCompany.Substring(0, searchedCustomerList.Length) == searchedCustomerList )
+                {
+                    _newDisplayedList.Add(customer);
+                }
+            }
+            //_displayedCustomerList = _newDisplayedList;
+        }
+
+
+        public void ChangeDisplayedList()   //Makes sure that the list displayed if correct
+        {
+            //if (_searchCustomerList != null)
+            //{
+            //    _displayedCustomerList = _customers;
+            //}
+            //else
+            //_displayedCustomerList = null;
+
+            //SortDisplayedList();
+
+            foreach (Customer customer in _customers)
+            {
+                _displayedCustomerList.Add(customer.Company);
+            }
+        }
+
+        public ObservableCollection<string> DisplayedCustomerList   //List that is used to display
+        {
+            get
+            {
+                ChangeDisplayedList();
+                return _displayedCustomerList;
+            }
+            set
+            {
+                _displayedCustomerList = value;
+            }
+        }
+
+        public string SearchCustomerList   //String the user types in
+        {
+            get { return _searchCustomerList; }
+            set
+            {
+                _searchCustomerList = value;
+                ChangeDisplayedList();
+                OnPropertyChanged("DisplayedCustomerList");
+                OnPropertyChanged();
+            }
+        }
+
+        public Customer SelectedCustomer
+        {
+            get { return _selectedCustomer; }
+            set
+            {
+                _selectedCustomer = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
