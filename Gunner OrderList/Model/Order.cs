@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gunner_OrderList
 {
-    class Order 
+    class Order
     {
         private Customer _customer = new Customer();
         private string _description;
@@ -17,6 +17,7 @@ namespace Gunner_OrderList
         private string _startdate;
         private string _deadline;
         private string _price;
+        private string _notes;
         //End
 
         private bool checkbox1;
@@ -37,9 +38,10 @@ namespace Gunner_OrderList
         public string Description { get => _description; set => _description = value; }
         public int OrderNumber { get => orderNumber; set => orderNumber = value; }
         public string Product { get => _product; set => _product = value; }
+        public string StartDate { get => _startdate; set => _startdate = value; }
         public string Deadline { get => _deadline; set => _deadline = value; }
         public string Price { get => _price; set => _price = value; }
-        public string Startdate { get => _startdate; set => _startdate = value; }
+        public string Notes { get => _notes; set => _notes = value; }
 
         //public bool Checkbox1 { get => checkbox1; set => checkbox1 = value; }
         //public bool Checkbox2 { get => checkbox2; set => checkbox2 = value; }

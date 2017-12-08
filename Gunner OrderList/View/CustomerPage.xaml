@@ -6,55 +6,104 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Height="720" Width="1280">
+
 
     <Page.DataContext>
         <local:CustomerVM/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+    <Grid Background="#7F00AEEB" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
 
+            <Grid>
+                <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+                <Button Content="Kunde liste" Margin="190,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
+                <Button Content="Ikke godkendte" Margin="340,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
+                <Button Content="Færdige ordrer" Margin="490,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
+                <Button Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+                
+                
+                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="51,149,0,521" BorderBrush="White" BorderThickness="2">
 
-        <ListView ItemsSource="{Binding DisplayedCustomers }" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" 
-                  HorizontalAlignment="Left" Height="309" VerticalAlignment="Top" Width="659" BorderBrush="Black" BorderThickness="2" Margin="177,310,0,0" SelectionChanged="ListView_SelectionChanged_1" >
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local:Customer">
-                    <StackPanel Orientation="Horizontal" Height="59" Width="625" BorderThickness="0,0,0,2" BorderBrush="Black">
-                        <!--Order Number-->
-                        <TextBlock Text="{Binding Name}" Margin="15,15,15,15" MaxWidth="220" Width="33"/>
-                        <!--Customer-->
-                        <TextBlock Text="{Binding Company }" Margin="15,15,15,15"/>
-                        <!--Product-->
-                        <TextBlock Text="{Binding Address}" Margin="15,15,15,15" />
-                        <!--Deadline-->
-                        <TextBlock Text="{Binding Email}" Margin="15,15,15,15" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Grid Margin="873,148,45,239" BorderBrush="Black" BorderThickness="2">
-            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Name}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Address}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Gerningsted" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Company}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Firma" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.CompanyNumber}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Nummer" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Email}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedCustomer.PhoneNumber}" VerticalAlignment="Top" Width="225" MinHeight="50" Height="Auto"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Bemærkninger" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Button Content="Delete" Command="{Binding DeletionCommand}" HorizontalAlignment="Left" Margin="-674,100,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.521,0.398"/>
+                    <TextBlock Text="Kunde:" Margin="13,10,15,10" Width="125" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="Att:" Margin="15,10,15,10" Width="125" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="Adresse:" Margin="15,10,15,10" Width="125" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="Postnr:" Margin="15,10,15,10" Width="75" FontWeight="Bold" Foreground="White" />
+                    <TextBlock Text="By:" Margin="15,10,5,10" Width="125" FontWeight="Bold" Foreground="White"/>
+
+                </StackPanel>
+                <ListView ItemsSource="{Binding DisplayCustomers}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="718" BorderBrush="White" BorderThickness="2" Margin="51,197,0,0" MaxHeight="225">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Customer">
+                            <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="White">
+                                <!--Company-->
+                                <TextBlock Text="{Binding Company}" Margin="0,10,15,10" Width="125" Foreground="White"/>
+                                <!--Contact person-->
+                                <TextBlock Text="{Binding Name}" Margin="15,10,15,10" Width="125" Foreground="White"/>
+                                <!--Adress-->
+                                <TextBlock Text="{Binding Address}" Margin="15,10,15,10" Width="125" Foreground="White"/>
+                                <!--Zipcode-->
+                                <TextBlock Text="{Binding ZipCode}" Margin="15,10,15,10" Width="75" Foreground="White"/>
+                                <!--Town-->
+                                <TextBlock Text="{Binding Town}" Margin="15,10,15,10" Width="75" Foreground="White"/>
+                                <!--Phone-->
+                                <!--<TextBlock Text="{Binding PhoneNumber}" Margin="15,10,15,10" Width="75"/>-->
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid Margin="26,-100,-26,100">
+                    <Grid.Background>
+                        <ImageBrush Stretch="None" ImageSource="/Assets/mobilreklame.png" AlignmentY="Bottom" AlignmentX="Center"/>
+                    </Grid.Background>
+                </Grid>
+            </Grid>
         </Grid>
-        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="356,249,0,0" VerticalAlignment="Top" Width="83">
-        <Interactivity:Interaction.Behaviors>
-            <core:EventTriggerBehavior EventName="Click">
-                <core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
-            </core:EventTriggerBehavior>
-        </Interactivity:Interaction.Behaviors>
-        </Button>
+
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,99,0,0" Text="Kundeliste:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20" Foreground="White"/>
+
+        <Grid Margin="850,150,50,100" BorderBrush="White" BorderThickness="2" Height="Auto" >
+            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Company}" VerticalAlignment="Top" Width="225" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Name}" VerticalAlignment="Top" Width="225" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Att:" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Address}" VerticalAlignment="Top" Width="225" MaxHeight="25" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.ZipCode}" VerticalAlignment="Top" Width="225" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Postnummer:" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Town}" VerticalAlignment="Top" Width="225" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="By:" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedCustomer.PhoneNumber}" VerticalAlignment="Top" Width="225" Height="Auto" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,315,0,20" TextWrapping="Wrap" Text="{Binding SelectedCustomer.Email}" VerticalAlignment="Top" Width="225" Height="Auto" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,360,0,20" TextWrapping="Wrap" Text="{Binding SelectedCustomer.CompanyNumber}" VerticalAlignment="Top" Width="225" Height="Auto" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,360,0,0" TextWrapping="Wrap" Text="CVR" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+            <Button Content="Rediger" HorizontalAlignment="Left" Margin="22,416,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
+                <Button Content="Slet" HorizontalAlignment="Left" Margin="232,418,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
+        </Grid>
+
 
     </Grid>
+
+
+
 </Page>

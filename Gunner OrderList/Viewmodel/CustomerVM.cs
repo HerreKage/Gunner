@@ -14,24 +14,17 @@ namespace Gunner_OrderList
 {
     class CustomerVM : INotifyPropertyChanged
     {
-        private CustomerCatalog _customerCatalog;
         private ObservableCollection<Customer> _customers;
         private DeleteCommand _deleteCommand;
         private Customer _selectedCustomer = null;
-        private ObservableCollection<Customer> _displayedCustomers;
 
         public CustomerVM()
         {
-            _customerCatalog = CustomerCatalog.Instance;
-           _deleteCommand=new DeleteCommand(this, _customerCatalog);
-            
-            _displayedCustomers = _customerCatalog.Customers;
+            CustomerCatalog customerCatalog = CustomerCatalog.Instance;
+            _customers = customerCatalog.Customers;
+            _deleteCommand= new DeleteCommand(this, customerCatalog);
         }
 
-        public ObservableCollection<Customer> DisplayedCustomers
-        {
-            get { return _displayedCustomers; }
-        }
 
         public ObservableCollection<Customer> Customers
         {

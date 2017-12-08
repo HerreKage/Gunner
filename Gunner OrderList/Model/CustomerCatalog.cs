@@ -9,53 +9,29 @@ namespace Gunner_OrderList
 {
     class CustomerCatalog
     {
-        ObservableCollection<Customer> _customers;  //List of customers
-        private ObservableCollection<Customer> _dummyInfoCustomer;
+        private ObservableCollection<Customer> _customers;  //Dummy Info
+        private static CustomerCatalog instance = null;
 
-
-        private static CustomerCatalog _instance=null;
-
-        private static int _customerNumber;
-        
         private CustomerCatalog()
         {
-            _customers = new ObservableCollection<Customer>(); //Should load from database later
-
-            _customerNumber = 2;
-
-            //Customer customer1 = new Customer();
-            //customer1.CompanyNumber = "Apple";
-            //customer1.Name = "David";
-            //customer1.Address = "Birkemosvej 8";
-            //customer1.PhoneNumber = "50652415";
-            //customer1.CompanyNumber = "21-23-65-23";
-            //customer1.Email = "apple@gmail.com";
-
-
-
-            //Customer customer2 = new Customer();
-            //customer2.Company = "Ro's Kabab";
-            //customer2.Name = "Greg";
-            //customer2.Address = "Roskilde 8";
-            //customer2.PhoneNumber = "80122545";
-            //customer2.CompanyNumber = "43-98-75-23";
-            //customer2.Email = "rokabab@gmail.com";
-
-            //_customers.Add(customer1);
-            //_customers.Add(customer2);
+            DummyCustomers customers = new DummyCustomers();
+            _customers = customers.DummyInfo; //Should load from database later
         }
 
+        #region Singleton
         public static CustomerCatalog Instance
         { 
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = new CustomerCatalog();
+                    instance = new CustomerCatalog();
                 }
-                return _instance;
+                return instance;
             }
         }
+        #endregion
+
 
         public ObservableCollection<Customer> Customers
         {
@@ -71,7 +47,5 @@ namespace Gunner_OrderList
                 _customers.Remove(customer);
             }
         }
-
-        internal ObservableCollection<Customer> DummyInfo { get => _dummyInfoCustomer; set => _dummyInfoCustomer = value; }
     }
 }
