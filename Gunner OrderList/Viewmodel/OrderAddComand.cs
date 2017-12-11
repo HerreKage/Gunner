@@ -11,15 +11,19 @@ namespace Gunner_OrderList
     class OrderAddComand : ICommand
     {
         private ObservableCollection<Order> _unapprovedOrders;
-        Order _order;
+        private Order _order;
+
+        private ObservableCollection<Customer> _customers;
 
         public OrderAddComand(Order order)
         {
             _order = order;
             OrderCatalog _orders = OrderCatalog.Instance;
             _unapprovedOrders = _orders.DummyInfo;             //Currently set to dummy info
-        }
 
+            CustomerCatalog customers = CustomerCatalog.Instance;
+            _customers = customers.Customers;
+        }
 
         public bool CanExecute(object parameter)
         {
@@ -29,6 +33,8 @@ namespace Gunner_OrderList
         public void Execute(object parameter)
         {
             _unapprovedOrders.Add(_order);
+
+            _customers.Add(_order.Customer);
         }
 
         public void RaiseCanExecuteChanged()

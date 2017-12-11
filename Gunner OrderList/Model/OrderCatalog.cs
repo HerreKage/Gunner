@@ -20,6 +20,7 @@ namespace Gunner_OrderList
         private List<Order> _order;
 
         private ObservableCollection<Order> _dummyInfo;  //Testing info
+
         private static int _orderNumber;  //This will be the ordernumber that is assigned to each order when added (will be updated)
         private OrderCatalog()
         {
