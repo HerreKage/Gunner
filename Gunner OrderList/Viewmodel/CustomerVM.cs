@@ -44,10 +44,10 @@ namespace Gunner_OrderList
             }
         }
 
-        //public ObservableCollection<Customer> Customers
-        //{
-        //    get { return _customers; }
-        //}
+        public ObservableCollection<Customer> Customers
+        {
+            get { return _customers; }
+        }
 
         public Customer SelectedCustomer
         {
@@ -67,7 +67,14 @@ namespace Gunner_OrderList
                     Email = _selectedCustomer.Email;
                     CompanyNumber = _selectedCustomer.CompanyNumber;
 
+                    OnPropertyChanged(nameof(Company));
                     OnPropertyChanged(nameof(Name));
+                    OnPropertyChanged(nameof(Address));
+                    OnPropertyChanged(nameof(ZipCode));
+                    OnPropertyChanged(nameof(Town));
+                    OnPropertyChanged(nameof(PhoneNumber));
+                    OnPropertyChanged(nameof(Email));
+                    OnPropertyChanged(nameof(CompanyNumber));
                 }
 
                 _deleteCommand.RaiseCanExecuteChanged();
