@@ -53,6 +53,15 @@ namespace Gunner_OrderList
                 _customers.Remove(customer);
             }
         }
+
+        //public void EditCustomer(Customer customer)
+        //{
+        //    if (_customers.Contains(customer))
+        //    {
+        //        _customers.Remove(customer);
+        //        _customers.Add(customer);
+        //    }
+        //}
         //internal ObservableCollection<Customer> DummyInfo { get => _dummyInfoCustomer; set => _dummyInfoCustomer = value; }
     }
 }

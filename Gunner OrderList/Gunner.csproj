@@ -93,6 +93,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="OrderEditCommand.cs" />
+    <Compile Include="Viewmodel\CustomerEditCommand.cs" />
     <Compile Include="Viewmodel\OrderDeleteCommand.cs" />
     <Compile Include="Viewmodel\OrderAddComand.cs" />
     <Compile Include="App.xaml.cs">
