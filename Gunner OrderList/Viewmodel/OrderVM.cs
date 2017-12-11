@@ -28,7 +28,7 @@ namespace Gunner_OrderList
 
         private OrderAddComand _addCommand;
         private RelayCommand _deleteCommand;
-        private OrderEditCommand _editCommand;
+        private RelayCommand _editCommand;
         private RelayCommand _changeListCommand;
         private RelayCommand _moveListCommand;
 
@@ -41,7 +41,7 @@ namespace Gunner_OrderList
             _newOrder = new Order();
 
             _deleteCommand = new RelayCommand(DoDeleteRelay, OrderIsSelected);
-            _editCommand = new OrderEditCommand(DoEditRelay, OrderIsSelected);
+            _editCommand = new RelayCommand(DoEditRelay, OrderIsSelected);
             _changeListCommand = new RelayCommand(DoChangeListRelay, AlwaysTrue);
             _moveListCommand = new RelayCommand(DoMoveListRelay, OrderIsSelected);
         }

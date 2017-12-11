@@ -97,7 +97,6 @@
     <Compile Include="Model\WorkerPassword.cs" />
     <Compile Include="Viewmodel\ChangeCommand.cs" />
     <Compile Include="Viewmodel\CustomerEditComand.cs" />
-    <Compile Include="Viewmodel\OrderDeleteCommand.cs" />
     <Compile Include="Viewmodel\RelayCommand.cs" />
     <Compile Include="Viewmodel\OrderAddComand.cs" />
     <Compile Include="App.xaml.cs">
@@ -134,7 +133,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Gunner OrderList_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\mobilreklame.PNG" />
