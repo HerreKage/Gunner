@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace Gunner_OrderList
 {
     class Order
     {
-        private Customer _customer = new Customer();
+        private Customer _customer;
         private string _description;
         private int orderNumber;
         private string _product;
@@ -16,6 +17,11 @@ namespace Gunner_OrderList
         private string _deadline;
         private string _price;
         private string _notes;
+
+        public Order()
+        {
+            _customer = new Customer();
+        }
 
         #region Material Boxes
         private bool _malBool;
@@ -100,10 +106,7 @@ namespace Gunner_OrderList
         private string _vedlagteString;
         #endregion
 
-        public Order()
-        {
-        }
-
+        #region Main Order INFO
         public Customer Customer { get => _customer; set => _customer = value; }
         public string Description { get => _description; set => _description = value; }
         public int OrderNumber { get => orderNumber; set => orderNumber = value; }
@@ -112,6 +115,9 @@ namespace Gunner_OrderList
         public string Deadline { get => _deadline; set => _deadline = value; }
         public string Price { get => _price; set => _price = value; }
         public string Notes { get => _notes; set => _notes = value; }
+        #endregion
+
+        #region Material Property
         public bool MalBool { get => _malBool; set => _malBool = value; }
         public string MalString { get => _malString; set => _malString = value; }
         public bool Suv1 { get => _suv1; set => _suv1 = value; }
@@ -132,5 +138,43 @@ namespace Gunner_OrderList
         public string C751String4 { get => _751CString4; set => _751CString4 = value; }
         public bool C751Bool5 { get => _751CBool5; set => _751CBool5 = value; }
         public string C751String5 { get => _751CString5; set => _751CString5 = value; }
+        #endregion
+
+        #region Product Property
+
+        public bool AntalBool { get => _antalBool; set => _antalBool = value; }
+        public string AntalString { get => _antalString; set => _antalString = value; }
+        public bool IamBool1 { get => _iamBool1; set => _iamBool1 = value; }
+        public string IamString1 { get => _iamString1; set => _iamString1 = value; }
+        public bool IamBool2 { get => _iamBool2; set => _iamBool2 = value; }
+        public string IamString2 { get => _iamString2; set => _iamString2 = value; }
+        public bool IamBool3 { get => _iamBool3; set => _iamBool3 = value; }
+        public string IamString3 { get => _iamString3; set => _iamString3 = value; }
+        public bool ALU3mm { get => _3mmALU; set => _3mmALU = value; }
+        public bool PVC10mm { get => _10mmPVC; set => _10mmPVC = value; }
+        public bool ViMonterer { get => _viMonterer; set => _viMonterer = value; }
+        public bool Afhentes { get => _afhentes; set => _afhentes = value; }
+        public bool BlankBool1 { get => _blankBool1; set => _blankBool1 = value; }
+        public string BlankString1 { get => _blankString1; set => _blankString1 = value; }
+        public bool BlankBool2 { get => _blankBool2; set => _blankBool2 = value; }
+        public string BlankString2 { get => _blankString2; set => _blankString2 = value; }
+        public bool BlankBool3 { get => _blankBool3; set => _blankBool3 = value; }
+        public string BlankString3 { get => _blankString3; set => _blankString3 = value; }
+        #endregion
+
+        #region Price Properties
+        public bool PriceBool { get => _priceBool; set => _priceBool = value; }
+        public string PriceString { get => _priceString; set => _priceString = value; }
+        public bool DptBool { get => _dptBool; set => _dptBool = value; }
+        public string DptString { get => _dptString; set => _dptString = value; }
+        public bool FragtBool { get => _fragtBool; set => _fragtBool = value; }
+        public string FragtString { get => _fragtString; set => _fragtString = value; }
+        public bool OptTill_10_Bool { get => _optTill_10_Bool; set => _optTill_10_Bool = value; }
+        public string OptTill_10_String { get => _optTill_10_String; set => _optTill_10_String = value; }
+        public bool LevAntalBool { get => _levAntalBool; set => _levAntalBool = value; }
+        public string LevAntalString { get => _levAntalString; set => _levAntalString = value; }
+        public bool VedlagteBool { get => _vedlagteBool; set => _vedlagteBool = value; }
+        public string VedlagteString { get => _vedlagteString; set => _vedlagteString = value; }
+        #endregion
     }
 }

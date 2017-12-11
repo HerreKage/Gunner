@@ -27,16 +27,12 @@ namespace Gunner_OrderList
         private Order _newOrder;
 
         private OrderAddComand _addCommand;
-        private OrderDeleteCommand _deleteCommand;
+        private RelayCommand _deleteCommand;
         private OrderEditCommand _editCommand;
+        private RelayCommand _changeListCommand;
+        private RelayCommand _moveListCommand;
 
-        private CustomerCatalog customerCatalog;
-        private ObservableCollection<Customer> _customers;
-        private ObservableCollection<Customer> _displayedCustomerList;
-
-        private ObservableCollection<string> _displayedCustomerListString;
-        private string _searchCustomer;
-        private Customer _selectedCustomer;
+        private bool _editMode = false;
 
         public OrderVM()
         {
@@ -44,30 +40,50 @@ namespace Gunner_OrderList
             _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo       
             _newOrder = new Order();
 
-            _deleteCommand = new OrderDeleteCommand(DoDeleteRelay, OrderIsSelected);
+            _deleteCommand = new RelayCommand(DoDeleteRelay, OrderIsSelected);
             _editCommand = new OrderEditCommand(DoEditRelay, OrderIsSelected);
-
-            customerCatalog = CustomerCatalog.Instance;
-            _customers = customerCatalog.Customers;
-            _displayedCustomerList = _customers;
+            _changeListCommand = new RelayCommand(DoChangeListRelay, AlwaysTrue);
+            _moveListCommand = new RelayCommand(DoMoveListRelay, OrderIsSelected);
         }
 
+        #region Properties
         public ObservableCollection<Order> DisplayedOrders
         {
             get
             {
+                _changeListCommand.RaiseCanExecuteChanged();
                 return _displayedOrders;
             }
         }
 
         public Order NewOrder
         {
-            get { return _newOrder; }
+            get
+            {
+                if (_orderCatalog.EditOrder != null)
+                {
+                    _newOrder = _orderCatalog.EditOrder;
+                    _editMode = true;
+                    _orderCatalog.EditOrder = null;
+                }
+                
+                return _newOrder;
+            }
             set
             {
                 _newOrder = value;
                 OnPropertyChanged();
             }
+        }
+
+        public Boolean EditModeShow
+        {
+            get { return !_editMode; }
+        }
+
+        public Boolean EditModeHide
+        {
+            get { return _editMode; }
         }
 
         #region Selected
@@ -86,6 +102,7 @@ namespace Gunner_OrderList
 
                 _deleteCommand.RaiseCanExecuteChanged();
                 _editCommand.RaiseCanExecuteChanged();
+                _moveListCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -101,6 +118,9 @@ namespace Gunner_OrderList
                 OnPropertyChanged();
             }
         }
+        #endregion
+        
+
         #endregion
 
         #region AddCommand
@@ -155,9 +175,58 @@ namespace Gunner_OrderList
 
         public void Edit()
         {
-            NewOrder = _selectedOrder;
-            OnPropertyChanged("NewOrder");
+            _orderCatalog.EditOrder = _selectedOrder;
         }
+        #endregion
+
+        #region ChangeListCommand
+
+        public void DoChangeListRelay() // Added
+        {
+            ChangeList();
+        }
+
+        public ICommand ChangeListCommand // Added
+        {
+            get { return _changeListCommand; }
+        }
+
+        public void ChangeList()
+        {
+            _displayedOrders = _orderCatalog.HistoryOrders;
+            OnPropertyChanged("DisplayedOrders");
+        }
+
+        public bool AlwaysTrue()
+        {
+            return true;
+        }
+
+        #endregion
+
+        #region MoveList
+
+        public void DoMoveListRelay() // Added
+        {
+            MoveList();
+        }
+
+        public ICommand MoveListCommand // Added
+        {
+            get { return _moveListCommand; }
+        }
+
+        public void MoveList()
+        {
+            if (_displayedOrders.Contains(_selectedOrder))
+            {
+                _orderCatalog.HistoryOrders.Add(_selectedOrder);
+                _displayedOrders.Remove(_selectedOrder);
+                _selectedOrder = null;
+                _selectedOrderCustomer = null;
+            }
+        }
+
         #endregion
 
         #region AutoFill
