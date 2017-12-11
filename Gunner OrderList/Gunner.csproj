@@ -96,6 +96,8 @@
     <Compile Include="Model\WorkerCatalog.cs" />
     <Compile Include="Model\WorkerPassword.cs" />
     <Compile Include="Viewmodel\ChangeCommand.cs" />
+    <Compile Include="Viewmodel\CustomerEditComand.cs" />
+    <Compile Include="Viewmodel\OrderDeleteCommand.cs" />
     <Compile Include="Viewmodel\RelayCommand.cs" />
     <Compile Include="Viewmodel\OrderAddComand.cs" />
     <Compile Include="App.xaml.cs">
