@@ -20,6 +20,7 @@ namespace Gunner_OrderList
     {
         private OrderCatalog _orderCatalog;
         private ObservableCollection<Order> _displayedOrders;
+        private ObservableCollection<Order> _displayedOrders2;
 
         private Order _selectedOrder;
         private Customer _selectedOrderCustomer;

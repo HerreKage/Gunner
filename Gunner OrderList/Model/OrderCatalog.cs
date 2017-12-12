@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.ViewManagement;
+using FilePersistency.Implementation;
 using Persistency.Interfaces;
 
 namespace Gunner_OrderList
@@ -31,16 +32,30 @@ namespace Gunner_OrderList
 
             _currentOrders = new ObservableCollection<Order>();  //Load in from stored data later
             _unapprovedOrders = new ObservableCollection<Order>();
-            _historyOrders = new ObservableCollection<Order>();
             _invoiceOrders = new ObservableCollection<Order>();
-
-            void Load(bool suppressException = true);
-
 
 
             DummyOrder _dummyOrders = new DummyOrder();  //Testing Info
             _dummyInfo = _dummyOrders.DummyInfo;         //Testing Info
-            
+
+            FileSource<Order> currentOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "Current.dat");
+            FileSource<Order> unapprovedOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "Current.dat");
+            FileSource<Order> historyOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "Current.dat");
+            FileSource<Order> invoiceOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "Current.dat");
+
+
+            //_historyOrders = new ObservableCollection<Order> (ConvertListToObs(historyOrder.Load(),_historyOrders));
+
+            //historyOrder.Save(_currentOrders.ToList());
+
+        }
+
+        public void ConvertListToObs(List<Order> list, ObservableCollection<Order> obs)
+        {
+            foreach (Order order in list)
+            {
+                obs.Add(order);
+            }
         }
 
 
