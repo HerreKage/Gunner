@@ -94,7 +94,7 @@
                         <ImageBrush Stretch="None" ImageSource="/Assets/mobilreklame.png" AlignmentY="Bottom" AlignmentX="Center"/>
                     </Grid.Background>
                 </Grid>
-                <Button Command="{Binding MoveListCommand}" Content="MoveList Test" HorizontalAlignment="Left" Height="29" Margin="373,4,0,0" VerticalAlignment="Top" Width="126"/>
+                
             </Grid>
 
             <Button Command="{Binding EditCommand}" Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="83,48,0,0" VerticalAlignment="Top" Width="125">

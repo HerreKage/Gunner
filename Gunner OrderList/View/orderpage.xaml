@@ -101,11 +101,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 10">
                         <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="640" Margin="15 0, 0, 0" BorderBrush="Black"/>
+                        <TextBox Width="635" Margin="15 0, 0, 0" BorderBrush="Black"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
                         <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="640" Margin="15 0, 0, 0" MinHeight="60" Height="128" BorderBrush="Black"/>
+                        <TextBox Width="635" Margin="15 0, 0, 0" MinHeight="60" Height="128" BorderBrush="Black"/>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
@@ -241,6 +241,12 @@
                         <CalendarDatePicker x:Name="arrivalCalendarDatePicker" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
                         <CalendarDatePicker x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120"/>
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
+                        <TextBlock Text="Ret status:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <Button Content="Færdig" Width="120" FontSize="12"/>
+                        <Button Content="Til godkendelse" Width="120" Margin="10, 0, 0, 0" FontSize="12"/>
+                    </StackPanel>
+
                 </StackPanel>
             </Grid>
         </Grid>
