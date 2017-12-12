@@ -57,7 +57,7 @@
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,93,0,0" Text="Ordre" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
                 </Grid>
 
-                <StackPanel Grid.Column="0" Grid.Row="1" Margin="10, 0, 0, 0">
+                <StackPanel Grid.Column="0" Grid.Row="1" Margin="10, 0, 0, 0" Grid.ColumnSpan="3">
                     <!--<StackPanel>
                         <TextBlock HorizontalAlignment="Center" Height="30" Text="Materialer:" FontWeight="Bold" FontSize="20"/>
                     </StackPanel>-->
@@ -99,13 +99,13 @@
                         <CheckBox IsChecked="{Binding NewOrder.C751Bool3, Mode = TwoWay}" x:Name="checkBox6"  Content="751C"  Width="71" />
                         <TextBox  Text="{Binding NewOrder.C751String3, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox6, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
+                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 10">
                         <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBox Width="640" Margin="15 0, 0, 0" BorderBrush="Black"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0">
+                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
                         <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250" MinHeight="60" Height="128"/>
+                        <TextBox Width="640" Margin="15 0, 0, 0" MinHeight="60" Height="128" BorderBrush="Black"/>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">

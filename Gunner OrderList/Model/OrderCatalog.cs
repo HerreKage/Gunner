@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.ViewManagement;
-//using Persistency.Interfaces;
+using Persistency.Interfaces;
 
 namespace Gunner_OrderList
 {
@@ -34,7 +34,7 @@ namespace Gunner_OrderList
             _historyOrders = new ObservableCollection<Order>();
             _invoiceOrders = new ObservableCollection<Order>();
 
-           // void Load(bool suppressException = true);
+
 
 
 
