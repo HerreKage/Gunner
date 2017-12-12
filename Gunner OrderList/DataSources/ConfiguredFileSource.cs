@@ -1,4 +1,4 @@
-﻿using Persistency.Implementation;
+﻿/*using Persistency.Implementation;
 using StringPersistency.Interfaces;
 
 namespace FilePersistency.Implementation
@@ -15,3 +15,4 @@ namespace FilePersistency.Implementation
         }
     }
 }
+*/
