@@ -96,6 +96,7 @@
     <Compile Include="DataSources\FileSource.cs" />
     <Compile Include="FileStringPersistence.cs" />
     <Compile Include="JSONConvert.cs" />
+    <Compile Include="Model\DependingOrders.cs" />
     <Compile Include="Model\Worker.cs" />
     <Compile Include="Model\WorkerCatalog.cs" />
     <Compile Include="Model\WorkerPassword.cs" />

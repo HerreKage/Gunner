@@ -39,6 +39,7 @@ namespace Gunner_OrderList.Viewmodel
         public void Execute(object parameter)
         {
             _catalog.Delete(_customerVM.SelectedCustomer);
+            _customerVM.Refresh();
         }
 
         public void RaiseCanExecuteChanged()
