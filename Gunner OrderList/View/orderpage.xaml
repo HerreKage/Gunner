@@ -12,7 +12,7 @@
         <local:OrderVM/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#7F00AEEB">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
@@ -30,7 +30,7 @@
                     <RowDefinition Height="9*"/>
                 </Grid.RowDefinitions>
                 <Grid ColumnSpan="3">
-                    <Button Content="Opret ordre" Margin="10,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Button Foreground="White" Background="Black" Content="Opret ordre" Margin="10,50,0,0" VerticalAlignment="Top" Width="125">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
@@ -38,28 +38,29 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Content="Kunde liste" Margin="160,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Button Foreground="White" Background="Black" Content="Kunde liste" Margin="160,50,0,0" VerticalAlignment="Top" Width="125">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
-                    <Button Content="Ikke godkendte" Margin="313,50,0,0" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Færdige ordrer" Margin="479,50,0,0" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Button Foreground="White" Background="Black" Content="Ikke godkendte" Margin="313,50,0,0" VerticalAlignment="Top" Width="125"/>
+                    <Button Foreground="White" Background="Black" Content="Færdige ordrer" Margin="479,50,0,0" VerticalAlignment="Top" Width="125"/>
+                    <Button Foreground="White" Background="Black" Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,93,0,0" Text="Ordre" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
                 </Grid>
 
-                <StackPanel Grid.Column="0" Grid.Row="1" Margin="10, 0, 0, 0">
-                    <StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="1" Margin="10, 0, 0, 0" Grid.ColumnSpan="3">
+                    <!--<StackPanel>
                         <TextBlock HorizontalAlignment="Center" Height="30" Text="Materialer:" FontWeight="Bold" FontSize="20"/>
-                    </StackPanel>
+                    </StackPanel>-->
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="checkBox1" Content="Mål" IsChecked="{Binding NewOrder.MalBool, Mode = TwoWay}" />
                         <TextBox  Text="{Binding NewOrder.MalString, Mode = TwoWay}"  Height="10" Width="125" IsEnabled="{Binding ElementName=checkBox1, Path=IsChecked}"/>
@@ -98,15 +99,24 @@
                         <CheckBox IsChecked="{Binding NewOrder.C751Bool3, Mode = TwoWay}" x:Name="checkBox6"  Content="751C"  Width="71" />
                         <TextBox  Text="{Binding NewOrder.C751String3, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox6, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 10">
+                        <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <TextBox Width="635" Margin="15 0, 0, 0" BorderBrush="Black"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
+                        <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <TextBox Width="635" Margin="15 0, 0, 0" MinHeight="60" Height="128" BorderBrush="Black"/>
+
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="checkBox7" Visibility="{Binding ElementName=checkBox6, Path=IsChecked}" IsChecked="{Binding NewOrder.C751Bool4, Mode = TwoWay}" Content="751C"  Width="71" />
                         <TextBox Visibility="{Binding ElementName=checkBox6, Path=IsChecked}" Text="{Binding NewOrder.C751String4, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox7, Path=IsChecked}"  Height="10" Width="120"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Grid.Row="1" Margin="10, 0, 0, 0">
-                    <StackPanel>
+                    <!--<StackPanel>
                         <TextBlock HorizontalAlignment="Center" Height="30" Text="Produkt :" FontWeight="Bold" FontSize="20"/>
-                    </StackPanel>
+                    </StackPanel>-->
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="productCheckBox1"  Content="Antal" Width="70" IsChecked="{Binding NewOrder.AntalBool, Mode = TwoWay}"  />
                         <TextBox  IsEnabled="{Binding ElementName=productCheckBox1, Path=IsChecked}" Text="{Binding NewOrder.AntalString, Mode = TwoWay}"   Height="10" Width="120"/>
@@ -139,15 +149,12 @@
                         <CheckBox x:Name="productCheckBox6" IsChecked="{Binding NewOrder.BlankBool2, Mode=TwoWay}" Content="" Width="70"  />
                         <TextBox  Text="{Binding NewOrder.BlankString2, Mode=TwoWay}" IsEnabled="{Binding ElementName=productCheckBox6, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
-                        <CheckBox x:Name="productCheckBox7" IsChecked="{Binding NewOrder.BlankBool3, Mode=TwoWay}" Content="" Width="70"  />
-                        <TextBox Text="{Binding NewOrder.BlankString3, Mode=TwoWay}" IsEnabled="{Binding ElementName=productCheckBox7, Path=IsChecked}"  Height="10" Width="120"/>
-                    </StackPanel>
+
                 </StackPanel>
                 <StackPanel Grid.Column="2" Grid.Row="1" Margin="10, 0, 0, 0">
-                    <StackPanel>
+                    <!--<StackPanel>
                         <TextBlock HorizontalAlignment="Center" Height="30" Text="Pris:" FontWeight="Bold" FontSize="20"/>
-                    </StackPanel>
+                    </StackPanel>-->
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox1" IsChecked="{Binding NewOrder.PriceBool, Mode=TwoWay}" Content="Pris kr." Width="70"  />
                         <TextBox IsEnabled="{Binding ElementName=priceCheckBox1, Path=IsChecked}" Text="{Binding NewOrder.PriceString, Mode=TwoWay}"  Height="10" Width="120"/>
@@ -190,8 +197,8 @@
                     <RowDefinition Height="9*"/>
                 </Grid.RowDefinitions>
                 <Grid ColumnSpan="3">
-                    <Button Content="Rediger ordre"  Width="125" Margin="65,50,0,49"/>
-                    <Button Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150"/>
+                    <Button Foreground="White" Background="Black" Content="Rediger ordre"  Width="125" Margin="65,50,0,49"/>
+                    <Button Foreground="White" Background="Black" Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150"/>
                 </Grid>
                 <StackPanel Grid.Column="1" BorderBrush="Black" BorderThickness="2" MinHeight="545" Margin="0,108,0,67" Grid.RowSpan="2">
                     <StackPanel Orientation="Horizontal" Margin="10, 15, 0, 10">
@@ -234,11 +241,12 @@
                         <CalendarDatePicker x:Name="arrivalCalendarDatePicker" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
                         <CalendarDatePicker x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0">
-                        <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250" MinHeight="60"/>
-
+                    <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
+                        <TextBlock Text="Ret status:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <Button Content="Færdig" Width="120" FontSize="12"/>
+                        <Button Content="Til godkendelse" Width="120" Margin="10, 0, 0, 0" FontSize="12"/>
                     </StackPanel>
+
                 </StackPanel>
             </Grid>
         </Grid>

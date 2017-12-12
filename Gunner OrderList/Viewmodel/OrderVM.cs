@@ -40,6 +40,7 @@ namespace Gunner_OrderList
             _orderCatalog = OrderCatalog.Instance;
             _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo       
             _newOrder = new Order();
+            _displayedOrders2 = _orderCatalog.DummyInfo;
 
             _deleteCommand = new RelayCommand(DoDeleteRelay, OrderIsSelected);
             _editCommand = new RelayCommand(DoEditRelay, OrderIsSelected);
@@ -56,6 +57,17 @@ namespace Gunner_OrderList
                 return _displayedOrders;
             }
         }
+
+        public ObservableCollection<Order> DisplayedOrders2
+        {
+            get
+            {
+                _changeListCommand.RaiseCanExecuteChanged();
+                return _displayedOrders2;
+            }
+        }
+
+
 
         public Order NewOrder
         {

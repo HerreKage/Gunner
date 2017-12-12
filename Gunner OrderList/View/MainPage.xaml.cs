@@ -63,5 +63,10 @@ namespace Gunner_OrderList
         {
 
         }
+
+        private void TextBlock_SelectionChanged_4(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
