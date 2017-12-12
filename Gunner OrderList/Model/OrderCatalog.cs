@@ -34,7 +34,7 @@ namespace Gunner_OrderList
             _historyOrders = new ObservableCollection<Order>();
             _invoiceOrders = new ObservableCollection<Order>();
 
-            void Load(bool suppressException = true);
+
 
 
 
