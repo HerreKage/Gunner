@@ -21,7 +21,11 @@ namespace Gunner_OrderList
         {    
         }
 
-        public string Name { get => _name; set => _name = value; }
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
         public string Email { get => _email; set => _email = value; }
         public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
         public string Address { get => _address; set => _address = value; }

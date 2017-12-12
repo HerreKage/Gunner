@@ -11,6 +11,7 @@ namespace Gunner_OrderList
     class OrderAddComand : ICommand
     {
         private ObservableCollection<Order> _unapprovedOrders;
+        private OrderCatalog _orders;
         private Order _order;
 
         private ObservableCollection<Customer> _customers;
@@ -18,7 +19,7 @@ namespace Gunner_OrderList
         public OrderAddComand(Order order)
         {
             _order = order;
-            OrderCatalog _orders = OrderCatalog.Instance;
+            _orders = OrderCatalog.Instance;
             _unapprovedOrders = _orders.DummyInfo;             //Currently set to dummy info
 
             CustomerCatalog customers = CustomerCatalog.Instance;
@@ -33,6 +34,7 @@ namespace Gunner_OrderList
         public void Execute(object parameter)
         {
             _unapprovedOrders.Add(_order);
+            _order.OrderNumber = _orders.OrderNumber;   //Order number is only assigned once order added
 
             _customers.Add(_order.Customer);
         }

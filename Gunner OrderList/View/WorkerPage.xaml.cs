@@ -20,8 +20,12 @@ namespace Gunner_OrderList.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class LoginPage : Page
+    public sealed partial class WorkerPage : Page
     {
-        public LoginPage() => this.InitializeComponent();
+        public WorkerPage()
+        {
+            this.InitializeComponent();
+        }
+        
     }
 }

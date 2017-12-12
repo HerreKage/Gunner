@@ -11,13 +11,13 @@ using System.Runtime.CompilerServices;
 
 namespace Gunner_OrderList
 {
-    public class OrderDeleteCommand : ICommand   //editcommand and deletecommand are just relaycommands
+    public class RelayCommand : ICommand   //editcommand and deletecommand are just relaycommands
     {
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
         public event EventHandler CanExecuteChanged;
 
-        public OrderDeleteCommand(Action execute, Func<bool> canExecute)
+        public RelayCommand(Action execute, Func<bool> canExecute)
         {
             _execute = execute;
             _canExecute = canExecute;
