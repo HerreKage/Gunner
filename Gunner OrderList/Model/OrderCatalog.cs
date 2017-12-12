@@ -19,7 +19,7 @@ namespace Gunner_OrderList
         private ObservableCollection<Order> _historyOrders;
         private ObservableCollection<Order> _invoiceOrders;
 
-        private ObservableCollection<Order> _dummyInfo;  //Testing info
+        private ObservableCollection<Order> _dummyInfo; //Testing info
 
         private static int _orderNumber;  //This will be the ordernumber that is assigned to each order when added (will be updated)
 
