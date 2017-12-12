@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gunner_OrderList.Viewmodel;
 
 namespace Gunner_OrderList
 {
@@ -51,6 +52,9 @@ namespace Gunner_OrderList
         //public bool Checkbox6 { get => checkbox6; set => checkbox6 = value; }
         //public bool Checkbox7 { get => checkbox7; set => checkbox7 = value; }
         //public bool Checkbox8 { get => checkbox8; set => checkbox8 = value; }
+
+
+       
 
     }
 }

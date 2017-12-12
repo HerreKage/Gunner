@@ -24,7 +24,7 @@ namespace Gunner_OrderList.View
     {
         public BlankPage1()
         {
-            this.InitializeComponent();
+            
         }
     }
 }

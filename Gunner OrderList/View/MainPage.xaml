@@ -87,7 +87,11 @@
                 </Grid>
             </Grid>
 
-            <Button Content="Rediger ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="83,48,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
+            <Button Content= "Rediger ordre" Command="{Binding EditCommand, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Margin="83,48,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black" Click="Button_Click" >
+            
+            </Button>
+
+
             <Button Content="Gem ordre" Grid.Column="1" HorizontalAlignment="Left" Margin="310,50,0,0" VerticalAlignment="Top" Width="150" Foreground="White" Background="Black"/>
         </Grid>
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,99,0,0" Text="Ordrer til færdiggørelse:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20" Foreground="White"/>
