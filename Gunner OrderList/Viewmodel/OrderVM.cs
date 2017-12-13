@@ -65,9 +65,7 @@ namespace Gunner_OrderList
         public ObservableCollection<Order> DisplayedOrders
         {
             get
-            {
-                _orderCatalog.SaveAll();                      //Needs to be placed better
-
+            {   //Needs to be placed better
                 _changeListHistoryCommand.RaiseCanExecuteChanged();
                 _changeListCurrentCommand.RaiseCanExecuteChanged();
                 return _displayedOrders;
@@ -272,7 +270,8 @@ namespace Gunner_OrderList
 
         public void MoveOrderToHistory()
         {
-            _orderCatalog.HistoryOrders.Add(_newOrder);           
+            _orderCatalog.HistoryOrders.Add(_newOrder);
+            _newOrder.CurrentList = "history";
             RemoveFromOrders("history");
         }
 
@@ -284,6 +283,7 @@ namespace Gunner_OrderList
         public void MoveOrderToCurrent()
         {
             _orderCatalog.CurrentOrders.Add(_newOrder);
+            _newOrder.CurrentList = "current";
             RemoveFromOrders("current");
         }
 
@@ -295,6 +295,7 @@ namespace Gunner_OrderList
         public void MoveOrderToUnapproved()
         {
             _orderCatalog.UnapprovedOrders.Add(_newOrder);
+            _newOrder.CurrentList = "unapproved";
             RemoveFromOrders("unapproved");
         }
 
@@ -306,6 +307,7 @@ namespace Gunner_OrderList
         public void MoveOrderToInvoice()
         {
             _orderCatalog.InvoiceOrders.Add(_newOrder);
+            _newOrder.CurrentList = "invoice";
             RemoveFromOrders("invoice");
         }
 
@@ -330,6 +332,7 @@ namespace Gunner_OrderList
             {
                 _orderCatalog.InvoiceOrders.Remove(_newOrder);
             }
+            _orderCatalog.SaveAll(); //SAVE
         }
 
         #endregion

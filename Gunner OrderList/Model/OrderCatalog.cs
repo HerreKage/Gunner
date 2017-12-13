@@ -22,66 +22,86 @@ namespace Gunner_OrderList
 
         private ObservableCollection<Order> _dummyInfo;  //Testing info
 
-        private static int _orderNumber;  //This will be the ordernumber that is assigned to each order when added (will be updated)
+        private static int _orderNumber = 0; 
 
         private Order _editOrder;
 
 
-        private FileSource<Order> historyOrder;
-        //private FileSource<Order> unapprovedOrder;
-        //private FileSource<Order> currentOrder;
-        //private FileSource<Order> invoiceOrder;
+        private FileSource<Order> allOrder;
+
 
         private OrderCatalog()
         {
-            _orderNumber = 5;           //This needs to load from stored data later
-
-            _currentOrders = new ObservableCollection<Order>();  //Load in from stored data later
+            _currentOrders = new ObservableCollection<Order>();
             _unapprovedOrders = new ObservableCollection<Order>();
             _invoiceOrders = new ObservableCollection<Order>();
             _historyOrders = new ObservableCollection<Order>();
 
-
             DummyOrder _dummyOrders = new DummyOrder();  //Testing Info
             _dummyInfo = _dummyOrders.DummyInfo;         //Testing Info
 
-            FileSource<Order> currentOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "Current.json");
-            FileSource<Order> unapprovedOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "Unapproved.json");
-            historyOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "History.json");
-            FileSource<Order> invoiceOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "Invoice.json");
+            allOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "allOrders.json");
 
-            ConvertListToObs(historyOrder.Load().Result, _historyOrders);
-            //ConvertListToObs(unapprovedOrder.Load().Result, _unapprovedOrders);
-            //ConvertListToObs(invoiceOrder.Load().Result, _invoiceOrders);
-            //ConvertListToObs(currentOrder.Load().Result, _currentOrders);
-
+            ConvertListToObs(allOrder.Load().Result);
         }
 
         public void SaveAll()
         {
-            historyOrder.Save(_historyOrders.ToList());
-            //unapprovedOrder.Save(_unapprovedOrders.ToList());
-            //currentOrder.Save(_currentOrders.ToList());
-            //invoiceOrder.Save(_invoiceOrders.ToList());
+            List<Order> allOrders = new List<Order>();
+
+            foreach (Order order in _currentOrders)
+            {
+                allOrders.Add(order);
+            }
+            foreach (Order order in _unapprovedOrders)
+            {
+                allOrders.Add(order);
+            }
+            foreach (Order order in _historyOrders)
+            {
+                allOrders.Add(order);
+            }
+            foreach (Order order in _invoiceOrders)
+            {
+                allOrders.Add(order);
+            }
+
+            allOrder.Save( allOrders );
         }
 
-
-        public void ConvertListToObs(List<Order> list, ObservableCollection<Order> obs)
+        public void ConvertListToObs(List<Order> list)
         {
-            if (list == null || list == new List<Order>())
+            if (list == null)
             {
-                obs = new ObservableCollection<Order>();
             }
             else
             {
                 foreach (Order order in list)
                 {
-                    obs.Add(order);
+                    if (order.CurrentList == "current")
+                    {
+                        _currentOrders.Add(order);
+
+                    }
+                    if (order.CurrentList == "unapproved")
+                    {
+                        _unapprovedOrders.Add(order);
+                    }
+                    if (order.CurrentList == "history")
+                    {
+                        _historyOrders.Add(order);
+                    }
+                    if (order.CurrentList == "invoice")
+                    {
+                        _invoiceOrders.Add(order);
+                    }
+                    if (order.OrderNumber > _orderNumber)
+                    {
+                        _orderNumber = order.OrderNumber;
+                    }
                 }
             }
         }
-
-
 
         #region Singlton
         public static OrderCatalog Instance
@@ -134,8 +154,8 @@ namespace Gunner_OrderList
         {
             get
             {
+                ++_orderNumber;
                 return _orderNumber;
-                _orderNumber++;
             }
         }
         #endregion

@@ -188,13 +188,13 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PersistencyImplementation">
-      <HintPath>..\..\MVVMStarterLibrary\PersistencyImplementation\bin\Debug\PersistencyImplementation.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\MVVMStarterLibrary-master\PersistencyImplementation\obj\Debug\PersistencyImplementation.dll</HintPath>
     </Reference>
     <Reference Include="PersistencyInterfaces">
-      <HintPath>..\..\MVVMStarterLibrary\PersistencyInterfaces\obj\Debug\PersistencyInterfaces.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\MVVMStarterLibrary-master\PersistencyInterfaces\obj\Debug\PersistencyInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="StringPersistencyInterfaces">
-      <HintPath>..\..\MVVMStarterLibrary\StringPersistencyInterfaces\obj\Debug\StringPersistencyInterfaces.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\MVVMStarterLibrary-master\StringPersistencyInterfaces\obj\Debug\StringPersistencyInterfaces.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
