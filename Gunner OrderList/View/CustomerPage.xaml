@@ -13,7 +13,7 @@
         <local:CustomerVM/>
     </Page.DataContext>
 
-    <Grid Background="#7F00AEEB" >
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
@@ -21,17 +21,17 @@
             </Grid.ColumnDefinitions>
 
             <Grid>
-                <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black">
+                <Button Content="Opret ordre" Margin="50,50,0,0" VerticalAlignment="Top" Width="125">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
-                <Button Content="Kunde liste" Margin="190,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
-                <Button Content="Ikke godkendte" Margin="340,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black"/>
-                <Button Content="Færdige ordrer" Margin="490,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black" Click="Button_Click"/>
-                <Button Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Black">
+                <Button Content="Kunde liste" Margin="190,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Ikke godkendte" Margin="340,50,0,0" VerticalAlignment="Top" Width="125"/>
+                <Button Content="Færdige ordrer" Margin="490,50,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click"/>
+                <Button Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
@@ -40,29 +40,29 @@
                 </Button>
                 
                 
-                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="51,149,0,521" BorderBrush="White" BorderThickness="2">
+                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="51,149,0,521" BorderBrush="Black" BorderThickness="2">
 
-                    <TextBlock Text="Kunde:" Margin="13,10,15,10" Width="125" FontWeight="Bold" Foreground="White"/>
-                    <TextBlock Text="Att:" Margin="15,10,15,10" Width="125" FontWeight="Bold" Foreground="White"/>
-                    <TextBlock Text="Adresse:" Margin="15,10,15,10" Width="125" FontWeight="Bold" Foreground="White"/>
-                    <TextBlock Text="Postnr:" Margin="15,10,15,10" Width="75" FontWeight="Bold" Foreground="White" />
-                    <TextBlock Text="By:" Margin="15,10,5,10" Width="125" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="Kunde:" Margin="13,10,15,10" Width="125" FontWeight="Bold"/>
+                    <TextBlock Text="Att:" Margin="15,10,15,10" Width="125" FontWeight="Bold"/>
+                    <TextBlock Text="Adresse:" Margin="15,10,15,10" Width="125" FontWeight="Bold"/>
+                    <TextBlock Text="Postnr:" Margin="15,10,15,10" Width="75" FontWeight="Bold"/>
+                    <TextBlock Text="By:" Margin="15,10,5,10" Width="125" FontWeight="Bold"/>
 
                 </StackPanel>
-                <ListView ItemsSource="{Binding DisplayCustomers}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="718" BorderBrush="White" BorderThickness="2" Margin="51,197,0,0" MaxHeight="225">
+                <ListView ItemsSource="{Binding DisplayCustomers}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="51,197,0,0" MaxHeight="225">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Customer">
-                            <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="White">
+                            <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="Red">
                                 <!--Company-->
-                                <TextBlock Text="{Binding Company}" Margin="0,10,15,10" Width="125" Foreground="White"/>
+                                <TextBlock Text="{Binding Company}" Margin="0,10,15,10" Width="125"/>
                                 <!--Contact person-->
-                                <TextBlock Text="{Binding Name}" Margin="15,10,15,10" Width="125" Foreground="White"/>
+                                <TextBlock Text="{Binding Name}" Margin="15,10,15,10" Width="125"/>
                                 <!--Adress-->
-                                <TextBlock Text="{Binding Address}" Margin="15,10,15,10" Width="125" Foreground="White"/>
+                                <TextBlock Text="{Binding Address}" Margin="15,10,15,10" Width="125"/>
                                 <!--Zipcode-->
-                                <TextBlock Text="{Binding ZipCode}" Margin="15,10,15,10" Width="75" Foreground="White"/>
+                                <TextBlock Text="{Binding ZipCode}" Margin="15,10,15,10" Width="75"/>
                                 <!--Town-->
-                                <TextBlock Text="{Binding Town}" Margin="15,10,15,10" Width="75" Foreground="White"/>
+                                <TextBlock Text="{Binding Town}" Margin="15,10,15,10" Width="75"/>
                                 <!--Phone-->
                                 <!--<TextBlock Text="{Binding PhoneNumber}" Margin="15,10,15,10" Width="75"/>-->
                             </StackPanel>
@@ -78,28 +78,28 @@
             </Grid>
         </Grid>
 
-        <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,99,0,0" Text="Kundeliste:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,99,0,0" Text="Kundeliste:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
 
-        <Grid Margin="850,150,50,100" BorderBrush="White" BorderThickness="2" Height="Auto" >
-            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding Company, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Att:" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding Address, Mode=TwoWay}" VerticalAlignment="Top" Width="225" MaxHeight="25" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding ZipCode, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Postnummer:" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding Town, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Foreground="White"/>
+        <Grid Margin="850,150,50,100" BorderBrush="Black" BorderThickness="2" Height="Auto" >
+            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding Company, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Att:" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding Address, Mode=TwoWay}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding ZipCode, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Postnummer:" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding Town, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="By:" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding PhoneNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,315,0,20" TextWrapping="Wrap" Text="{Binding Email, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,360,0,20" TextWrapping="Wrap" Text="{Binding CompanyNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,360,0,0" TextWrapping="Wrap" Text="CVR" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-            <Button Content="Tilføj" HorizontalAlignment="Left" Margin="80,416,0,0" VerticalAlignment="Top" Width="70" Foreground="White" Background="Black"/>
-            <Button Content="Rediger" HorizontalAlignment="Left" Margin="170,416,0,0" VerticalAlignment="Top" Width="70" Foreground="White" Background="Black" Command="{Binding EditCustomerCommand}"/>
-            <Button Content="Slet" HorizontalAlignment="Left" Margin="260,416,0,0" VerticalAlignment="Top" Width="70" Foreground="White" Background="Black" Command="{Binding DeletionCommand}"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding PhoneNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,315,0,20" TextWrapping="Wrap" Text="{Binding Email, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,360,0,20" TextWrapping="Wrap" Text="{Binding CompanyNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,360,0,0" TextWrapping="Wrap" Text="CVR" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Button Content="Tilføj" HorizontalAlignment="Left" Margin="80,416,0,0" VerticalAlignment="Top" Width="70"/>
+            <Button Content="Rediger" HorizontalAlignment="Left" Margin="170,416,0,0" VerticalAlignment="Top" Width="70" Command="{Binding EditCustomerCommand}"/>
+            <Button Content="Slet" HorizontalAlignment="Left" Margin="260,416,0,0" VerticalAlignment="Top" Width="70" Command="{Binding DeletionCommand}"/>
         </Grid>
 
 

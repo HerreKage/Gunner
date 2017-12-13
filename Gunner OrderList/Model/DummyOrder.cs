@@ -120,6 +120,7 @@ namespace Gunner_OrderList
             DummyInfo.Add(order6);
         }
 
+
         internal ObservableCollection<Order> DummyInfo { get => _dummyInfo; set => _dummyInfo = value; }
     }
 }
