@@ -238,13 +238,18 @@
                         <TextBox Width="250"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <CalendarDatePicker x:Name="arrivalCalendarDatePicker" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
+                        <CalendarDatePicker x:Name="arrivalCalendarDatePicker"  PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
                         <CalendarDatePicker x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Text="Ret status:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
                         <Button Content="Færdig" Width="120" FontSize="12"/>
                         <Button Content="Til godkendelse" Width="120" Margin="10, 0, 0, 0" FontSize="12"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
+                        <TextBlock Text="" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <Button Content="Godkend" Width="120" FontSize="12"/>
+                       
                     </StackPanel>
 
                 </StackPanel>
