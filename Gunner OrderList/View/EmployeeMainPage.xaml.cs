@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Gunner_OrderList.View
+namespace Gunner_OrderList
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -24,7 +24,7 @@ namespace Gunner_OrderList.View
     {
         public EmployeeMainPage()
         {
-           // this.InitializeComponent();
+           this.InitializeComponent();
         }
     }
 }

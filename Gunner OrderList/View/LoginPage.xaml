@@ -58,7 +58,7 @@
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
-                <Button Grid.ColumnSpan="2" Content="Medarbejder" Margin="235,10,0,0" VerticalAlignment="Top" Width="125" Grid.Column="1" Grid.Row="2">
+                <Button Grid.ColumnSpan="2" Content="Medarbejder" Margin="243,10,0,0" VerticalAlignment="Top" Width="125" Grid.Column="1" Grid.Row="2">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.EmployeeMainPage"/>
