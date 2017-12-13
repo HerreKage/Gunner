@@ -20,10 +20,12 @@ namespace Gunner_OrderList
             customer1.PhoneNumber = "50652415";
             customer1.CompanyNumber = "12345678";
             customer1.Email = "apple@gmail.com";
+            customer1.Town = "Lake Oswego";
+            customer1.ZipCode = "97034";
             
             Order order1 = new Order();
             order1.Customer = customer1;
-            order1.StartDate = "14/12";
+            order1.StartDate = new DateTime(2017,12,12);
             order1.Deadline = "16/12";
             order1.Description = "Needs outdoor signs that will be in a windy area so will need to use strong plastic.";
             order1.Product = "Advertisment Sign";
@@ -44,7 +46,7 @@ namespace Gunner_OrderList
 
             Order order2 = new Order();
             order2.Customer = customer2;
-            order2.StartDate = "01/12";
+            order2.StartDate = new DateTime(2017, 12, 1);
             order2.Deadline = "19/12";
             order2.Description = "Needs vibrant sign that will attact customers.";
             order2.Product = "Sign";
@@ -57,7 +59,7 @@ namespace Gunner_OrderList
 
             Order order3 = new Order();
             order3.Customer = customer1;
-            order3.StartDate = "08/12";
+            order3.StartDate = new DateTime(2017, 12, 8);
             order3.Deadline = "10/12";
             order3.Description = "Need to getadvertisement on ther company cars";
             order3.Product = "4 biler";
@@ -70,7 +72,7 @@ namespace Gunner_OrderList
             #region Order4 - Customer2
             Order order4 = new Order();
             order4.Customer = customer2;
-            order4.StartDate = "07/12";
+            order4.StartDate = new DateTime(2017, 12, 9);
             order4.Deadline = "12/12";
             order4.Description = "Needs outdoor signs that will be in a windy area so will need to use strong plastic.";
             order4.Product = "Stickers";
@@ -85,7 +87,7 @@ namespace Gunner_OrderList
 
             Order order5 = new Order();
             order5.Customer = customer1;
-            order5.StartDate = "02/12";
+            order5.StartDate = new DateTime(2017, 12, 2);
             order5.Deadline = "02/12";
             order5.Description = "Needs outdoor signs that will be in a windy area so will need to use strong plastic.";
             order5.Product = "Pop-up medie";
@@ -99,7 +101,7 @@ namespace Gunner_OrderList
 
             Order order6 = new Order();
             order6.Customer = customer1;
-            order6.StartDate = "02/12";
+            order6.StartDate = new DateTime(2017, 12, 18);
             order6.Deadline = "10/12";
             order6.Description = "Needs outdoor signs that will be in a windy area so will need to use strong plastic.";
             order6.Product = "Gulv reklame";

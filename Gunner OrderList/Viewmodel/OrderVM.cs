@@ -20,6 +20,7 @@ namespace Gunner_OrderList
     {
         private OrderCatalog _orderCatalog;
         private ObservableCollection<Order> _displayedOrders;
+        private ObservableCollection<Order> _displayedOrders2;
 
         private Order _selectedOrder;
         private Customer _selectedOrderCustomer;
@@ -29,21 +30,35 @@ namespace Gunner_OrderList
         private OrderAddComand _addCommand;
         private RelayCommand _deleteCommand;
         private RelayCommand _editCommand;
-        private RelayCommand _changeListCommand;
-        private RelayCommand _moveListCommand;
+        private RelayCommand _changeListHistoryCommand;
+        private RelayCommand _changeListCurrentCommand;
+
+
+        private RelayCommand _moveOrderToHistoryCommand;
+        private RelayCommand _moveOrderToCurrentCommand;
+        private RelayCommand _moveOrderToUnapprovedCommand;
+        private RelayCommand _moveOrderToInvoiceCommand;
 
         private bool _editMode = false;
 
         public OrderVM()
         {
-            _orderCatalog = OrderCatalog.Instance;
-            _displayedOrders = _orderCatalog.DummyInfo;   //For now just display dummyinfo       
             _newOrder = new Order();
+            _orderCatalog = OrderCatalog.Instance;
+
+            _displayedOrders = _orderCatalog.CurrentOrders;   //For now just display dummyinfo       
+            _displayedOrders2 = _orderCatalog.UnapprovedOrders;
 
             _deleteCommand = new RelayCommand(DoDeleteRelay, OrderIsSelected);
             _editCommand = new RelayCommand(DoEditRelay, OrderIsSelected);
-            _changeListCommand = new RelayCommand(DoChangeListRelay, AlwaysTrue);
-            _moveListCommand = new RelayCommand(DoMoveListRelay, OrderIsSelected);
+            _changeListHistoryCommand = new RelayCommand(DoChangeListHistoryRelay, AlwaysTrue);
+            _changeListCurrentCommand = new RelayCommand(DoChangeListCurrentRelay, AlwaysTrue);
+
+            _moveOrderToHistoryCommand = new RelayCommand(MoveOrderToHistory, AlwaysTrue);
+            _moveOrderToCurrentCommand = new RelayCommand(MoveOrderToCurrent, AlwaysTrue);
+            _moveOrderToUnapprovedCommand = new RelayCommand(MoveOrderToUnapproved, AlwaysTrue);
+            _moveOrderToInvoiceCommand = new RelayCommand(MoveOrderToInvoice, AlwaysTrue);
+
         }
 
         #region Properties
@@ -51,8 +66,21 @@ namespace Gunner_OrderList
         {
             get
             {
-                _changeListCommand.RaiseCanExecuteChanged();
+                _orderCatalog.SaveAll();                      //Needs to be placed better
+
+                _changeListHistoryCommand.RaiseCanExecuteChanged();
+                _changeListCurrentCommand.RaiseCanExecuteChanged();
                 return _displayedOrders;
+            }
+        }
+
+        public ObservableCollection<Order> DisplayedOrders2
+        {
+            get
+            {
+                _changeListHistoryCommand.RaiseCanExecuteChanged();
+                _changeListCurrentCommand.RaiseCanExecuteChanged();
+                return _displayedOrders2;
             }
         }
 
@@ -60,6 +88,11 @@ namespace Gunner_OrderList
         {
             get
             {
+                _moveOrderToHistoryCommand.RaiseCanExecuteChanged();
+                _moveOrderToCurrentCommand.RaiseCanExecuteChanged();
+                _moveOrderToInvoiceCommand.RaiseCanExecuteChanged();
+                _moveOrderToUnapprovedCommand.RaiseCanExecuteChanged();
+
                 if (_orderCatalog.EditOrder != null)
                 {
                     _newOrder = _orderCatalog.EditOrder;
@@ -97,12 +130,16 @@ namespace Gunner_OrderList
                 {
                     _selectedOrderCustomer = _selectedOrder.Customer;
                 }
+                else
+                {
+                    _selectedOrderCustomer = null;
+                }
+                
                 OnPropertyChanged("SelectedOrderCustomer");
                 OnPropertyChanged();
 
                 _deleteCommand.RaiseCanExecuteChanged();
                 _editCommand.RaiseCanExecuteChanged();
-                _moveListCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -181,20 +218,23 @@ namespace Gunner_OrderList
 
         #region ChangeListCommand
 
-        public void DoChangeListRelay() // Added
+        public void DoChangeListHistoryRelay() 
         {
-            ChangeList();
+            ChangeListHistory();
         }
 
-        public ICommand ChangeListCommand // Added
+        public ICommand ChangeListCommandHistory 
         {
-            get { return _changeListCommand; }
+            get { return _changeListHistoryCommand; }
         }
 
-        public void ChangeList()
+        public void ChangeListHistory()
         {
             _displayedOrders = _orderCatalog.HistoryOrders;
+            _displayedOrders2 = _orderCatalog.InvoiceOrders;
+
             OnPropertyChanged("DisplayedOrders");
+            OnPropertyChanged("DisplayedOrders2");
         }
 
         public bool AlwaysTrue()
@@ -202,28 +242,93 @@ namespace Gunner_OrderList
             return true;
         }
 
+
+        public void DoChangeListCurrentRelay() 
+        {
+            ChangeListCurrent();
+        }
+
+        public ICommand ChangeListCommandCurrent 
+        {
+            get { return _changeListCurrentCommand; }
+        }
+
+        public void ChangeListCurrent()
+        {
+            _displayedOrders = _orderCatalog.CurrentOrders;
+            _displayedOrders2 = _orderCatalog.UnapprovedOrders;
+            OnPropertyChanged("DisplayedOrders");
+            OnPropertyChanged("DisplayedOrders2");
+        }
+
         #endregion
 
         #region MoveList
 
-        public void DoMoveListRelay() // Added
+        public ICommand MoveOrderToHistoryCommand 
         {
-            MoveList();
+            get { return _moveOrderToHistoryCommand; }
         }
 
-        public ICommand MoveListCommand // Added
+        public void MoveOrderToHistory()
         {
-            get { return _moveListCommand; }
+            _orderCatalog.HistoryOrders.Add(_newOrder);           
+            RemoveFromOrders("history");
         }
 
-        public void MoveList()
+        public ICommand MoveOrderToCurrentCommand
         {
-            if (_displayedOrders.Contains(_selectedOrder))
+            get { return _moveOrderToCurrentCommand; }
+        }
+
+        public void MoveOrderToCurrent()
+        {
+            _orderCatalog.CurrentOrders.Add(_newOrder);
+            RemoveFromOrders("current");
+        }
+
+        public ICommand MoveOrderToUnapprovedCommand 
+        {
+            get { return _moveOrderToUnapprovedCommand; }
+        }
+
+        public void MoveOrderToUnapproved()
+        {
+            _orderCatalog.UnapprovedOrders.Add(_newOrder);
+            RemoveFromOrders("unapproved");
+        }
+
+        public ICommand MoveOrderToInvoiceCommand
+        {
+            get { return _moveOrderToInvoiceCommand; }
+        }
+
+        public void MoveOrderToInvoice()
+        {
+            _orderCatalog.InvoiceOrders.Add(_newOrder);
+            RemoveFromOrders("invoice");
+        }
+
+        public void RemoveFromOrders(string current)
+        {
+            if (_orderCatalog.CurrentOrders.Contains(_newOrder) && current != "current")
             {
-                _orderCatalog.HistoryOrders.Add(_selectedOrder);
-                _displayedOrders.Remove(_selectedOrder);
-                _selectedOrder = null;
-                _selectedOrderCustomer = null;
+                _orderCatalog.CurrentOrders.Remove(_newOrder);
+            }
+
+            if (_orderCatalog.UnapprovedOrders.Contains(_newOrder) && current != "unapproved")
+            {
+                _orderCatalog.UnapprovedOrders.Remove(_newOrder);
+            }
+
+            if (_orderCatalog.HistoryOrders.Contains(_newOrder) && current != "history")
+            {
+                _orderCatalog.HistoryOrders.Remove(_newOrder);
+            }
+
+            if (_orderCatalog.InvoiceOrders.Contains(_newOrder) && current != "invoice")
+            {
+                _orderCatalog.InvoiceOrders.Remove(_newOrder);
             }
         }
 

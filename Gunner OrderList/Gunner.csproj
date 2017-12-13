@@ -94,9 +94,8 @@
   <ItemGroup>
     <Compile Include="DataSources\ConfiguredFileSource.cs" />
     <Compile Include="DataSources\FileSource.cs" />
-    <Compile Include="FileStringPersistence.cs" />
-    <Compile Include="JSONConvert.cs" />
-    <Compile Include="Model\DependingOrders.cs" />
+    <Compile Include="DataSources\FileStringPersistence.cs" />
+    <Compile Include="DataSources\JSONConvert.cs" />
     <Compile Include="Model\Worker.cs" />
     <Compile Include="Model\WorkerCatalog.cs" />
     <Compile Include="Model\WorkerPassword.cs" />
@@ -189,13 +188,13 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PersistencyImplementation">
-      <HintPath>..\..\..\..\Desktop\Per Opgaver\MVVMStarterLibrary-master\MVVMStarterLibrary-master\PersistencyImplementation\obj\Debug\PersistencyImplementation.dll</HintPath>
+      <HintPath>..\..\MVVMStarterLibrary\PersistencyImplementation\bin\Debug\PersistencyImplementation.dll</HintPath>
     </Reference>
     <Reference Include="PersistencyInterfaces">
-      <HintPath>..\..\..\..\Desktop\Per Opgaver\MVVMStarterLibrary-master\MVVMStarterLibrary-master\PersistencyInterfaces\obj\Debug\PersistencyInterfaces.dll</HintPath>
+      <HintPath>..\..\MVVMStarterLibrary\PersistencyInterfaces\obj\Debug\PersistencyInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="StringPersistencyInterfaces">
-      <HintPath>..\..\..\..\Desktop\Per Opgaver\MVVMStarterLibrary-master\MVVMStarterLibrary-master\StringPersistencyInterfaces\obj\Debug\StringPersistencyInterfaces.dll</HintPath>
+      <HintPath>..\..\MVVMStarterLibrary\StringPersistencyInterfaces\obj\Debug\StringPersistencyInterfaces.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
