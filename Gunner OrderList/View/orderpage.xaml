@@ -45,9 +45,8 @@
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
-                    <Button Foreground="White" Background="Black" Content="Ikke godkendte" Margin="313,50,0,0" VerticalAlignment="Top" Width="125"/>
-                    <Button Foreground="White" Background="Black" Content="Færdige ordrer" Margin="479,50,0,0" VerticalAlignment="Top" Width="125"/>
-                    <Button Foreground="White" Background="Black" Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125">
+
+                    <Button Foreground="White" Background="Black" Content="Til forside" Margin="314,50,0,0" VerticalAlignment="Top" Width="125">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
@@ -101,11 +100,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 10">
                         <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="635" Margin="15 0, 0, 0" BorderBrush="Black"/>
+                        <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Width="635" Margin="15 0, 0, 0" BorderBrush="Black"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
                         <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="635" Margin="15 0, 0, 0" MinHeight="60" Height="128" BorderBrush="Black"/>
+                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" Width="635" Margin="15 0, 0, 0" MinHeight="60" Height="128" BorderBrush="Black"/>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
@@ -180,11 +179,7 @@
                         <TextBox  IsEnabled="{Binding ElementName=priceCheckBox6, Path=IsChecked}" Text="{Binding NewOrder.VedlagteString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
                 </StackPanel>
-
-
             </Grid>
-
-
 
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
@@ -197,54 +192,82 @@
                     <RowDefinition Height="9*"/>
                 </Grid.RowDefinitions>
                 <Grid ColumnSpan="3">
-                    <Button Foreground="White" Background="Black" Content="Rediger ordre"  Width="125" Margin="65,50,0,49"/>
-                    <Button Foreground="White" Background="Black" Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150"/>
+                    <Button Visibility="{Binding EditModeHide}" Foreground="White" Background="Black" Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+
+                    <Button Command="{Binding AddCommand}" Visibility="{Binding EditModeShow}" Foreground="White" Background="Black" Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+                    
                 </Grid>
                 <StackPanel Grid.Column="1" BorderBrush="Black" BorderThickness="2" MinHeight="545" Margin="0,108,0,67" Grid.RowSpan="2">
                     <StackPanel Orientation="Horizontal" Margin="10, 15, 0, 10">
                         <TextBlock Text="Firma:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox  Width="250" />
+                        <TextBox  Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" Width="250" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Text="Att:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBox Text="{Binding NewOrder.Customer.Name, Mode=TwoWay}" Width="250"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Text="Adresse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBox Text="{Binding NewOrder.Customer.Address, Mode=TwoWay}" Width="250"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Text="Postnummer:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBox Text="{Binding NewOrder.Customer.ZipCode, Mode=TwoWay}" Width="250"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Text="By:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBox Text="{Binding NewOrder.Customer.Town, Mode=TwoWay}" Width="250"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Text="Telefon:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBox Text="{Binding NewOrder.Customer.CompanyNumber, Mode=TwoWay}" Width="250"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Text="E-mail:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBox Text="{Binding NewOrder.Customer.Email, Mode=TwoWay}" Width="250"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Text="CVR:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBox Text="{Binding NewOrder.Customer.CompanyNumber, Mode=TwoWay}" Width="250"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Width="250"/>
+                        <TextBlock  Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Width="250"/>
                     </StackPanel>
+                    
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <CalendarDatePicker x:Name="arrivalCalendarDatePicker" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
-                        <CalendarDatePicker x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120"/>
+                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker"  PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
+                        <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120"/>
                     </StackPanel>
+                    
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <TextBlock Text="Ret status:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <Button Content="Færdig" Width="120" FontSize="12"/>
-                        <Button Content="Til godkendelse" Width="120" Margin="10, 0, 0, 0" FontSize="12"/>
+                        <TextBlock Visibility="{Binding EditModeHide}" Text="Ret status:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <Button Command="{Binding MoveOrderToHistoryCommand}" Visibility="{Binding EditModeHide}" Content="Færdig" Width="120" FontSize="12">
+                            <Interactivity:Interaction.Behaviors>
+                                <Core:EventTriggerBehavior EventName="Click">
+                                    <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                                </Core:EventTriggerBehavior>
+                            </Interactivity:Interaction.Behaviors>
+                        </Button>
+                        <Button Command="{Binding MoveOrderToUnapprovedCommand}" Visibility="{Binding EditModeHide}" Content="Til godkendelse" Width="120" Margin="10, 0, 0, 0" FontSize="12">
+                            <Interactivity:Interaction.Behaviors>
+                                <Core:EventTriggerBehavior EventName="Click">
+                                    <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                                </Core:EventTriggerBehavior>
+                            </Interactivity:Interaction.Behaviors>
+                        </Button>
                     </StackPanel>
 
                 </StackPanel>

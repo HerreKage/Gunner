@@ -20,7 +20,7 @@ namespace Gunner_OrderList
         {
             _order = order;
             _orders = OrderCatalog.Instance;
-            _unapprovedOrders = _orders.DummyInfo;             //Currently set to dummy info
+            _unapprovedOrders = _orders.UnapprovedOrders;          
 
             CustomerCatalog customers = CustomerCatalog.Instance;
             _customers = customers.Customers;
@@ -34,7 +34,7 @@ namespace Gunner_OrderList
         public void Execute(object parameter)
         {
             _unapprovedOrders.Add(_order);
-            _order.OrderNumber = _orders.OrderNumber;   //Order number is only assigned once order added
+            _order.OrderNumber = _orders.OrderNumber;  
 
             _customers.Add(_order.Customer);
         }
