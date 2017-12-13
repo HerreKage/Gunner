@@ -194,6 +194,14 @@ namespace Gunner_OrderList
                 _selectedOrder = null;
                 _selectedOrderCustomer = null;
             }
+            if (_displayedOrders2.Contains(_selectedOrder))
+            {
+                _displayedOrders2.Remove(_selectedOrder);
+                _selectedOrder = null;
+                _selectedOrderCustomer = null;
+            }
+
+
         }
         #endregion
 

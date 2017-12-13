@@ -123,6 +123,7 @@
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
+            <Button Command ="{Binding DeleteCommand}"  Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="230,52,0,0" VerticalAlignment="Top" Width="122"/>
         </Grid>
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,99,0,0" Text="Til færdiggørelse:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
 
