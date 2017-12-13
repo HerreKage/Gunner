@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Security.Cryptography.Core;
 
 namespace Gunner_OrderList
 {
@@ -17,6 +18,9 @@ namespace Gunner_OrderList
         private string _deadline;
         private string _price;
         private string _notes;
+        private string _postNummer;
+        private string _adresse;
+        private string _by;
 
         public Order()
         {
@@ -115,6 +119,12 @@ namespace Gunner_OrderList
         public string Deadline { get => _deadline; set => _deadline = value; }
         public string Price { get => _price; set => _price = value; }
         public string Notes { get => _notes; set => _notes = value; }
+        public string Postnummer
+        {
+            get => _postNummer;
+            set => _postNummer = value;
+        }
+        
         #endregion
 
         #region Material Property
@@ -175,6 +185,8 @@ namespace Gunner_OrderList
         public string LevAntalString { get => _levAntalString; set => _levAntalString = value; }
         public bool VedlagteBool { get => _vedlagteBool; set => _vedlagteBool = value; }
         public string VedlagteString { get => _vedlagteString; set => _vedlagteString = value; }
+        public string Adresse { get => _adresse; set => _adresse = value; }
+        public string By { get => _by; set => _by = value; }
         #endregion
     }
 }
