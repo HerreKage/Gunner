@@ -4,7 +4,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Security.Cryptography.Core;
 
 namespace Gunner_OrderList
 {
@@ -14,13 +13,12 @@ namespace Gunner_OrderList
         private string _description;
         private int orderNumber;
         private string _product;
-        private string _startdate;
+        private DateTime _startdate = DateTime.Now;
         private string _deadline;
         private string _price;
         private string _notes;
-        private string _postNummer;
-        private string _adresse;
-        private string _by;
+
+        private string _currentList = "unapproved";
 
         public Order()
         {
@@ -115,16 +113,10 @@ namespace Gunner_OrderList
         public string Description { get => _description; set => _description = value; }
         public int OrderNumber { get => orderNumber; set => orderNumber = value; }
         public string Product { get => _product; set => _product = value; }
-        public string StartDate { get => _startdate; set => _startdate = value; }
+        public DateTime StartDate { get => _startdate; set => _startdate = value; }
         public string Deadline { get => _deadline; set => _deadline = value; }
         public string Price { get => _price; set => _price = value; }
         public string Notes { get => _notes; set => _notes = value; }
-        public string Postnummer
-        {
-            get => _postNummer;
-            set => _postNummer = value;
-        }
-        
         #endregion
 
         #region Material Property
@@ -185,8 +177,7 @@ namespace Gunner_OrderList
         public string LevAntalString { get => _levAntalString; set => _levAntalString = value; }
         public bool VedlagteBool { get => _vedlagteBool; set => _vedlagteBool = value; }
         public string VedlagteString { get => _vedlagteString; set => _vedlagteString = value; }
-        public string Adresse { get => _adresse; set => _adresse = value; }
-        public string By { get => _by; set => _by = value; }
+        public string CurrentList { get => _currentList; set => _currentList = value; }
         #endregion
     }
 }
