@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
-    x:Class="Gunner_OrderList.OrderPage"
+    x:Class="Gunner_OrderList.EmployeeOrderPage"
     mc:Ignorable="d" Height="720" Width="1280">
 
     <Page.DataContext>
@@ -30,29 +30,23 @@
                     <RowDefinition Height="9*"/>
                 </Grid.RowDefinitions>
                 <Grid ColumnSpan="3">
-                    <Button Content="Opret ordre" Margin="10,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Button Content="Til forside" Margin="10,50,0,0" VerticalAlignment="Top" Width="125">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
+                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.EmployeeMainPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Content="Kunde liste" Margin="160,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Button Content="Logud" Margin="160,50,0,0" VerticalAlignment="Top" Width="125">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
+                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.LoginPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Content="Til forside" Margin="314,50,0,0" VerticalAlignment="Top" Width="125">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
+
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,93,0,0" Text="Ordre" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
                 </Grid>
 
@@ -199,17 +193,18 @@
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
-
-                    <Button Command="{Binding AddCommand}" Visibility="{Binding EditModeShow}" Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150">
+                    <!--Have removed this from button below to see the button:-->
+                    <!--Visibility="{Binding EditModeHide}"-->
+                    <Button Command="{Binding AddCommand}"  Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.EmployeeMainPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
-                    
+
                 </Grid>
-                <StackPanel Grid.Column="1" BorderBrush="Black" BorderThickness="2" MinHeight="500" Margin="0,108,0,86" Grid.RowSpan="2">
+                <StackPanel Grid.Column="1" BorderBrush="Black" BorderThickness="2" MinHeight="500" Margin="0,108,0,85" Grid.RowSpan="2">
                     <StackPanel Orientation="Horizontal" Margin="10, 15, 0, 10">
                         <TextBlock Text="Firma:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
                         <TextBox  Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" Width="250" />
@@ -246,12 +241,12 @@
                         <TextBlock  Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
                         <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Width="250"/>
                     </StackPanel>-->
-                    
+
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker"  PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
                         <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120"/>
                     </StackPanel>
-                    
+
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Visibility="{Binding EditModeHide}" Text="Ret status:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
                         <Button Command="{Binding MoveOrderToCurrentCommand}" Visibility="{Binding EditModeHide}" Content="Godkend ordre" Width="120" FontSize="12">
@@ -269,7 +264,7 @@
                             </Interactivity:Interaction.Behaviors>
                         </Button>
                     </StackPanel>
-                    
+
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Visibility="{Binding EditModeHide}" Text="         " Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
                         <Button Command="{Binding MoveOrderToHistoryCommand}" Visibility="{Binding EditModeHide}" Content="Færdig" Width="120" FontSize="12">

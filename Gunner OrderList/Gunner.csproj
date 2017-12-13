@@ -114,6 +114,9 @@
     <Compile Include="View\EmployeeMainPage.xaml.cs">
       <DependentUpon>EmployeeMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EmployeeOrderPage.xaml.cs">
+      <DependentUpon>EmployeeOrderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="View\EmployeeMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EmployeeOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
