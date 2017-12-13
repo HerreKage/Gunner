@@ -37,6 +37,8 @@ namespace Gunner_OrderList
             _order.OrderNumber = _orders.OrderNumber;  
 
             _customers.Add(_order.Customer);
+
+            _orders.SaveAll();    //SAVE
         }
 
         public void RaiseCanExecuteChanged()

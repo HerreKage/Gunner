@@ -18,6 +18,8 @@ namespace Gunner_OrderList
         private string _price;
         private string _notes;
 
+        private string _currentList = "unapproved";
+
         public Order()
         {
             _customer = new Customer();
@@ -175,6 +177,7 @@ namespace Gunner_OrderList
         public string LevAntalString { get => _levAntalString; set => _levAntalString = value; }
         public bool VedlagteBool { get => _vedlagteBool; set => _vedlagteBool = value; }
         public string VedlagteString { get => _vedlagteString; set => _vedlagteString = value; }
+        public string CurrentList { get => _currentList; set => _currentList = value; }
         #endregion
     }
 }
