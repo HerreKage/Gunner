@@ -254,7 +254,7 @@
                     
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
                         <TextBlock Visibility="{Binding EditModeHide}" Text="Ret status:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <Button Command="{Binding MoveOrderToHistoryCommand}" Visibility="{Binding EditModeHide}" Content="Færdig" Width="120" FontSize="12">
+                        <Button Command="{Binding MoveOrderToCurrentCommand}" Visibility="{Binding EditModeHide}" Content="Current Order" Width="120" FontSize="12">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
@@ -262,6 +262,24 @@
                             </Interactivity:Interaction.Behaviors>
                         </Button>
                         <Button Command="{Binding MoveOrderToUnapprovedCommand}" Visibility="{Binding EditModeHide}" Content="Til godkendelse" Width="120" Margin="10, 0, 0, 0" FontSize="12">
+                            <Interactivity:Interaction.Behaviors>
+                                <Core:EventTriggerBehavior EventName="Click">
+                                    <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                                </Core:EventTriggerBehavior>
+                            </Interactivity:Interaction.Behaviors>
+                        </Button>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
+                        <TextBlock Visibility="{Binding EditModeHide}" Text="         " Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <Button Command="{Binding MoveOrderToHistoryCommand}" Visibility="{Binding EditModeHide}" Content="Færdig" Width="120" FontSize="12">
+                            <Interactivity:Interaction.Behaviors>
+                                <Core:EventTriggerBehavior EventName="Click">
+                                    <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                                </Core:EventTriggerBehavior>
+                            </Interactivity:Interaction.Behaviors>
+                        </Button>
+                        <Button Command="{Binding MoveOrderToInvoiceCommand}" Visibility="{Binding EditModeHide}" Content="Invoice Order" Width="120" Margin="10, 0, 0, 0" FontSize="12">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>

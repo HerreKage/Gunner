@@ -13,8 +13,8 @@ namespace Gunner_OrderList
         private string _description;
         private int orderNumber;
         private string _product;
-        private DateTime _startdate = DateTime.Now;
-        private string _deadline;
+        private DateTimeOffset _startdate = DateTime.Now;
+        private DateTimeOffset _deadline = DateTime.Now;
         private string _price;
         private string _notes;
 
@@ -113,8 +113,8 @@ namespace Gunner_OrderList
         public string Description { get => _description; set => _description = value; }
         public int OrderNumber { get => orderNumber; set => orderNumber = value; }
         public string Product { get => _product; set => _product = value; }
-        public DateTime StartDate { get => _startdate; set => _startdate = value; }
-        public string Deadline { get => _deadline; set => _deadline = value; }
+        public DateTimeOffset StartDate { get => _startdate; set => _startdate = value; }
+        public DateTimeOffset Deadline { get => _deadline; set => _deadline = value; }
         public string Price { get => _price; set => _price = value; }
         public string Notes { get => _notes; set => _notes = value; }
         #endregion

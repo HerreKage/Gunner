@@ -40,7 +40,7 @@ namespace Gunner_OrderList
             DummyOrder _dummyOrders = new DummyOrder();  //Testing Info
             _dummyInfo = _dummyOrders.DummyInfo;         //Testing Info
 
-            allOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "allOrders.json");
+            allOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "allOrder.json");
 
             ConvertListToObs(allOrder.Load().Result);
         }
@@ -71,10 +71,7 @@ namespace Gunner_OrderList
 
         public void ConvertListToObs(List<Order> list)
         {
-            if (list == null)
-            {
-            }
-            else
+            if (list != null)
             {
                 foreach (Order order in list)
                 {
