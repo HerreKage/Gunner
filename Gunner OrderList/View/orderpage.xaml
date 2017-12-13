@@ -248,8 +248,8 @@
                     </StackPanel>-->
                     
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker"  PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
-                        <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120"/>
+                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker"  PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
+                        <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
                     </StackPanel>
                     
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
