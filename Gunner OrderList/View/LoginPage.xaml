@@ -2,11 +2,18 @@
     x:Class="Gunner_OrderList.View.LoginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Gunner_OrderList.View"
+    xmlns:local="using:Gunner_OrderList.Viewmodel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d" Height="720" Width="1280">
+
+
+    <Page.DataContext>
+        <local:LoginCommandVM/>
+    </Page.DataContext>
+
+
 
     <Page.Resources>
         <Style x:Key="TextBlockStyle" TargetType="TextBlock" >
@@ -44,27 +51,28 @@
 
                 <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBlockStyle}" 
                        Text="Username"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
-                     x:Name="Username" Margin="40,5,123,5" Width="Auto" Grid.ColumnSpan="2"/>
+                <TextBox Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }"  Grid.Column="1" Style="{StaticResource TextBoxStyle}"
+                      Margin="40,5,123,5" Width="Auto" Grid.ColumnSpan="2"/>
 
                 <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}" 
                        Text="Password" Margin="5,5,0,5"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
-                     x:Name="Password" Margin="40,5,123,5" Width="Auto" Grid.ColumnSpan="2"/>
-                <Button Content="Ejer" Margin="40,10,0,0" VerticalAlignment="Top" Width="125" Grid.Column="1" Grid.Row="2">
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LoginCmd.Password, Mode=TwoWay}" Style="{StaticResource TextBoxStyle}"
+                     x:Name="Password" Margin="40,5,123,5" Width="Auto" Grid.ColumnSpan="2" TextChanged="Password_TextChanged"/>
+                <Button Content="Login" Grid.Column="1" Command="{Binding LoginCmd, Mode=TwoWay}" HorizontalAlignment="Left" Margin="98,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="50" Width="113"/>
+                <!--<Button Content="Ejer" Margin="40,10,0,0" VerticalAlignment="Top" Width="125" Grid.Column="1" Grid.Row="2" Click="Button_Click">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
-                </Button>
-                <Button Grid.ColumnSpan="2" Content="Medarbejder" Margin="235,10,0,0" VerticalAlignment="Top" Width="125" Grid.Column="1" Grid.Row="2">
+                </Button>-->
+                <!--<Button Grid.ColumnSpan="2" Content="Medarbejder" Margin="235,10,0,0" VerticalAlignment="Top" Width="125" Grid.Column="1" Grid.Row="2">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.EmployeeMainPage"/>
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
-                </Button>
+                </Button>-->
 
 
             </Grid>

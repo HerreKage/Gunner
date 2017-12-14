@@ -23,5 +23,15 @@ namespace Gunner_OrderList.View
     public sealed partial class LoginPage : Page
     {
         public LoginPage() => this.InitializeComponent();
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Password_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
