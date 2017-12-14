@@ -22,10 +22,15 @@ namespace Gunner_OrderList
         private ObservableCollection<Order> _displayedOrders;
         private ObservableCollection<Order> _displayedOrders2;
 
+        private Order _selectedOrder1;
+        private Order _selectedOrder2;
         private Order _selectedOrder;
         private Customer _selectedOrderCustomer;
 
         private Order _newOrder;
+
+        private string _topText = "Til færdiggørelse:";
+        private string _bottomText = "Til godkendelse:";
 
         private OrderAddComand _addCommand;
         private RelayCommand _deleteCommand;
@@ -117,7 +122,44 @@ namespace Gunner_OrderList
             get { return _editMode; }
         }
 
+        public string TopText
+        {
+            get { return _topText; }
+            set { _topText = value; }
+        }
+
+        public string BottomText
+        {
+            get { return _bottomText; }
+            set { _bottomText = value; }
+        }
+
         #region Selected
+
+        public Order SelectedOrder1
+        {
+            get { return _selectedOrder1; }
+            set
+            { 
+                _selectedOrder1 = value;
+                _selectedOrder2 = null;
+                SelectedOrder = _selectedOrder1;
+                OnPropertyChanged("SelectedOrder2");
+            }
+        }
+
+        public Order SelectedOrder2
+        {
+            get { return _selectedOrder2; }
+            set
+            {
+                _selectedOrder2 = value;
+                _selectedOrder1 = null;
+                SelectedOrder = _selectedOrder2;
+                OnPropertyChanged("SelectedOrder1");
+            }
+        }
+
         public Order SelectedOrder
         {
             get { return _selectedOrder; }
@@ -194,6 +236,14 @@ namespace Gunner_OrderList
                 _selectedOrder = null;
                 _selectedOrderCustomer = null;
             }
+            if (_displayedOrders2.Contains(_selectedOrder))
+            {
+                _displayedOrders2.Remove(_selectedOrder);
+                _selectedOrder = null;
+                _selectedOrderCustomer = null;
+            }
+
+
         }
         #endregion
 
@@ -231,8 +281,14 @@ namespace Gunner_OrderList
             _displayedOrders = _orderCatalog.HistoryOrders;
             _displayedOrders2 = _orderCatalog.InvoiceOrders;
 
+            _topText = "IN ORDERVM CHANGELISTCOMMAND";
+            _bottomText = "SAME PLACE";
+
             OnPropertyChanged("DisplayedOrders");
             OnPropertyChanged("DisplayedOrders2");
+
+            OnPropertyChanged("TopText");
+            OnPropertyChanged("BottomText");
         }
 
         public bool AlwaysTrue()
@@ -255,8 +311,15 @@ namespace Gunner_OrderList
         {
             _displayedOrders = _orderCatalog.CurrentOrders;
             _displayedOrders2 = _orderCatalog.UnapprovedOrders;
+
+            _topText = "Til færdiggørelse:";
+            _bottomText = "Til godkendelse:";
+
             OnPropertyChanged("DisplayedOrders");
             OnPropertyChanged("DisplayedOrders2");
+
+            OnPropertyChanged("TopText");
+            OnPropertyChanged("BottomText");
         }
 
         #endregion

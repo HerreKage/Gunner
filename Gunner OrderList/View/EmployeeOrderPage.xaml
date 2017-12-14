@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
-    x:Class="Gunner_OrderList.OrderPage"
+    x:Class="Gunner_OrderList.EmployeeOrderPage"
     mc:Ignorable="d" Height="720" Width="1280">
 
     <Page.DataContext>
@@ -30,29 +30,23 @@
                     <RowDefinition Height="9*"/>
                 </Grid.RowDefinitions>
                 <Grid ColumnSpan="3">
-                    <Button Content="Opret ordre" Margin="10,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Button Content="Til forside" Margin="10,50,0,0" VerticalAlignment="Top" Width="125">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
+                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.EmployeeMainPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Content="Kunde liste" Margin="160,50,0,0" VerticalAlignment="Top" Width="125">
+                    <Button Content="Logud" Margin="160,50,0,0" VerticalAlignment="Top" Width="125">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
+                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.LoginPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Content="Til forside" Margin="314,50,0,0" VerticalAlignment="Top" Width="125">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
+
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,93,0,0" Text="Ordre" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
                 </Grid>
 
@@ -178,8 +172,6 @@
                         <CheckBox x:Name="priceCheckBox6" IsChecked="{Binding NewOrder.VedlagteBool, Mode=TwoWay}" Content="Se vedlagte" Width="70"  />
                         <TextBox  IsEnabled="{Binding ElementName=priceCheckBox6, Path=IsChecked}" Text="{Binding NewOrder.VedlagteString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
-                    <TextBox HorizontalAlignment="Left" Height="38" Margin="124,0,0,0" TextWrapping="Wrap" Text="{Binding NewOrder.Price, Mode=TwoWay}" Width="100"/>
-                    <TextBlock HorizontalAlignment="Left" Height="35" Margin="9,0,0,0" TextWrapping="Wrap" Text="Total/Final Price" Width="95"/>
                 </StackPanel>
             </Grid>
 
@@ -201,17 +193,18 @@
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
-
-                    <Button Command="{Binding AddCommand}" Visibility="{Binding EditModeShow}" Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150">
+                    <!--Have removed this from button below to see the button:-->
+                    <!--Visibility="{Binding EditModeHide}"-->
+                    <Button Command="{Binding AddCommand}"  Content="Gem ordre"  HorizontalAlignment="Left" Margin="295,50,0,0" VerticalAlignment="Top" Width="150">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                                <Core:NavigateToPageAction TargetPage="Gunner_OrderList.EmployeeMainPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
                 </Grid>
-                <StackPanel Grid.Column="1" BorderBrush="Black" BorderThickness="2" MinHeight="500" Margin="0,108,0,86" Grid.RowSpan="2">
+                <StackPanel Grid.Column="1" BorderBrush="Black" BorderThickness="2" MinHeight="500" Margin="0,108,0,85" Grid.RowSpan="2">
                     <StackPanel Orientation="Horizontal" Margin="10, 15, 0, 10">
                         <TextBlock Text="Firma:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
                         <TextBox  Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" Width="250" />
@@ -250,8 +243,8 @@
                     </StackPanel>-->
 
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker"  PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
-                        <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
+                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker"  PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120"/>
+                        <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
