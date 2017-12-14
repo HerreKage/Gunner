@@ -178,7 +178,7 @@
                         <CheckBox x:Name="priceCheckBox6" IsChecked="{Binding NewOrder.VedlagteBool, Mode=TwoWay}" Content="Se vedlagte" Width="70"  />
                         <TextBox  IsEnabled="{Binding ElementName=priceCheckBox6, Path=IsChecked}" Text="{Binding NewOrder.VedlagteString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
-                    <TextBox HorizontalAlignment="Left" Height="38" Margin="124,0,0,0" TextWrapping="Wrap" Text="{Binding NewOrder.Price}" Width="100"/>
+                    <TextBox HorizontalAlignment="Left" Height="38" Margin="124,0,0,0" TextWrapping="Wrap" Text="{Binding NewOrder.Price, Mode=TwoWay}" Width="100"/>
                     <TextBlock HorizontalAlignment="Left" Height="35" Margin="9,0,0,0" TextWrapping="Wrap" Text="Total/Final Price" Width="95"/>
                 </StackPanel>
             </Grid>
