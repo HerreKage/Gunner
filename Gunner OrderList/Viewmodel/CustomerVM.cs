@@ -56,6 +56,7 @@ namespace Gunner_OrderList
             {
                 _selectedCustomer = value;
 
+
                 if (_selectedCustomer != null)
                 {
                     Company = _selectedCustomer.Company;

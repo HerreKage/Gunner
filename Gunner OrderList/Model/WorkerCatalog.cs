@@ -22,9 +22,8 @@ namespace Gunner_OrderList.Model
         {
             _workers = new ObservableCollection<Worker>();
 
-            //allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
-
-            //Load();
+            allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
+            //ConvertListToObs(allWorker.Load().Result);
 
 
             Worker worker1=new Worker();
@@ -45,9 +44,8 @@ namespace Gunner_OrderList.Model
 
         }
 
-        public void Load()
+        public void ConvertListToObs(List<Worker> list)
         {
-            List<Worker> list = allWorker.Load().Result;
             if (list != null)
             {
                 foreach (Worker worker in list)
@@ -55,14 +53,18 @@ namespace Gunner_OrderList.Model
                     _workers.Add(worker);
                 }
             }
+        }
 
+        public void Save()
+        {
+            allWorker.Save(_workers.ToList());
         }
 
         public static WorkerCatalog Instance
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = new WorkerCatalog();
                 }
@@ -90,6 +92,13 @@ namespace Gunner_OrderList.Model
 
             return returnstring;
 
+        }
+
+        public ObservableCollection<Worker> Workers
+        {
+            get
+            {return _workers; }
+            set { _workers = value; }
         }
 
     }

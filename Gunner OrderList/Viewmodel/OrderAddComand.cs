@@ -15,6 +15,7 @@ namespace Gunner_OrderList
         private Order _order;
 
         private ObservableCollection<Customer> _customers;
+        private CustomerCatalog _customerCatalog;
 
         public OrderAddComand(Order order)
         {
@@ -22,8 +23,8 @@ namespace Gunner_OrderList
             _orders = OrderCatalog.Instance;
             _unapprovedOrders = _orders.UnapprovedOrders;          
 
-            CustomerCatalog customers = CustomerCatalog.Instance;
-            _customers = customers.Customers;
+            _customerCatalog = CustomerCatalog.Instance;
+            _customers = _customerCatalog.Customers;
         }
 
         public bool CanExecute(object parameter)
@@ -37,6 +38,7 @@ namespace Gunner_OrderList
             _order.OrderNumber = _orders.OrderNumber;  
 
             _customers.Add(_order.Customer);
+            _customerCatalog.SaveCustomer();
 
             _orders.SaveAll();    //SAVE
         }

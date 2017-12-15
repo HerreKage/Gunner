@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Windows.UI.ViewManagement;
 using FilePersistency.Implementation;
 using Persistency.Interfaces;
 
@@ -11,39 +13,42 @@ namespace Gunner_OrderList
 {
     class CustomerCatalog
     {
-        private ObservableCollection<Customer> _customers;  //Dummy Info
         private static CustomerCatalog instance = null;
 
+        private ObservableCollection<Customer> _customers;
         private FileSource<Customer> allCustomer;
+
         private CustomerCatalog()
         {
             //DummyCustomers customers = new DummyCustomers();
             _customers = new ObservableCollection<Customer>();
-
-            allCustomer = new FileSource<Customer>(new FileStringPersistence(), new JSONConverter<Customer>(), "allCustomer.json");
-            
-            Load();
+            allCustomer = new FileSource<Customer>(new FileStringPersistence(), new JSONConverter<Customer>(), "Customer.json");
 
 
-
+            LoadList();
         }
-        public async void Load()
+
+        private async void LoadList()
+        {
+            List<Customer> ll = await allCustomer.Load();
+            ConvertListToObs(ll);
+        }
+
+        public void ConvertListToObs( List<Customer> list )
+        {
+            if (list != null)
             {
-                List<Customer> list = await allCustomer.Load();
-                if (list != null)
-                {
                 foreach (Customer customer in list)
                 {
                     _customers.Add(customer);
-                }                    
                 }
-
             }
+        }
 
 
         public void SaveCustomer()
         {
-            allCustomer.Save(_customers.ToList());
+            allCustomer.Save( _customers.ToList() );
         }
 
         #region Singleton
