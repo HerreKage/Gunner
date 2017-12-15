@@ -26,5 +26,10 @@ namespace Gunner_OrderList
         {
            this.InitializeComponent();
         }
+
+        internal static object TryStartDirectManipulation()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
