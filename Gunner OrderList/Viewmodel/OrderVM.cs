@@ -51,13 +51,14 @@ namespace Gunner_OrderList
             _newOrder = new Order();
             _orderCatalog = OrderCatalog.Instance;
 
-            _displayedOrders = _orderCatalog.CurrentOrders;   //For now just display dummyinfo       
+            _displayedOrders = _orderCatalog.CurrentOrders;
             _displayedOrders2 = _orderCatalog.UnapprovedOrders;
 
-            _deleteCommand = new RelayCommand(DoDeleteRelay, OrderIsSelected);
-            _editCommand = new RelayCommand(DoEditRelay, OrderIsSelected);
-            _changeListHistoryCommand = new RelayCommand(DoChangeListHistoryRelay, AlwaysTrue);
-            _changeListCurrentCommand = new RelayCommand(DoChangeListCurrentRelay, AlwaysTrue);
+            _deleteCommand = new RelayCommand(Delete, OrderIsSelected);
+            _editCommand = new RelayCommand(Edit, OrderIsSelected);
+
+            _changeListHistoryCommand = new RelayCommand(ChangeListHistory, AlwaysTrue);
+            _changeListCurrentCommand = new RelayCommand(ChangeListCurrent, AlwaysTrue);
 
             _moveOrderToHistoryCommand = new RelayCommand(MoveOrderToHistory, AlwaysTrue);
             _moveOrderToCurrentCommand = new RelayCommand(MoveOrderToCurrent, AlwaysTrue);
@@ -251,18 +252,12 @@ namespace Gunner_OrderList
         #endregion
 
         #region DeleteCommand
-
-        public void DoDeleteRelay() // Added
-        {
-            Delete();
-        }
-
-        public bool OrderIsSelected() // Added
+        public bool OrderIsSelected() 
         {
             return SelectedOrder != null;
         }
 
-        public ICommand DeleteCommand // Added
+        public ICommand DeleteCommand 
         {
             get { return _deleteCommand; }
         }
@@ -283,17 +278,10 @@ namespace Gunner_OrderList
                 _selectedOrderCustomer = null;
                 _orderCatalog.SaveAll();
             }
-
-
         }
         #endregion
 
         #region EditCommand
-        public void DoEditRelay() // Added
-        {
-            Edit();
-        }
-
         public ICommand EditCommand // Added
         {
             get { return _editCommand; }
@@ -306,11 +294,6 @@ namespace Gunner_OrderList
         #endregion
 
         #region ChangeListCommand
-
-        public void DoChangeListHistoryRelay() 
-        {
-            ChangeListHistory();
-        }
 
         public ICommand ChangeListCommandHistory 
         {
@@ -335,12 +318,6 @@ namespace Gunner_OrderList
         public bool AlwaysTrue()
         {
             return true;
-        }
-
-
-        public void DoChangeListCurrentRelay() 
-        {
-            ChangeListCurrent();
         }
 
         public ICommand ChangeListCommandCurrent 
@@ -441,7 +418,7 @@ namespace Gunner_OrderList
 
         #endregion
 
-        #region AutoFill
+        #region AutoFill - Not in use
 
         //public void SortDisplayedList()
         //{
@@ -505,7 +482,7 @@ namespace Gunner_OrderList
         //    }
         //}
 
-        #endregion
+        #endregion 
 
         public event PropertyChangedEventHandler PropertyChanged;
 

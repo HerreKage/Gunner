@@ -40,6 +40,8 @@ namespace Gunner_OrderList.Viewmodel
         {
             _catalog.Delete(_customerVM.SelectedCustomer);
             _customerVM.Refresh();
+
+            _catalog.SaveCustomer();
         }
 
         public void RaiseCanExecuteChanged()

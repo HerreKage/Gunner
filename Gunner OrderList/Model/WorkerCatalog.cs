@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using Gunner_OrderList.Viewmodel;
+using FilePersistency.Implementation;
+using Persistency.Interfaces;
 
 namespace Gunner_OrderList.Model
 {
@@ -14,11 +16,14 @@ namespace Gunner_OrderList.Model
     {
         private static WorkerCatalog instance = null;
         private ObservableCollection<Worker> _workers;
-       
 
+        private FileSource<Worker> allWorker;
         private WorkerCatalog()
         {
             _workers = new ObservableCollection<Worker>();
+
+            allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
+            //ConvertListToObs(allWorker.Load().Result);
 
 
             Worker worker1=new Worker();
@@ -39,11 +44,27 @@ namespace Gunner_OrderList.Model
 
         }
 
+        public void ConvertListToObs(List<Worker> list)
+        {
+            if (list != null)
+            {
+                foreach (Worker worker in list)
+                {
+                    _workers.Add(worker);
+                }
+            }
+        }
+
+        public void Save()
+        {
+            allWorker.Save(_workers.ToList());
+        }
+
         public static WorkerCatalog Instance
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = new WorkerCatalog();
                 }
@@ -71,6 +92,13 @@ namespace Gunner_OrderList.Model
 
             return returnstring;
 
+        }
+
+        public ObservableCollection<Worker> Workers
+        {
+            get
+            {return _workers; }
+            set { _workers = value; }
         }
 
     }

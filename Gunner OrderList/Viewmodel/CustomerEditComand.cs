@@ -47,6 +47,8 @@ namespace Gunner_OrderList.Viewmodel
                 _customerVM.SelectedCustomer.CompanyNumber = _customerVM.CompanyNumber;
                 // _catalog.EditCustomer(_customerVM.SelectedCustomer);
                 _customerVM.Refresh();
+
+                _catalog.SaveCustomer();
             }
 
             public void RaiseCanExecuteChanged()
