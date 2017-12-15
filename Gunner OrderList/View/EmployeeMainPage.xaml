@@ -61,9 +61,9 @@
                                 <!--Product-->
                                 <TextBlock Text="{Binding Product}" Margin="15,10,15,10" Width="125"/>
                                 <!--StartDate-->
-                                <TextBlock Text="{Binding StartDate}" Margin="15,10,15,10" Width="75"/>
+                                <TextBlock Text="{Binding StartDateAsString}" Margin="15,10,15,10" Width="80"/>
                                 <!--Deadline-->
-                                <TextBlock Text="{Binding Deadline}" Margin="15,10,15,10" Width="75"/>
+                                <TextBlock Text="{Binding DeadlineAsString}" Margin="15,10,15,10" Width="80"/>
                                 <!--Notes-->
                                 <TextBlock Text="{Binding Notes}" Margin="15,10,15,10" Width="75"/>
                             </StackPanel>

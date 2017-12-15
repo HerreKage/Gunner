@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -115,6 +116,24 @@ namespace Gunner_OrderList
         public string Product { get => _product; set => _product = value; }
         public DateTimeOffset StartDate { get => _startdate; set => _startdate = value; }
         public DateTimeOffset Deadline { get => _deadline; set => _deadline = value; }
+
+        public string DeadlineAsString
+        {
+            get
+            {
+                CultureInfo ci = new CultureInfo("da-DK");
+                return Deadline.ToString("dd/MM/yyyy", ci);
+            }
+        }
+        public string StartDateAsString
+        {
+            get
+            {
+                CultureInfo ci = new CultureInfo("da-DK");
+                return StartDate.ToString("dd/MM/yyyy", ci);
+            }
+        }
+
         public string Price { get => _price; set => _price = value; }
         public string Notes { get => _notes; set => _notes = value; }
         #endregion
