@@ -178,8 +178,10 @@
                         <CheckBox x:Name="priceCheckBox6" IsChecked="{Binding NewOrder.VedlagteBool, Mode=TwoWay}" Content="Se vedlagte" Width="70"  />
                         <TextBox  IsEnabled="{Binding ElementName=priceCheckBox6, Path=IsChecked}" Text="{Binding NewOrder.VedlagteString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
-                    <TextBox HorizontalAlignment="Left" Height="38" Margin="124,0,0,0" TextWrapping="Wrap" Text="{Binding NewOrder.Price, Mode=TwoWay}" Width="100"/>
-                    <TextBlock HorizontalAlignment="Left" Height="35" Margin="9,0,0,0" TextWrapping="Wrap" Text="Total/Final Price" Width="95"/>
+                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
+                        <TextBlock HorizontalAlignment="Left" Height="35" Margin="0,8,0,0" TextWrapping="Wrap" Text="Total Price" Width="70" RenderTransformOrigin="-1.916,0.629"/>
+                        <TextBox HorizontalAlignment="Left" Height="38" Margin="50,0,0,0" TextWrapping="Wrap" Text="{Binding NewOrder.Price, Mode=TwoWay}" Width="116"/>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
 
@@ -250,8 +252,8 @@
                     </StackPanel>-->
 
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker"  PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
-                        <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" x:Name="arrivalCalendarDatePicker1" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
+                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120" x:Name="arrivalCalendarDatePicker" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
+                        <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120" x:Name="arrivalCalendarDatePicker1" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
