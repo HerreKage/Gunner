@@ -44,11 +44,11 @@ namespace Gunner_OrderList
             }
         }
 
-        public ObservableCollection<Customer> Customers
+        /*public ObservableCollection<Customer> Customers
         {
-            get { return _customers; }
+          get { return _customers; }
         }
-
+        */
         public Customer SelectedCustomer
         {
             get { return _selectedCustomer; }
