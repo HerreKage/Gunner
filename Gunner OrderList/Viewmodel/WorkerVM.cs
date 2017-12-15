@@ -81,6 +81,13 @@ namespace Gunner_OrderList.Viewmodel
             set { _selectedWorker = value; }
         }
 
+        public ObservableCollection<Worker> Workers
+        {
+            get { return _workers; }
+            set { _workers = value; }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

@@ -43,9 +43,9 @@
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        
-        
-        <ListView HorizontalAlignment="Left" Height="498" Margin="150,146,0,0" VerticalAlignment="Top" Width="531" BorderThickness="2" >
+
+
+        <ListView ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}"  HorizontalAlignment="Left" Height="498" Margin="150,146,0,0" VerticalAlignment="Top" Width="531" BorderThickness="2" BorderBrush="Black">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Worker">
                     <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="Blue">
