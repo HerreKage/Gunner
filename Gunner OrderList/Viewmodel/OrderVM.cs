@@ -112,6 +112,45 @@ namespace Gunner_OrderList
             }
         }
 
+        public string PriceString
+        {
+            get { return _newOrder.PriceString; }
+            set
+            {
+                NewOrder.PriceString = value;
+                OnPropertyChanged("TotalPrice");
+                OnPropertyChanged();
+            }
+        }
+        public string DptString
+        {
+            get { return _newOrder.DptString; }
+            set
+            {
+                NewOrder.DptString = value;
+                OnPropertyChanged("TotalPrice");
+                OnPropertyChanged();
+            }
+        }
+        public string FragtString
+        {
+            get { return _newOrder.FragtString; }
+            set
+            {
+                NewOrder.FragtString = value;
+                OnPropertyChanged("TotalPrice");
+                OnPropertyChanged();
+            }
+        }
+        public string TotalPrice
+        {
+            get { return _newOrder.TotalPrice; }
+            set
+            {
+                NewOrder.TotalPrice = value;
+                OnPropertyChanged();
+            }
+        }
         public Boolean EditModeShow
         {
             get { return !_editMode; }
@@ -235,12 +274,14 @@ namespace Gunner_OrderList
                 _displayedOrders.Remove(_selectedOrder);
                 _selectedOrder = null;
                 _selectedOrderCustomer = null;
+                _orderCatalog.SaveAll();
             }
             if (_displayedOrders2.Contains(_selectedOrder))
             {
                 _displayedOrders2.Remove(_selectedOrder);
                 _selectedOrder = null;
                 _selectedOrderCustomer = null;
+                _orderCatalog.SaveAll();
             }
 
 
