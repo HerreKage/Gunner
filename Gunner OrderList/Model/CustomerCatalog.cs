@@ -21,7 +21,7 @@ namespace Gunner_OrderList
             _customers = new ObservableCollection<Customer>();
 
             allCustomer = new FileSource<Customer>(new FileStringPersistence(), new JSONConverter<Customer>(), "allCustomer.json");
-
+            
             Load();
 
 
