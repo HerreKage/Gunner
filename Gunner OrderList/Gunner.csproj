@@ -112,7 +112,6 @@
     <Compile Include="Model\CustomerCatalog.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Viewmodel\CustomerVM.cs" />
-    <Compile Include="Viewmodel\WorkerAddCommand.cs" />
     <Compile Include="Viewmodel\WorkerVM.cs" />
     <Compile Include="View\EmployeeMainPage.xaml.cs">
       <DependentUpon>EmployeeMainPage.xaml</DependentUpon>
@@ -149,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\mobilreklame.PNG" />
+    <Content Include="Images\login3.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

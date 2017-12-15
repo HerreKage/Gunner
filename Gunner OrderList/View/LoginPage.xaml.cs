@@ -22,7 +22,33 @@ namespace Gunner_OrderList.View
     /// </summary>
     public sealed partial class LoginPage : Page
     {
-        public LoginPage() => this.InitializeComponent();
+        public LoginPage()
+        {
+            this.InitializeComponent();
+
+            String path = Directory.GetCurrentDirectory() + @"\Images";
+            LoginFV.ItemsSource = Directory.GetFiles(path).Select(p => "ms-appx:///" + p);
+
+
+            int change = 1;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(7);
+            timer.Tick += (o, a) =>
+            {
+                // If we'd go out of bounds then reverse
+                int newIndex = LoginFV.SelectedIndex + change;
+                if (newIndex >= LoginFV.Items.Count || newIndex< 0)
+                {
+                    change *= -1;
+                }
+
+                LoginFV.SelectedIndex += change;
+            };
+
+            timer.Start();
+            }
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

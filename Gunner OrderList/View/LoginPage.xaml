@@ -18,41 +18,37 @@
             <Setter Property="Margin" Value="5,5,5,5"/>
         </Style>
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="40,5,5,5"/>
         </Style>
     </Page.Resources>
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="AliceBlue" HorizontalAlignment="Left" Height="726" Margin="0,0,0,-6" VerticalAlignment="Top" Width="1277">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="989*"/>
+            <ColumnDefinition Width="288*"/>
         </Grid.ColumnDefinitions>
-
-        <StackPanel Grid.ColumnSpan="2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="141"/>
-                    <ColumnDefinition Width="263"/>
-                    <ColumnDefinition Width="289*"/>
-                    <ColumnDefinition Width="807*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBlockStyle}" 
-                       Text="Username"/>
-                <TextBox Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }"  Grid.Column="1" Style="{StaticResource TextBoxStyle}"
-                      Margin="40,5,123,5" Width="Auto" Grid.ColumnSpan="2"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}" 
-                       Text="Password" Margin="5,5,0,5"/>
-                <PasswordBox Grid.Row="1" Grid.Column="1" Password="{Binding LoginCmd.Password, Mode=TwoWay}" 
-                 Margin="40,5,123,5" Width="Auto" Grid.ColumnSpan="2" />
-                <Button Content="Login" Grid.Column="1" Command="{Binding LoginCmd, Mode=TwoWay}" HorizontalAlignment="Left" Margin="98,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="50" Width="113"/>
-            </Grid>
+        <StackPanel  HorizontalAlignment="Left" Height="726" VerticalAlignment="Top" Width="989">
+            <FlipView x:Name="LoginFV" HorizontalAlignment="Left" Height="727" Width="989">
+                <FlipView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Source="{Binding}" Stretch="UniformToFill" />
+                        </Grid>
+                    </DataTemplate>
+                </FlipView.ItemTemplate>
+            </FlipView>
         </StackPanel>
+
+        <Grid Grid.Column="1"  Width="288">
+            <TextBox PlaceholderText="Username" Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }" Style="{StaticResource TextBoxStyle}"
+                     Margin="83,237,67,456" Width="Auto"/>
+            <PasswordBox PlaceholderText="Password" Password="{Binding LoginCmd.Password, Mode=TwoWay}" FontSize="12"
+                         Margin="83,290,67,404" Width="Auto" />
+            <Button Content="Login" Command="{Binding LoginCmd, Mode=TwoWay}" Height="36" Width="78" Margin="143,349,0,341"/>
+
+        </Grid>
     </Grid>
+
+
 </Page>

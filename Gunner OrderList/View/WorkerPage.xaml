@@ -17,23 +17,24 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid Margin="746,146,154,76" BorderBrush="Black" BorderThickness="2" Height="Auto" >
-            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.UserName}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.UserName, Mode= TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Brugernavn" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.Name}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.Name, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.Address}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.Address, Mode=TwoWay}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.PostNumber}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.PostNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Postnummer:" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.Town}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.Town, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="By:" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedWorker.PhoneNumber}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedWorker.PhoneNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,270,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,315,0,20" TextWrapping="Wrap" Text="{Binding SelectedWorker.Email}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,315,0,20" TextWrapping="Wrap" Text="{Binding SelectedWorker.Email, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,360,0,20" TextWrapping="Wrap" Text="{Binding SelectedWorker.Password}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,360,0,20" TextWrapping="Wrap" Text="{Binding SelectedWorker.Password, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,360,0,0" TextWrapping="Wrap" Text="Kodeord" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Button Content="Opret" HorizontalAlignment="Left" Margin="132,425,0,0" VerticalAlignment="Top" Width="225" Command ="{Binding AddCommand}"/>
+            <Button Command ="{Binding AddCommand}" Content="Opret" HorizontalAlignment="Left" Margin="132,425,0,0" VerticalAlignment="Top" Width="225"/>
+            <CheckBox IsChecked="{Binding OwnerAccess, Mode=TwoWay}" Content="Owner Access" HorizontalAlignment="Left" Height="42" Margin="0,417,0,0" VerticalAlignment="Top" Width="77"/>
         </Grid>
 
         <Button Content="Til forside" Margin="882,93,0,0" VerticalAlignment="Top" Width="220">

@@ -264,8 +264,8 @@ namespace Gunner_OrderList
             _displayedOrders = _orderCatalog.HistoryOrders;
             _displayedOrders2 = _orderCatalog.InvoiceOrders;
 
-            _topText = "IN ORDERVM CHANGELISTCOMMAND";
-            _bottomText = "SAME PLACE";
+            _topText = "Historie";
+            _bottomText = "Faktura";
 
             OnPropertyChanged("DisplayedOrders");
             OnPropertyChanged("DisplayedOrders2");
