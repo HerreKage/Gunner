@@ -8,7 +8,7 @@
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Gunner_OrderList</RootNamespace>
-    <AssemblyName>Gunner OrderList</AssemblyName>
+    <AssemblyName>Mobilreklame</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
@@ -147,8 +147,14 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\cornerIcon.ico" />
+    <Content Include="Photos\MobilreklameText.png" />
     <Content Include="Assets\mobilreklame.PNG" />
-    <Content Include="Images\login3.jpg" />
+    <Content Include="FlipView\4 Coffee shop.jpg" />
+    <Content Include="FlipView\1 ctr-alt-del.jpg" />
+    <Content Include="FlipView\3 hello building.jpg" />
+    <Content Include="FlipView\5 truck.jpg" />
+    <Content Include="FlipView\2 yellow truck.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

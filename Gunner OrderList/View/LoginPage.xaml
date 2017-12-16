@@ -5,7 +5,6 @@
     xmlns:local="using:Gunner_OrderList.Viewmodel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d" Height="720" Width="1280">
 
     <Page.DataContext>
@@ -13,22 +12,38 @@
     </Page.DataContext>
 
     <Page.Resources>
-        <Style x:Key="TextBlockStyle" TargetType="TextBlock" >
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Margin" Value="5,5,5,5"/>
-        </Style>
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="40,5,5,5"/>
         </Style>
     </Page.Resources>
-    <Grid Background="AliceBlue" HorizontalAlignment="Left" Height="726" Margin="0,0,0,-6" VerticalAlignment="Top" Width="1277">
+
+
+    <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="989*"/>
             <ColumnDefinition Width="288*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel  HorizontalAlignment="Left" Height="726" VerticalAlignment="Top" Width="989">
+
+        <Grid VerticalAlignment="Top" x:Name="TitleBar">
+            <Rectangle x:Name="BackgroundElement" Fill="Transparent" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image Height="32" Margin="5,0" Source="/Assets/cornerIcon.ico" />
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Mobilreklame" />
+            </Grid>
+        </Grid>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="726" VerticalAlignment="Top" Width="989">
             <FlipView x:Name="LoginFV" HorizontalAlignment="Left" Height="727" Width="989">
                 <FlipView.ItemTemplate>
                     <DataTemplate>
@@ -40,15 +55,22 @@
             </FlipView>
         </StackPanel>
 
-        <Grid Grid.Column="1"  Width="288">
-            <TextBox PlaceholderText="Username" Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }" Style="{StaticResource TextBoxStyle}"
-                     Margin="83,237,67,456" Width="Auto"/>
-            <PasswordBox PlaceholderText="Password" Password="{Binding LoginCmd.Password, Mode=TwoWay}" FontSize="12"
-                         Margin="83,290,67,404" Width="Auto" />
-            <Button Content="Login" Command="{Binding LoginCmd, Mode=TwoWay}" Height="36" Width="78" Margin="143,349,0,341"/>
+        <Grid Grid.Row="1" Grid.Column="1"  Width="288" Background="AliceBlue">
 
+            <Image Source="/Photos/MobilreklameText.png" HorizontalAlignment="Left" Height="42" Margin="67,211,0,0" VerticalAlignment="Top" Width="174"/>
+            <Button  HorizontalAlignment="Left" Height="32" Margin="167,375,0,0" VerticalAlignment="Top" Content="Login" Command="{Binding LoginCmd, Mode=TwoWay}" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB5CEE4" Offset="1"/>
+                        <GradientStop Color="#FFC2E1FF" Offset="0.699"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBox HorizontalAlignment="Left" Height="36" Margin="74,271,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" PlaceholderText="Username" Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }" Style="{StaticResource TextBoxStyle}"
+                     Width="150"/>
         </Grid>
+        <PasswordBox Grid.Column="1" HorizontalAlignment="Left" Height="39" Margin="74.5,317,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" PlaceholderText="Password" Password="{Binding LoginCmd.Password, Mode=TwoWay}" FontSize="12"
+                      BorderBrush="#66000000" />
+
     </Grid>
-
-
 </Page>
