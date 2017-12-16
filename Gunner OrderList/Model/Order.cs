@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gunner_OrderList
+namespace Gunner_OrderList 
 {
     class Order
     {
@@ -18,6 +18,7 @@ namespace Gunner_OrderList
         private DateTimeOffset _deadline = DateTime.Now;
         private string _price;
         private string _notes;
+        private string _totalPrice;
 
         private string _currentList = "unapproved";
 
@@ -134,8 +135,16 @@ namespace Gunner_OrderList
             }
         }
 
-        public string Price { get => _price; set => _price = value; }
+        public string Price {get => _price; set => _price = value; }
         public string Notes { get => _notes; set => _notes = value; }
+
+        public string TotalPrice
+        {
+            get { _totalPrice =  Convert.ToString(Convert.ToInt32(_priceString) + Convert.ToInt32(_dptString) + Convert.ToInt32(_fragtString));
+                return _totalPrice.ToString();
+            }
+            set {_totalPrice = value; }
+        }
         #endregion
 
         #region Material Property

@@ -156,15 +156,15 @@
                     </StackPanel>-->
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox1" IsChecked="{Binding NewOrder.PriceBool, Mode=TwoWay}" Content="Pris kr." Width="70"  />
-                        <TextBox IsEnabled="{Binding ElementName=priceCheckBox1, Path=IsChecked}" Text="{Binding NewOrder.PriceString, Mode=TwoWay}"  Height="10" Width="120"/>
+                        <TextBox IsEnabled="{Binding ElementName=priceCheckBox1, Path=IsChecked}" Text="{Binding PriceString, Mode=TwoWay}"  Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox2" IsChecked="{Binding NewOrder.DptBool, Mode=TwoWay}" Content="DTP kr." Width="70"  />
-                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox2, Path=IsChecked}" Text="{Binding NewOrder.DptString, Mode=TwoWay}" Height="10" Width="120"/>
+                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox2, Path=IsChecked}" Text="{Binding DptString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox3" IsChecked="{Binding NewOrder.FragtBool, Mode=TwoWay}"  Content="Fragt." Width="70"  />
-                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox3, Path=IsChecked}" Text="{Binding NewOrder.FragtString, Mode=TwoWay}" Height="10" Width="120"/>
+                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox3, Path=IsChecked}" Text="{Binding FragtString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox4" IsChecked="{Binding NewOrder.OptTill_10_Bool, Mode=TwoWay}" Content="Op til 10%" Width="70"  />
@@ -180,7 +180,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <TextBlock HorizontalAlignment="Left" Height="35" Margin="0,8,0,0" TextWrapping="Wrap" Text="Total Price" Width="70" RenderTransformOrigin="-1.916,0.629"/>
-                        <TextBox HorizontalAlignment="Left" Height="38" Margin="50,0,0,0" TextWrapping="Wrap" Text="{Binding NewOrder.Price, Mode=TwoWay}" Width="116"/>
+                        <TextBox HorizontalAlignment="Left" Height="38" Margin="50,0,0,0" TextWrapping="Wrap" Text="{Binding TotalPrice, Mode=TwoWay}" Width="116"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
