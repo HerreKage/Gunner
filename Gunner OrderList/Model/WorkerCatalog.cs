@@ -22,25 +22,9 @@ namespace Gunner_OrderList.Model
         {
             _workers = new ObservableCollection<Worker>();
 
-            Worker worker1 = new Worker();
-
-            worker1.UserName = "Jan";
-            worker1.Password = "1234";
-            worker1.Status = "Owner";
-
-            Worker worker2 = new Worker();
-
-            worker2.UserName = "Ejer";
-            worker2.Password = "9876";
-            worker2.Status = "Employee";
-
-
-            _workers.Add(worker1);
-            _workers.Add(worker2);
-
 
             allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
-            //LoadList();     //Probelm in LoginCommand when this is run?????????????????????????????????????
+            LoadList();     //Probelm in LoginCommand when this is run?????????????????????????????????????
             //ConvertListToObs(allWorker.Load().Result);
         }
 
@@ -59,6 +43,24 @@ namespace Gunner_OrderList.Model
                 {
                     _workers.Add(worker);
                 }
+            }
+            else
+            {
+                Worker worker1 = new Worker();
+
+                worker1.UserName = "Jan";
+                worker1.Password = "1234";
+                worker1.Status = "Owner";
+
+                Worker worker2 = new Worker();
+
+                worker2.UserName = "Ejer";
+                worker2.Password = "9876";
+                worker2.Status = "Employee";
+
+
+                _workers.Add(worker1);
+                _workers.Add(worker2);
             }
         }
 

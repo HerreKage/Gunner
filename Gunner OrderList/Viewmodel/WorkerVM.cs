@@ -95,10 +95,12 @@ namespace Gunner_OrderList.Viewmodel
                 if (value == true)
                 {
                     _selectedWorker.Status = "Owner";
+                    _selectedWorker.OwnerAccess = true;
                 }
                 else
                 {
                     _selectedWorker.Status = "Employee";
+                    _selectedWorker.OwnerAccess = false;
                 }
             }
         }
@@ -111,6 +113,7 @@ namespace Gunner_OrderList.Viewmodel
             {
                 _selectedWorker = value;
                 OnPropertyChanged();
+                OnPropertyChanged("OwnerAccess");
             }
         }
 

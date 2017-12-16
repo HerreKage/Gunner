@@ -20,7 +20,6 @@ namespace Gunner_OrderList.Model
         private string _town;
         private string _phoneNumber;
         private string _email;
-        private bool _owner;
         private bool _ownerAccess;
 
         public string UserName { get => _userName; set => _userName = value; }
@@ -32,7 +31,6 @@ namespace Gunner_OrderList.Model
         public string Town { get => _town; set => _town = value; }
         public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
         public string Email { get => _email; set => _email = value; }
-        public bool Owner { get => _owner; set => _owner = value; }
         public bool OwnerAccess { get => _ownerAccess; set => _ownerAccess = value; }
     }
 }

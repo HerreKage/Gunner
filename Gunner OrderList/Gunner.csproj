@@ -92,10 +92,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DataSources\ConfiguredFileSource.cs" />
-    <Compile Include="DataSources\FileSource.cs" />
-    <Compile Include="DataSources\FileStringPersistence.cs" />
-    <Compile Include="DataSources\JSONConvert.cs" />
     <Compile Include="Model\Worker.cs" />
     <Compile Include="Model\WorkerCatalog.cs" />
     <Compile Include="Viewmodel\ChangeCommand.cs" />
@@ -210,6 +206,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FilePersistency">
+      <HintPath>..\..\..\..\Desktop\MVVMStarterLibrary-master\FilePersistency\obj\Debug\FilePersistency.dll</HintPath>
+    </Reference>
     <Reference Include="PersistencyImplementation">
       <HintPath>..\..\MVVMStarterLibrary-master\MVVMStarterLibrary-master\CatalogImplementation\bin\Debug\PersistencyImplementation.dll</HintPath>
     </Reference>

@@ -42,7 +42,14 @@ namespace Gunner_OrderList
 
             allOrder = new FileSource<Order>(new FileStringPersistence(), new JSONConverter<Order>(), "allOrder.json");
 
-            ConvertListToObs(allOrder.Load().Result);
+            LoadList();
+        }
+
+
+        private async void LoadList()
+        {
+            List<Order> ll = await allOrder.Load();
+            ConvertListToObs(ll);
         }
 
         public void SaveAll()
