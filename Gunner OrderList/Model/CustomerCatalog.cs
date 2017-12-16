@@ -23,8 +23,6 @@ namespace Gunner_OrderList
             //DummyCustomers customers = new DummyCustomers();
             _customers = new ObservableCollection<Customer>();
             allCustomer = new FileSource<Customer>(new FileStringPersistence(), new JSONConverter<Customer>(), "Customer.json");
-
-
             LoadList();
         }
 

@@ -44,14 +44,11 @@ namespace Gunner_OrderList.Viewmodel
             if (login == "Employee")
             {
                 frame.Navigate(typeof(EmployeeMainPage));
-
-                
-
             }
-            else 
-                {
+            else
+            {
                 frame.Navigate(typeof(MainPage));
-                }
+            }
              
        
             

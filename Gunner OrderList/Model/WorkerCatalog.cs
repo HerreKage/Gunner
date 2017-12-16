@@ -22,11 +22,7 @@ namespace Gunner_OrderList.Model
         {
             _workers = new ObservableCollection<Worker>();
 
-            allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
-            //ConvertListToObs(allWorker.Load().Result);
-
-
-            Worker worker1=new Worker();
+            Worker worker1 = new Worker();
 
             worker1.UserName = "Jan";
             worker1.Password = "1234";
@@ -42,6 +38,17 @@ namespace Gunner_OrderList.Model
             _workers.Add(worker1);
             _workers.Add(worker2);
 
+
+            allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
+            //LoadList();     //Probelm in LoginCommand when this is run?????????????????????????????????????
+            //ConvertListToObs(allWorker.Load().Result);
+        }
+
+        #region Load/Save
+        private async void LoadList()
+        {
+            List<Worker> ll = await allWorker.Load();
+            ConvertListToObs(ll);
         }
 
         public void ConvertListToObs(List<Worker> list)
@@ -59,7 +66,9 @@ namespace Gunner_OrderList.Model
         {
             allWorker.Save(_workers.ToList());
         }
+        #endregion
 
+        #region Singleton
         public static WorkerCatalog Instance
         {
             get
@@ -71,6 +80,7 @@ namespace Gunner_OrderList.Model
                 return instance;
             }
         }
+        #endregion
 
         public ObservableCollection<Worker> GetWorkerCatalog()
         {

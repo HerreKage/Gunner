@@ -14,12 +14,12 @@ using Gunner_OrderList.Model;
 
 namespace Gunner_OrderList.Viewmodel
 {
-    class WorkerVM : INotifyPropertyChanged
+    class WorkerVM : INotifyPropertyChanged    //Need to call save after edit command it called
     {
         private WorkerCatalog _workerCatalog;   //Singleton
         private ObservableCollection<Worker> _workers;
         private RelayCommand _deleteCommand;
-        private WorkerAddCommand _addCommand;
+        private RelayCommand _addCommand;
 
         private Worker _selectedWorker = new Worker();
         private Worker _newWorker;
@@ -30,6 +30,7 @@ namespace Gunner_OrderList.Viewmodel
             _workers = _workerCatalog.Workers;
 
             _deleteCommand = new RelayCommand(Delete,OrderIsSelected);
+            _addCommand = new RelayCommand(Add,AlwaysTrue);
 
         }
 
@@ -52,17 +53,28 @@ namespace Gunner_OrderList.Viewmodel
             {
                 _workers.Remove(_selectedWorker);
                 _selectedWorker = null;
+                _workerCatalog.Save();
             }
         }
         #endregion
 
         #region AddCommand
 
+        public bool AlwaysTrue()
+        {
+            return true;
+        }
+
+        public void Add()
+        {
+            _workers.Add(_selectedWorker);
+            _workerCatalog.Save();
+        }
+
         public ICommand AddCommand
         {
             get
             {
-                _addCommand = new WorkerAddCommand(_newWorker);
                 return _addCommand;
             }
         }
@@ -74,12 +86,43 @@ namespace Gunner_OrderList.Viewmodel
 
         #endregion
 
+        public bool OwnerAccess
+        {
+            get { return _selectedWorker.OwnerAccess; }
+            set
+            {
+                _selectedWorker.OwnerAccess = value;
+                if (value == true)
+                {
+                    _selectedWorker.Status = "Owner";
+                }
+                else
+                {
+                    _selectedWorker.Status = "Employee";
+                }
+            }
+        }
+
 
         public Worker SelectedWorker
         {
             get { return _selectedWorker; }
-            set { _selectedWorker = value; }
+            set
+            {
+                _selectedWorker = value;
+                OnPropertyChanged();
+            }
         }
+
+        public ObservableCollection<Worker> Workers
+        {
+            get
+            {
+                return _workers;
+            }
+            set { _workers = value; }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

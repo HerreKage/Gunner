@@ -5,7 +5,6 @@
     xmlns:local="using:Gunner_OrderList.Viewmodel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d" Height="720" Width="1280">
 
     <Page.DataContext>
@@ -13,46 +12,65 @@
     </Page.DataContext>
 
     <Page.Resources>
-        <Style x:Key="TextBlockStyle" TargetType="TextBlock" >
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Margin" Value="5,5,5,5"/>
-        </Style>
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="40,5,5,5"/>
         </Style>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="989*"/>
+            <ColumnDefinition Width="288*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.ColumnSpan="2">
+        <Grid VerticalAlignment="Top" x:Name="TitleBar">
+            <Rectangle x:Name="BackgroundElement" Fill="Transparent" />
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="141"/>
-                    <ColumnDefinition Width="263"/>
-                    <ColumnDefinition Width="289*"/>
-                    <ColumnDefinition Width="807*"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBlockStyle}" 
-                       Text="Username"/>
-                <TextBox Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }"  Grid.Column="1" Style="{StaticResource TextBoxStyle}"
-                      Margin="40,5,123,5" Width="Auto" Grid.ColumnSpan="2"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}" 
-                       Text="Password" Margin="5,5,0,5"/>
-                <PasswordBox Grid.Row="1" Grid.Column="1" Password="{Binding LoginCmd.Password, Mode=TwoWay}" 
-                 Margin="40,5,123,5" Width="Auto" Grid.ColumnSpan="2" />
-                <Button Content="Login" Grid.Column="1" Command="{Binding LoginCmd, Mode=TwoWay}" HorizontalAlignment="Left" Margin="98,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="50" Width="113"/>
+                <Image Height="32" Margin="5,0" Source="/Assets/cornerIcon.ico" />
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Mobilreklame" />
             </Grid>
+        </Grid>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="726" VerticalAlignment="Top" Width="989">
+            <FlipView x:Name="LoginFV" HorizontalAlignment="Left" Height="727" Width="989">
+                <FlipView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Source="{Binding}" Stretch="UniformToFill" />
+                        </Grid>
+                    </DataTemplate>
+                </FlipView.ItemTemplate>
+            </FlipView>
         </StackPanel>
+
+        <Grid Grid.Row="1" Grid.Column="1"  Width="288" Background="AliceBlue">
+
+            <Image Source="/Photos/MobilreklameText.png" HorizontalAlignment="Left" Height="42" Margin="67,211,0,0" VerticalAlignment="Top" Width="174"/>
+            <Button  HorizontalAlignment="Left" Height="32" Margin="167,375,0,0" VerticalAlignment="Top" Content="Login" Command="{Binding LoginCmd, Mode=TwoWay}" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB5CEE4" Offset="1"/>
+                        <GradientStop Color="#FFC2E1FF" Offset="0.699"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBox HorizontalAlignment="Left" Height="36" Margin="74,271,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" PlaceholderText="Username" Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }" Style="{StaticResource TextBoxStyle}"
+                     Width="150"/>
+        </Grid>
+        <PasswordBox Grid.Column="1" HorizontalAlignment="Left" Height="39" Margin="74.5,317,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" PlaceholderText="Password" Password="{Binding LoginCmd.Password, Mode=TwoWay}" FontSize="12"
+                      BorderBrush="#66000000" />
+
     </Grid>
 </Page>
