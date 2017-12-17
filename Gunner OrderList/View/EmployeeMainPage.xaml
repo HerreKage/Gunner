@@ -24,9 +24,9 @@
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid>
+            <Grid Margin="0,0,0,61">
                 <Grid VerticalAlignment="Top" Margin="0,0,-513,0">
-                    <Rectangle Fill="#FF6AB3E3"/>
+                    <Rectangle  Fill="Transparent"/>
                     <Grid ColumnSpan="2" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -36,15 +36,19 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Image VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/Mobilreklame Text.png" />
-                        <Button Command="{Binding EditCommand}" Grid.Row="1" Grid.Column="0" Content="Se ordre" Margin="50,0" VerticalAlignment="Top" Width="125" >
+
+                        <Rectangle Fill="AliceBlue" Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,-907,0"/>
+                        <Rectangle Fill="#FFCFE9FF" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,-907,0"/>
+
+                        <Image Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/Mobilreklame Text.png" />
+                        <Button   Background="Transparent"  Command="{Binding EditCommand}" Grid.Row="1" Grid.Column="0" Content="Se ordre" Margin="30,0,0,0" VerticalAlignment="Top" Width="125" >
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:NavigateToPageAction TargetPage="Gunner_OrderList.EmployeeOrderPage"/>
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
                         </Button>
-                        <Button Grid.Row="0" Grid.Column="1" Content="Log ud" Margin="0,0,-786,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Height="33">
+                        <Button Background="Transparent" Grid.Column="1" Content="Log ud" Margin="0,61,-907,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Height="33" Grid.RowSpan="2">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.LoginPage"/>
@@ -57,7 +61,7 @@
                 <!--<Button Command="{Binding ChangeListCommandHistory}" Content="Færdige ordrer" Margin="490,50,0,0" VerticalAlignment="Top" Width="125"/>
                 <Button Command="{Binding ChangeListCommandCurrent}" Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125"/>-->
 
-                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="50,200,0,537" BorderBrush="Black" BorderThickness="2">
+                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="50,185,0,553" BorderBrush="Black" BorderThickness="2">
                     <TextBlock Text="Ordre:" Margin="27,10,15,10" Width="50" FontWeight="Bold"/>
                     <TextBlock Text="Kunde:" Margin="15,10,15,10" Width="125" FontWeight="Bold"/>
                     <TextBlock Text="Produkt:" Margin="15,10,15,10" Width="125" FontWeight="Bold"/>
@@ -66,7 +70,7 @@
                     <TextBlock Text="NB:" Margin="15,10,5,10" Width="75" FontWeight="Bold" />
                 </StackPanel>
 
-                <ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="50,300,0,0" >
+                <ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="398" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2,0,2,2" Margin="50,229,0,0" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Order">
                             <StackPanel Orientation="Horizontal" Height="51" Width="702" BorderThickness="0,0,0,2" BorderBrush="Blue">
@@ -92,9 +96,9 @@
 
             </Grid>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,180,0,0" Text="Til færdiggørelse:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,155,0,0" Text="Til færdiggørelse:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
 
-        <Grid Margin="850,140,50,140" BorderBrush="Black" BorderThickness="2">
+        <Grid Margin="841,185,59,93" BorderBrush="Black" BorderThickness="2">
             <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Company}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.OrderNumber}" VerticalAlignment="Top" Width="225"/>
