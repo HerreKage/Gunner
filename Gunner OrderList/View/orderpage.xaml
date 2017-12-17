@@ -38,7 +38,7 @@
                     <Rectangle Fill="#FFCFE9FF" Grid.ColumnSpan="2" Grid.Row="1" Width="1280"/>
 
                     <Image Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/Mobilreklame Text.png" />
-                    <Button   Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="30,0,0,0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF" >
+                    <Button   Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="30,0,0,0" VerticalAlignment="Top" Width="100" BorderThickness="2,0,1,0" BorderBrush="#66FFFFFF" >
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
@@ -46,7 +46,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Kunde liste" Margin="130,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Content="Kunde liste" Margin="130,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="100" BorderThickness="1,0,1,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
@@ -54,15 +54,15 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Opret ordre" Margin="230,0,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Content="Opret ordre" Margin="230,0,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" BorderThickness="1,0,1,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
-                    </Button>                    
-                    
-                    <Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+                    </Button>
+
+                    <Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="110" BorderThickness="1,0,2,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.WorkerPage"/>
@@ -70,7 +70,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Content="Log ud" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Height="33" Grid.RowSpan="2">
+                    <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Content="Log ud" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Height="33" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.LoginPage"/>
@@ -188,7 +188,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
                         <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" Background="White" Width="370" Margin="15 0, 0, 0" MinHeight="60" Height="Auto" BorderBrush="Black"/>
+                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" TextWrapping="Wrap" Background="White" Width="370" Margin="15 0, 0, 0" MinHeight="60" Height="Auto" BorderBrush="Black"/>
 
                     </StackPanel>
 
@@ -222,7 +222,7 @@
                         <TextBox  IsEnabled="{Binding ElementName=priceCheckBox6, Path=IsChecked}" Text="{Binding NewOrder.VedlagteString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
-                        <TextBlock HorizontalAlignment="Left" Height="35" Margin="0,8,0,0" TextWrapping="Wrap" Text="Total Price" Width="70" RenderTransformOrigin="-1.916,0.629"/>
+                        <TextBlock HorizontalAlignment="Left" Height="35" Margin="0,8,0,0" TextWrapping="Wrap" Text="Total Pris" Width="70" RenderTransformOrigin="-1.916,0.629"/>
                         <TextBox HorizontalAlignment="Left" Height="38" Margin="50,0,0,0" Background="White" TextWrapping="Wrap" Text="{Binding TotalPrice, Mode=TwoWay}" Width="116"/>
                     </StackPanel>
                 </StackPanel>
@@ -257,6 +257,9 @@
 
                 </Grid>
                 <StackPanel Grid.Column="1" BorderBrush="Black" Background="White" BorderThickness="2" MinHeight="500" Margin="0,141,0,86" Grid.RowSpan="2">
+                    <StackPanel Orientation="Horizontal" Margin="10, 25, 0, 10">
+                        <TextBlock Text="Kunde info:" Margin="0, 5, 0, 0" FontWeight="Bold"  HorizontalAlignment="Left" />
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10, 15, 0, 10">
                         <TextBlock Text="Firma:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
                         <TextBox  Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" Width="250" />

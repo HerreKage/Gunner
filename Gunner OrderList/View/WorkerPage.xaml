@@ -34,7 +34,7 @@
                 <Rectangle Fill="#FFCFE9FF" Grid.ColumnSpan="2" Grid.Row="1" Width="1280"/>
 
                 <Image Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/Mobilreklame Text.png" />
-                <Button   Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="30,0,0,0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF" >
+                <Button   Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="51,0,0,0" VerticalAlignment="Top" Width="100" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF" >
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
@@ -42,31 +42,31 @@
                     </Interactivity:Interaction.Behaviors>
                 </Button>
 
-                <Button Background="Transparent" Content="Kunde liste" Margin="130,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                <!--<Button Background="Transparent" Content="Kunde liste" Margin="130,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
-                </Button>
+                </Button>-->
 
-                <Button Background="Transparent" Content="Opret ordre" Margin="230,0,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                <!--<Button Background="Transparent" Content="Opret ordre" Margin="230,0,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
-                </Button>
+                </Button>-->
 
-                <Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+                <!--<Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.WorkerPage"/>
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
-                </Button>
+                </Button>-->
 
-                <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Content="Log ud" HorizontalAlignment="Right" BorderThickness="2,0,0,0" BorderBrush="#66FFFFFF"  VerticalAlignment="Top" Width="100" Height="33" Grid.RowSpan="2">
+                <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Margin="0, 0, 155, 0" Content="Log ud" HorizontalAlignment="Right" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF"  VerticalAlignment="Top" Width="100" Height="33" Grid.RowSpan="2">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.LoginPage"/>
@@ -97,7 +97,7 @@
             <CheckBox IsChecked="{Binding OwnerAccess, Mode=TwoWay}" Content="Owner Access" HorizontalAlignment="Left" Height="42" Margin="237,415,0,0" VerticalAlignment="Top" Width="77"/>
         </Grid>
 
-        <ListView ItemsSource="{Binding Workers}" Background="White" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}" HorizontalAlignment="Left" Height="498" Margin="150,146,0,0" VerticalAlignment="Top" Width="531" BorderThickness="2" BorderBrush="Black">
+        <ListView ItemsSource="{Binding Workers}" Background="White" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}" HorizontalAlignment="Left" Height="498" Margin="50,146,0,0" VerticalAlignment="Top" Width="531" BorderThickness="2" BorderBrush="Black">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Worker">
                     <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="Blue">

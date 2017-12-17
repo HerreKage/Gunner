@@ -107,7 +107,8 @@
             <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Ordrenummer" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Product}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Produkt" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Price}" VerticalAlignment="Top" Width="225"/>
+            <!--<TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.TotalPrice}" VerticalAlignment="Top" Width="225"/>-->
+            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Pris" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Name}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" FontWeight="Bold"/>
