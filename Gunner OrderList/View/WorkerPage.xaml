@@ -15,6 +15,67 @@
     </Page.DataContext>
 
     <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid VerticalAlignment="Top" Grid.ColumnSpan="2" Height="94">
+            <Grid ColumnSpan="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Rectangle Fill="#FFCFE9FF" Grid.ColumnSpan="2" Grid.Row="1" Width="1280"/>
+
+                <Image Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/Mobilreklame Text.png" />
+                <Button   Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="30,0,0,0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF" >
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+
+                <Button Background="Transparent" Content="Kunde liste" Margin="130,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+
+                <Button Background="Transparent" Content="Opret ordre" Margin="230,0,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+
+                <Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.WorkerPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+
+                <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Content="Log ud" HorizontalAlignment="Right" BorderThickness="2,0,0,0" BorderBrush="#66FFFFFF"  VerticalAlignment="Top" Width="100" Height="33" Grid.RowSpan="2">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.LoginPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+
+            </Grid>
+        </Grid>
 
         <Grid Margin="746,146,154,76" BorderBrush="Black" BorderThickness="2" Height="Auto" Background="White">
             <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.UserName, Mode= TwoWay}" VerticalAlignment="Top" Width="225"/>
@@ -33,18 +94,8 @@
             <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,360,0,20" TextWrapping="Wrap" Text="{Binding SelectedWorker.Password, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,360,0,0" TextWrapping="Wrap" Text="Kodeord" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Button Command ="{Binding AddCommand}" Content="Opret" HorizontalAlignment="Left" Margin="132,425,0,0" VerticalAlignment="Top" Width="225"/>
-            <CheckBox IsChecked="{Binding OwnerAccess, Mode=TwoWay}" Content="Owner Access" HorizontalAlignment="Left" Height="42" Margin="0,417,0,0" VerticalAlignment="Top" Width="77"/>
+            <CheckBox IsChecked="{Binding OwnerAccess, Mode=TwoWay}" Content="Owner Access" HorizontalAlignment="Left" Height="42" Margin="237,415,0,0" VerticalAlignment="Top" Width="77"/>
         </Grid>
-
-        <Button Content="Til forside" Margin="882,93,0,0" VerticalAlignment="Top" Width="220">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>
-
 
         <ListView ItemsSource="{Binding Workers}" Background="White" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}" HorizontalAlignment="Left" Height="498" Margin="150,146,0,0" VerticalAlignment="Top" Width="531" BorderThickness="2" BorderBrush="Black">
             <ListView.ItemTemplate>
@@ -59,8 +110,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button  Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="53" Margin="214,10,0,0" VerticalAlignment="Top" Width="154"/>
-
+        <Button  Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="33" Margin="921,607,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Command ="{Binding AddCommand}" Content="Opret" HorizontalAlignment="Left" Margin="1026,607,0,0" VerticalAlignment="Top" Width="100" Height="33"/>
 
 
     </Grid>
