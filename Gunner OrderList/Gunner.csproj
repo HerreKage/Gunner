@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\cornerIcon.ico" />
+    <Content Include="Assets\Mobilreklame Text.png" />
     <Content Include="Photos\MobilreklameText.png" />
     <Content Include="Assets\mobilreklame.PNG" />
     <Content Include="FlipView\4 Coffee shop.jpg" />
@@ -206,7 +207,8 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FilePersistency">
+    <Reference Include="FilePersistency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\MVVMStarterLibrary-master\FilePersistency\obj\Debug\FilePersistency.dll</HintPath>
     </Reference>
     <Reference Include="PersistencyImplementation">

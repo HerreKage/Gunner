@@ -27,8 +27,8 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="989*"/>
-            <ColumnDefinition Width="288*"/>
+            <ColumnDefinition Width="1050*"/>
+            <ColumnDefinition Width="275*"/>
         </Grid.ColumnDefinitions>
 
         <Grid VerticalAlignment="Top" x:Name="TitleBar">
@@ -39,12 +39,12 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Image Height="32" Margin="5,0" Source="/Assets/cornerIcon.ico" />
-                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Mobilreklame" />
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="mobilreklame" />
             </Grid>
         </Grid>
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="726" VerticalAlignment="Top" Width="989">
-            <FlipView x:Name="LoginFV" HorizontalAlignment="Left" Height="727" Width="989">
+            <FlipView x:Name="LoginFV" HorizontalAlignment="Left" Height="726" Width="1022" Margin="0,0,-33,0">
                 <FlipView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -55,10 +55,10 @@
             </FlipView>
         </StackPanel>
 
-        <Grid Grid.Row="1" Grid.Column="1"  Width="288" Background="AliceBlue">
+        <Grid Grid.Row="1" Grid.Column="1" Background="AliceBlue" Margin="0.5,0,0,0">
 
-            <Image Source="/Photos/MobilreklameText.png" HorizontalAlignment="Left" Height="42" Margin="67,211,0,0" VerticalAlignment="Top" Width="174"/>
-            <Button  HorizontalAlignment="Left" Height="32" Margin="167,375,0,0" VerticalAlignment="Top" Content="Login" Command="{Binding LoginCmd, Mode=TwoWay}" >
+            <Image Source="/Photos/MobilreklameText.png" HorizontalAlignment="Left" Height="42" Margin="46,211,0,0" VerticalAlignment="Top" Width="174"/>
+            <Button  HorizontalAlignment="Left" Height="32" Margin="159,356,0,0" VerticalAlignment="Top" Content="Login" Command="{Binding LoginCmd, Mode=TwoWay}" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFB5CEE4" Offset="1"/>
@@ -66,11 +66,11 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="74,271,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" PlaceholderText="Username" Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }" Style="{StaticResource TextBoxStyle}"
+            <TextBox HorizontalAlignment="Left" Height="36" Margin="66,258,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" PlaceholderText="Username" Grid.Row="0" Text="{Binding LoginCmd.UserName, Mode=TwoWay }" Style="{StaticResource TextBoxStyle}"
                      Width="150"/>
-        </Grid>
-        <PasswordBox Grid.Column="1" HorizontalAlignment="Left" Height="39" Margin="74.5,317,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" PlaceholderText="Password" Password="{Binding LoginCmd.Password, Mode=TwoWay}" FontSize="12"
+            <PasswordBox HorizontalAlignment="Left" Height="36" Margin="66,306,0,0" VerticalAlignment="Top" Width="150" PlaceholderText="Password" Password="{Binding LoginCmd.Password, Mode=TwoWay}" FontSize="12"
                       BorderBrush="#66000000" />
+        </Grid>
 
     </Grid>
 </Page>

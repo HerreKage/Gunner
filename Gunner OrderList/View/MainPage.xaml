@@ -23,6 +23,7 @@
         </Button>
 
         <Grid>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="4*"/>
@@ -45,8 +46,6 @@
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
-                <!--Have removed this from buttom below:"-->
-                <!--Command="{Binding ChangeListCommandHistory}"-->
                 <Button  Content="Logud" Margin="490,50,0,0" VerticalAlignment="Top" Width="125">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
@@ -54,6 +53,7 @@
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
+                
                 <Button Command="{Binding ChangeListCommandCurrent}" Content="Til forside" Margin="640,50,0,0" VerticalAlignment="Top" Width="125"/>
 
                 <StackPanel Orientation="Horizontal" Height="Auto"  Margin="50,139,0,531" BorderBrush="Black" BorderThickness="2">
@@ -64,10 +64,6 @@
                     <TextBlock Text="Slut:" Margin="15,10,15,10" Width="75" FontWeight="Bold"/>
                     <TextBlock Text="NB:" Margin="15,10,5,10" Width="75" FontWeight="Bold" />
                 </StackPanel>
-                <!--<ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="51,197,0,0" MaxHeight="225">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="local:Order">
-                            <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="Red">-->
 
                 <ListView ItemsSource="{Binding DisplayedOrders}" SelectedItem="{Binding SelectedOrder1, Mode=TwoWay}" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="50,187,0,0" >
                     <ListView.ItemTemplate>

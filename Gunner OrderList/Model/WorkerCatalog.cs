@@ -24,7 +24,7 @@ namespace Gunner_OrderList.Model
 
 
             allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
-            LoadList();     //Probelm in LoginCommand when this is run?????????????????????????????????????
+            LoadList();  
             //ConvertListToObs(allWorker.Load().Result);
         }
 
