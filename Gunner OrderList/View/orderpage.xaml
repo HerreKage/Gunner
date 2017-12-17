@@ -62,7 +62,7 @@
                     </StackPanel>-->
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="checkBox1" Content="Mål" IsChecked="{Binding NewOrder.MalBool, Mode = TwoWay}" />
-                        <TextBox  Text="{Binding NewOrder.MalString, Mode = TwoWay}"  Height="10" Width="125" IsEnabled="{Binding ElementName=checkBox1, Path=IsChecked}"/>
+                        <TextBox  Text="{Binding NewOrder.MalString, Mode = TwoWay}"  Height="10" Width="125" IsEnabled="{Binding ElementName=checkBox1, Path=IsChecked}" BorderBrush="#66000000"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
