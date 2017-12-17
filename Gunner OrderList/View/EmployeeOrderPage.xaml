@@ -69,7 +69,7 @@
                 </Grid.RowDefinitions>
                 <Grid ColumnSpan="3">
 
-                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="23,110,0,0" Text="Ordre" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="23,110,0,0" Text="Ordre:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
                 </Grid>
 
                 <StackPanel Grid.Column="0" Grid.Row="1" Margin="25, 0, 0, 0" Grid.ColumnSpan="3">
@@ -114,15 +114,7 @@
                         <CheckBox IsChecked="{Binding NewOrder.C751Bool3, Mode = TwoWay}" x:Name="checkBox6"  Content="751C"  Width="71" />
                         <TextBox  Text="{Binding NewOrder.C751String3, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox6, Path=IsChecked}" Background="White"  Height="10" Width="120"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 10">
-                        <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Width="635" Margin="15 0, 0, 0" BorderBrush="Black" Background="White" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
-                        <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" Background="White"  Width="635" Margin="15 0, 0, 0" MinHeight="60" Height="128" BorderBrush="Black"/>
 
-                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="checkBox7" Visibility="{Binding ElementName=checkBox6, Path=IsChecked}" IsChecked="{Binding NewOrder.C751Bool4, Mode = TwoWay}" Content="751C"  Width="71" />
                         <TextBox Visibility="{Binding ElementName=checkBox6, Path=IsChecked}" Text="{Binding NewOrder.C751String4, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox7, Path=IsChecked}"  Height="10" Width="120"/>
@@ -163,6 +155,15 @@
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="productCheckBox6" IsChecked="{Binding NewOrder.BlankBool2, Mode=TwoWay}" Content="" Width="70"  />
                         <TextBox  Text="{Binding NewOrder.BlankString2, Mode=TwoWay}" IsEnabled="{Binding ElementName=productCheckBox6, Path=IsChecked}" Background="White"  Height="10" Width="120"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="5,10,-255,10" Grid.ColumnSpan="1">
+                        <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Background="White" TextWrapping="Wrap" MinWidth="211" MaxWidth="370" MaxHeight="50" Margin="15 0, 0, 0" BorderBrush="Black" Width="370"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,0,-285,0" Grid.ColumnSpan="2">
+                        <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" Background="White" Width="370" Margin="15 0, 0, 0" MinHeight="60" Height="Auto" BorderBrush="Black"/>
                     </StackPanel>
 
                 </StackPanel>

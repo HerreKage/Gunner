@@ -58,7 +58,7 @@
                     </Interactivity:Interaction.Behaviors>
                 </Button>
 
-                <Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+                <Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="105" BorderThickness="0,0,0,5" BorderBrush="#CC4C93F2">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.WorkerPage"/>
@@ -110,8 +110,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button  Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="33" Margin="921,607,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Command ="{Binding AddCommand}" Content="Opret" HorizontalAlignment="Left" Margin="1026,607,0,0" VerticalAlignment="Top" Width="100" Height="33"/>
+        <Button  Command="{Binding DeleteCommand}" Content="Slet" HorizontalAlignment="Left" Height="32" Margin="896,632,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Command ="{Binding AddCommand}" Content="Opret" HorizontalAlignment="Left" Margin="1026,632,0,0" VerticalAlignment="Top" Width="100" Height="32"/>
 
 
     </Grid>
