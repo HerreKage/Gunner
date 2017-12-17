@@ -24,7 +24,22 @@ namespace Gunner_OrderList.Model
 
 
             allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
-            LoadList();  
+            LoadList();
+            Worker worker1 = new Worker();
+
+            worker1.UserName = "Jan";
+            worker1.Password = "1234";
+            worker1.Status = "Owner";
+
+            Worker worker2 = new Worker();
+
+            worker2.UserName = "Ejer";
+            worker2.Password = "9876";
+            worker2.Status = "Employee";
+
+
+            _workers.Add(worker1);
+            _workers.Add(worker2);
             //ConvertListToObs(allWorker.Load().Result);
         }
 

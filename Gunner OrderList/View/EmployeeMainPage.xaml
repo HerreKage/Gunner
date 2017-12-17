@@ -12,7 +12,7 @@
         <local:OrderVM/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="AliceBlue">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
