@@ -13,7 +13,7 @@
         <local:CustomerVM/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="AliceBlue">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
@@ -37,9 +37,9 @@
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
-                
-                
-                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="51,149,0,521" BorderBrush="Black" BorderThickness="2">
+
+
+                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="51,149,0,521" BorderBrush="Black" BorderThickness="2" Background="White">
 
                     <TextBlock Text="Kunde:" Margin="13,10,15,10" Width="125" FontWeight="Bold"/>
                     <TextBlock Text="Att:" Margin="15,10,15,10" Width="125" FontWeight="Bold"/>
@@ -48,7 +48,7 @@
                     <TextBlock Text="By:" Margin="15,10,5,10" Width="125" FontWeight="Bold"/>
 
                 </StackPanel>
-                <ListView ItemsSource="{Binding DisplayCustomers}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="51,197,0,0" MaxHeight="225">
+                <ListView ItemsSource="{Binding DisplayCustomers}" Background="White" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="51,197,0,0" MaxHeight="225">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Customer">
                             <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="Red">
@@ -79,7 +79,7 @@
 
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,99,0,0" Text="Kundeliste:" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
 
-        <Grid Margin="850,150,50,100" BorderBrush="Black" BorderThickness="2" Height="Auto" >
+        <Grid Margin="850,150,50,100" BorderBrush="Black" BorderThickness="2" Height="Auto" Background="White" >
             <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding Company, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Firma:" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>

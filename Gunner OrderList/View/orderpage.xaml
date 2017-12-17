@@ -12,7 +12,7 @@
         <local:OrderVM/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="AliceBlue">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
@@ -62,7 +62,7 @@
                     </StackPanel>-->
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="checkBox1" Content="Mål" IsChecked="{Binding NewOrder.MalBool, Mode = TwoWay}" />
-                        <TextBox  Text="{Binding NewOrder.MalString, Mode = TwoWay}"  Height="10" Width="125" IsEnabled="{Binding ElementName=checkBox1, Path=IsChecked}" BorderBrush="#66000000"/>
+                        <TextBox  Text="{Binding NewOrder.MalString, Mode = TwoWay}" Background="White" Height="10" Width="125" IsEnabled="{Binding ElementName=checkBox1, Path=IsChecked}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
@@ -72,7 +72,7 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="checkBox2" Content="Sol." Width="71" IsChecked="{Binding NewOrder.SolBool1, Mode = TwoWay}"/>
-                        <TextBox Text="{Binding NewOrder.SolString1, Mode = TwoWay}" Height="10" Width="120" IsEnabled="{Binding ElementName=checkBox2, Path=IsChecked}"/>
+                        <TextBox Text="{Binding NewOrder.SolString1, Mode = TwoWay}" Background="White" Height="10" Width="120" IsEnabled="{Binding ElementName=checkBox2, Path=IsChecked}"/>
                     </StackPanel>
 
 
@@ -83,54 +83,50 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox IsChecked="{Binding NewOrder.SolBool2, Mode = TwoWay}" x:Name="checkBox3" Content="Sol." Width="71" />
-                        <TextBox  Text="{Binding NewOrder.SolString2, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox3, Path=IsChecked}" Height="10" Width="120"/>
+                        <TextBox  Text="{Binding NewOrder.SolString2, Mode = TwoWay}" Background="White" IsEnabled="{Binding ElementName=checkBox3, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox IsChecked="{Binding NewOrder.C751Bool1, Mode = TwoWay}" x:Name="checkBox4" Content="751C"  Width="71" />
-                        <TextBox Text="{Binding NewOrder.C751String1, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox4, Path=IsChecked}" Height="10" Width="120"/>
+                        <TextBox Text="{Binding NewOrder.C751String1, Mode = TwoWay}" Background="White" IsEnabled="{Binding ElementName=checkBox4, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox IsChecked="{Binding NewOrder.C751Bool2, Mode = TwoWay}" x:Name="checkBox5"  Content="751C"  Width="71" />
-                        <TextBox Text="{Binding NewOrder.C751String2, Mode = TwoWay}"  IsEnabled="{Binding ElementName=checkBox5, Path=IsChecked}"  Height="10" Width="120"/>
+                        <TextBox Text="{Binding NewOrder.C751String2, Mode = TwoWay}"  Background="White" IsEnabled="{Binding ElementName=checkBox5, Path=IsChecked}"  Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox IsChecked="{Binding NewOrder.C751Bool3, Mode = TwoWay}" x:Name="checkBox6"  Content="751C"  Width="71" />
-                        <TextBox  Text="{Binding NewOrder.C751String3, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox6, Path=IsChecked}" Height="10" Width="120"/>
+                        <TextBox  Text="{Binding NewOrder.C751String3, Mode = TwoWay}" Background="White" IsEnabled="{Binding ElementName=checkBox6, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 10">
-                        <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Width="635" Margin="15 0, 0, 0" BorderBrush="Black"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
-                        <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" Width="635" Margin="15 0, 0, 0" MinHeight="60" Height="128" BorderBrush="Black"/>
 
-                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="checkBox7" Visibility="{Binding ElementName=checkBox6, Path=IsChecked}" IsChecked="{Binding NewOrder.C751Bool4, Mode = TwoWay}" Content="751C"  Width="71" />
-                        <TextBox Visibility="{Binding ElementName=checkBox6, Path=IsChecked}" Text="{Binding NewOrder.C751String4, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox7, Path=IsChecked}"  Height="10" Width="120"/>
+                        <TextBox Visibility="{Binding ElementName=checkBox6, Path=IsChecked}" Background="White" Text="{Binding NewOrder.C751String4, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox7, Path=IsChecked}"  Height="10" Width="120"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
+                        <CheckBox x:Name="checkBox8" Visibility="{Binding ElementName=checkBox7, Path=IsChecked}" IsChecked="{Binding NewOrder.C751Bool5, Mode = TwoWay}" Content="751C"  Width="71" />
+                        <TextBox Visibility="{Binding ElementName=checkBox7, Path=IsChecked}" Background="White" Text="{Binding NewOrder.C751CString5, Mode = TwoWay}" IsEnabled="{Binding ElementName=checkBox8, Path=IsChecked}"  Height="10" Width="120"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Column="1" Grid.Row="1" Margin="10, 0, 0, 0">
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="10, 0, 0, 0" Grid.ColumnSpan="3">
                     <!--<StackPanel>
                         <TextBlock HorizontalAlignment="Center" Height="30" Text="Produkt :" FontWeight="Bold" FontSize="20"/>
                     </StackPanel>-->
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="productCheckBox1"  Content="Antal" Width="70" IsChecked="{Binding NewOrder.AntalBool, Mode = TwoWay}"  />
-                        <TextBox  IsEnabled="{Binding ElementName=productCheckBox1, Path=IsChecked}" Text="{Binding NewOrder.AntalString, Mode = TwoWay}"   Height="10" Width="120"/>
+                        <TextBox  IsEnabled="{Binding ElementName=productCheckBox1, Path=IsChecked}" Background="White" Text="{Binding NewOrder.AntalString, Mode = TwoWay}"   Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox IsChecked="{Binding NewOrder.IamBool1, Mode=TwoWay}" x:Name="productCheckBox2" Content="lam" Width="70"  />
-                        <TextBox  Text="{Binding NewOrder.IamString1, Mode=TwoWay}" IsEnabled="{Binding ElementName=productCheckBox2, Path=IsChecked}" Height="10" Width="120"/>
+                        <TextBox  Text="{Binding NewOrder.IamString1, Mode=TwoWay}" Background="White" IsEnabled="{Binding ElementName=productCheckBox2, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox IsChecked="{Binding NewOrder.IamBool2, Mode=TwoWay}" x:Name="productCheckBox3" Content="lam" Width="70"  />
-                        <TextBox  Text="{Binding NewOrder.IamString2, Mode=TwoWay}" IsEnabled="{Binding ElementName=productCheckBox3, Path=IsChecked}" Height="10" Width="120"/>
+                        <TextBox  Text="{Binding NewOrder.IamString2, Mode=TwoWay}" Background="White" IsEnabled="{Binding ElementName=productCheckBox3, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox IsChecked="{Binding NewOrder.IamBool3, Mode=TwoWay}" x:Name="productCheckBox4" Content="lam" Width="70"  />
-                        <TextBox  Text="{Binding NewOrder.IamString3, Mode=TwoWay}" IsEnabled="{Binding ElementName=productCheckBox4, Path=IsChecked}" Height="10" Width="120"/>
+                        <TextBox  Text="{Binding NewOrder.IamString3, Mode=TwoWay}" Background="White" IsEnabled="{Binding ElementName=productCheckBox4, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox IsChecked="{Binding NewOrder.ALU3mm, Mode=TwoWay}" Content="3 mm alu"  Width="29" />
@@ -142,11 +138,20 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="productCheckBox5" IsChecked="{Binding NewOrder.BlankBool1, Mode=TwoWay}" Content="" Width="70"  />
-                        <TextBox  Text="{Binding NewOrder.BlankString1, Mode=TwoWay}" IsEnabled="{Binding ElementName=productCheckBox5, Path=IsChecked}" Height="10" Width="120"/>
+                        <TextBox  Text="{Binding NewOrder.BlankString1, Mode=TwoWay}" Background="White" IsEnabled="{Binding ElementName=productCheckBox5, Path=IsChecked}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="productCheckBox6" IsChecked="{Binding NewOrder.BlankBool2, Mode=TwoWay}" Content="" Width="70"  />
-                        <TextBox  Text="{Binding NewOrder.BlankString2, Mode=TwoWay}" IsEnabled="{Binding ElementName=productCheckBox6, Path=IsChecked}" Height="10" Width="120"/>
+                        <TextBox  Text="{Binding NewOrder.BlankString2, Mode=TwoWay}" Background="White" IsEnabled="{Binding ElementName=productCheckBox6, Path=IsChecked}" Height="10" Width="120"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 10">
+                        <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Background="White" TextWrapping="Wrap" MinWidth="211" MaxWidth="370" MaxHeight="50" Margin="15 0, 0, 0" BorderBrush="Black"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
+                        <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" Background="White" Width="370" Margin="15 0, 0, 0" MinHeight="60" Height="Auto" BorderBrush="Black"/>
+
                     </StackPanel>
 
                 </StackPanel>
@@ -156,23 +161,23 @@
                     </StackPanel>-->
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox1" IsChecked="{Binding NewOrder.PriceBool, Mode=TwoWay}" Content="Pris kr." Width="70"  />
-                        <TextBox IsEnabled="{Binding ElementName=priceCheckBox1, Path=IsChecked}" Text="{Binding PriceString, Mode=TwoWay}"  Height="10" Width="120"/>
+                        <TextBox IsEnabled="{Binding ElementName=priceCheckBox1, Path=IsChecked}" Background="White" Text="{Binding PriceString, Mode=TwoWay}"  Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox2" IsChecked="{Binding NewOrder.DptBool, Mode=TwoWay}" Content="DTP kr." Width="70"  />
-                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox2, Path=IsChecked}" Text="{Binding DptString, Mode=TwoWay}" Height="10" Width="120"/>
+                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox2, Path=IsChecked}" Background="White" Text="{Binding DptString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox3" IsChecked="{Binding NewOrder.FragtBool, Mode=TwoWay}"  Content="Fragt." Width="70"  />
-                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox3, Path=IsChecked}" Text="{Binding FragtString, Mode=TwoWay}" Height="10" Width="120"/>
+                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox3, Path=IsChecked}" Background="White" Text="{Binding FragtString, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox4" IsChecked="{Binding NewOrder.OptTill_10_Bool, Mode=TwoWay}" Content="Op til 10%" Width="70"  />
-                        <TextBox IsEnabled="{Binding ElementName=priceCheckBox4, Path=IsChecked}" Text="{Binding NewOrder.OptTill_10_String, Mode=TwoWay}" Height="10" Width="120"/>
+                        <TextBox IsEnabled="{Binding ElementName=priceCheckBox4, Path=IsChecked}" Background="White" Text="{Binding NewOrder.OptTill_10_String, Mode=TwoWay}" Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox5" IsChecked="{Binding NewOrder.LevAntalBool, Mode=TwoWay}" Content="Lev. antal" Width="70"  />
-                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox5, Path=IsChecked}" Text="{Binding NewOrder.LevAntalString, Mode=TwoWay}"  Height="10" Width="120"/>
+                        <TextBox  IsEnabled="{Binding ElementName=priceCheckBox5, Path=IsChecked}" Background="White" Text="{Binding NewOrder.LevAntalString, Mode=TwoWay}"  Height="10" Width="120"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <CheckBox x:Name="priceCheckBox6" IsChecked="{Binding NewOrder.VedlagteBool, Mode=TwoWay}" Content="Se vedlagte" Width="70"  />
@@ -180,7 +185,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                         <TextBlock HorizontalAlignment="Left" Height="35" Margin="0,8,0,0" TextWrapping="Wrap" Text="Total Price" Width="70" RenderTransformOrigin="-1.916,0.629"/>
-                        <TextBox HorizontalAlignment="Left" Height="38" Margin="50,0,0,0" TextWrapping="Wrap" Text="{Binding TotalPrice, Mode=TwoWay}" Width="116"/>
+                        <TextBox HorizontalAlignment="Left" Height="38" Margin="50,0,0,0" Background="White" TextWrapping="Wrap" Text="{Binding TotalPrice, Mode=TwoWay}" Width="116"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -213,7 +218,7 @@
                     </Button>
 
                 </Grid>
-                <StackPanel Grid.Column="1" BorderBrush="Black" BorderThickness="2" MinHeight="500" Margin="0,108,0,86" Grid.RowSpan="2">
+                <StackPanel Grid.Column="1" BorderBrush="Black" Background="White" BorderThickness="2" MinHeight="500" Margin="0,108,0,86" Grid.RowSpan="2">
                     <StackPanel Orientation="Horizontal" Margin="10, 15, 0, 10">
                         <TextBlock Text="Firma:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
                         <TextBox  Text="{Binding NewOrder.Customer.Company, Mode=TwoWay}" Width="250" />

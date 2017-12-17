@@ -14,9 +14,9 @@
         <local:WorkerVM/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="AliceBlue">
 
-        <Grid Margin="746,146,154,76" BorderBrush="Black" BorderThickness="2" Height="Auto" >
+        <Grid Margin="746,146,154,76" BorderBrush="Black" BorderThickness="2" Height="Auto" Background="White">
             <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.UserName, Mode= TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Brugernavn" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedWorker.Name, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
@@ -46,7 +46,7 @@
         </Button>
 
 
-        <ListView ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}"  HorizontalAlignment="Left" Height="498" Margin="150,146,0,0" VerticalAlignment="Top" Width="531" BorderThickness="2" BorderBrush="Black">
+        <ListView ItemsSource="{Binding Workers}" Background="White" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}" HorizontalAlignment="Left" Height="498" Margin="150,146,0,0" VerticalAlignment="Top" Width="531" BorderThickness="2" BorderBrush="Black">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Worker">
                     <StackPanel Orientation="Horizontal" Height="50" Width="700" BorderThickness="0,0,0,2" BorderBrush="Blue">

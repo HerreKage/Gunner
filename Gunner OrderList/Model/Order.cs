@@ -57,6 +57,9 @@ namespace Gunner_OrderList
 
         private bool _751CBool5;
         private string _751CString5;
+
+        private bool _751CBool6;
+        private string _751CString6;
         #endregion
 
         #region Product Boxes
@@ -168,11 +171,13 @@ namespace Gunner_OrderList
         public string C751String4 { get => _751CString4; set => _751CString4 = value; }
         public bool C751Bool5 { get => _751CBool5; set => _751CBool5 = value; }
         public string C751String5 { get => _751CString5; set => _751CString5 = value; }
-        #endregion
+        public bool C751CBool6 { get => _751CBool6; set => _751CBool6 = value; }
+        public string C751CString6 { get => _751CString6; set => _751CString6 = value; }
+#endregion
 
-        #region Product Property
+#region Product Property
 
-        public bool AntalBool { get => _antalBool; set => _antalBool = value; }
+public bool AntalBool { get => _antalBool; set => _antalBool = value; }
         public string AntalString { get => _antalString; set => _antalString = value; }
         public bool IamBool1 { get => _iamBool1; set => _iamBool1 = value; }
         public string IamString1 { get => _iamString1; set => _iamString1 = value; }
@@ -206,6 +211,7 @@ namespace Gunner_OrderList
         public bool VedlagteBool { get => _vedlagteBool; set => _vedlagteBool = value; }
         public string VedlagteString { get => _vedlagteString; set => _vedlagteString = value; }
         public string CurrentList { get => _currentList; set => _currentList = value; }
+
         #endregion
     }
 }
