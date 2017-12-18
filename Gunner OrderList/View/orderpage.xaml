@@ -38,7 +38,7 @@
                     <Rectangle Fill="#FFCFE9FF" Grid.ColumnSpan="2" Grid.Row="1" Width="1280"/>
 
                     <Image Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/Mobilreklame Text.png" />
-                    <Button   Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="30,0,0,0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF" >
+                    <Button   Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="30,0,0,0" VerticalAlignment="Top" Width="110" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF" >
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
@@ -46,7 +46,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Kunde liste" Margin="130,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Content="Kunde liste" Margin="140,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="110" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
@@ -54,7 +54,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Opret ordre" Margin="230,0,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" BorderThickness="0,0,0,5" BorderBrush="#CC4C93F2">
+                    <Button Background="Transparent" Content="Opret ordre" Margin="250,0,0,0" VerticalAlignment="Top" Width="110" Grid.Row="1" BorderThickness="0,0,2,5" BorderBrush="#CC4C93F2">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
@@ -62,7 +62,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" BorderThickness="2,0,0,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Content="Opret Bruger" Margin="360,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="110" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.WorkerPage"/>
@@ -70,7 +70,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Content="Log ud" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Height="33" Grid.RowSpan="2" BorderThickness="2,0,0,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Content="Log ud" HorizontalAlignment="Right" VerticalAlignment="Top" Width="110" Height="33" Margin="0,0,70,0" Grid.RowSpan="2" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.LoginPage"/>
@@ -294,7 +294,7 @@
                     </StackPanel>-->
 
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120" x:Name="arrivalCalendarDatePicker" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
+                        <CalendarDatePicker Date="{Binding NewOrder.StartDate, Mode=TwoWay}" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120" x:Name="arrivalCalendarDatePicker" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
                         <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120" x:Name="arrivalCalendarDatePicker1" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
                     </StackPanel>
 

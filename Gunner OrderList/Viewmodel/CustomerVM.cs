@@ -21,6 +21,7 @@ namespace Gunner_OrderList
         private  ObservableCollection<Customer> _displayCustomers;
         private  CustomerCatalog _customerCatalog;
         private CustomerEditCommand _customerEditCommand;
+
         public CustomerVM()
         {
             _customerCatalog = CustomerCatalog.Instance;
@@ -29,6 +30,7 @@ namespace Gunner_OrderList
             _displayCustomers = _customerCatalog.Customers;
             _customerEditCommand = new CustomerEditCommand(this, _customerCatalog);
         }
+
 
         public ObservableCollection<Customer> DisplayCustomers
         {
@@ -39,16 +41,11 @@ namespace Gunner_OrderList
                 {
                     newList.Add(c);
                 }
-                return newList; 
-                
+                return newList;
+
             }
         }
 
-        /*public ObservableCollection<Customer> Customers
-        {
-          get { return _customers; }
-        }
-        */
         public Customer SelectedCustomer
         {
             get { return _selectedCustomer; }

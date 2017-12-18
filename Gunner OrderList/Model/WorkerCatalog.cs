@@ -22,13 +22,8 @@ namespace Gunner_OrderList.Model
         {
             _workers = new ObservableCollection<Worker>();
 
-
             allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
-            //List<Worker> ll = new List<Worker>();  //(for if workers gets messed up)
-            //allWorker.Save(ll);
             LoadList();
-
-            Worker worker1 = new Worker();
         }
 
         #region Load/Save
@@ -54,16 +49,24 @@ namespace Gunner_OrderList.Model
                 worker1.UserName = "Jan";
                 worker1.Password = "1234";
                 worker1.Status = "Owner";
-                worker1.Name = "Built in";
-                worker1.LastName = "Owner";
+                worker1.Name = "jan";
+                worker1.Address = "sfdadsf 1";
+                worker1.Lastname = "2300";
+                worker1.Town = "fasfasd";
+                worker1.PhoneNumber = "12345678";
+                worker1.Email = "test@test.dk";
 
                 Worker worker2 = new Worker();
 
-                worker2.UserName = "Ejer";
-                worker2.Password = "9876";
-                worker2.Status = "Employee";
-                worker2.Name = "Built in";
-                worker2.LastName = "Employee";
+            worker2.UserName = "Ejer";
+            worker2.Password = "9876";
+            worker2.Status = "Employee";
+            worker2.Name = "fsda";
+            worker2.Address = "sfda";
+            worker2.PostNumber = "sfdaa";
+            worker2.Town = "asdfsadfs";
+            worker2.PhoneNumber = "asdfdf";
+            worker2.Email = "afdsfdafsa";
 
                 _workers.Add(worker1);
                 _workers.Add(worker2);
@@ -76,7 +79,6 @@ namespace Gunner_OrderList.Model
         }
         #endregion
 
-        #region Singleton
         public static WorkerCatalog Instance
         {
             get
@@ -88,7 +90,6 @@ namespace Gunner_OrderList.Model
                 return instance;
             }
         }
-        #endregion
 
         public ObservableCollection<Worker> GetWorkerCatalog()
         {
@@ -102,7 +103,7 @@ namespace Gunner_OrderList.Model
 
             foreach (var worker in _workers)
             {
-                if (worker.UserName==Username && worker.Password==Password)
+                if (worker.UserName == Username && worker.Password == Password)
                 {
                     returnstring = worker.Status;
                 }
@@ -115,7 +116,7 @@ namespace Gunner_OrderList.Model
         public ObservableCollection<Worker> Workers
         {
             get
-            {return _workers; }
+            { return _workers; }
             set { _workers = value; }
         }
 
