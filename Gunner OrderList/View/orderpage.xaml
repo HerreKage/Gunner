@@ -184,11 +184,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5, 10, 0, 10">
                         <TextBlock Text="Produkt:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Background="White" TextWrapping="Wrap" MinWidth="211" MaxWidth="370" MaxHeight="50" Margin="15 0, 0, 0" BorderBrush="Black" Width="378"/>
+                        <TextBox Text="{Binding NewOrder.Product, Mode=TwoWay}" Background="White" MinWidth="211" MaxWidth="370" MaxHeight="50" Margin="15 0, 0, 0" BorderBrush="Black" Width="378"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0" Grid.ColumnSpan="1">
                         <TextBlock Text="Beskrivelse:" Margin="0, 5, 0, 0" FontWeight="Bold" Width="100" HorizontalAlignment="Left" />
-                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" Background="White" Width="370" Margin="15 0, 0, 0" MinHeight="60" Height="Auto" BorderBrush="Black"/>
+                        <TextBox Text="{Binding NewOrder.Description, Mode=TwoWay}" TextWrapping="Wrap" Background="White" Width="370" Margin="15 0, 0, 0" MinHeight="60" Height="Auto" BorderBrush="Black"/>
                     </StackPanel>
 
                 </StackPanel>

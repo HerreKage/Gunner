@@ -12,7 +12,6 @@ namespace Gunner_OrderList.Viewmodel
     {
         private string _userName;
         private string _password;
-        private Worker _worker;
 
         public string UserName { get => _userName; set => _userName = value; }
         public string Password { get => _password; set => _password = value; }

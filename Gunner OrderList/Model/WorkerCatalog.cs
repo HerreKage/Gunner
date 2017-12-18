@@ -24,23 +24,11 @@ namespace Gunner_OrderList.Model
 
 
             allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
+            //List<Worker> ll = new List<Worker>();  //(for if workers gets messed up)
+            //allWorker.Save(ll);
             LoadList();
+
             Worker worker1 = new Worker();
-
-            worker1.UserName = "Jan";
-            worker1.Password = "1234";
-            worker1.Status = "Owner";
-
-            Worker worker2 = new Worker();
-
-            worker2.UserName = "Ejer";
-            worker2.Password = "9876";
-            worker2.Status = "Employee";
-
-
-            _workers.Add(worker1);
-            _workers.Add(worker2);
-            //ConvertListToObs(allWorker.Load().Result);
         }
 
         #region Load/Save
@@ -52,7 +40,7 @@ namespace Gunner_OrderList.Model
 
         public void ConvertListToObs(List<Worker> list)
         {
-            if (list != null)
+            if (list.Count != 0)
             {
                 foreach (Worker worker in list)
                 {
@@ -66,13 +54,16 @@ namespace Gunner_OrderList.Model
                 worker1.UserName = "Jan";
                 worker1.Password = "1234";
                 worker1.Status = "Owner";
+                worker1.Name = "Built in";
+                worker1.LastName = "Owner";
 
                 Worker worker2 = new Worker();
 
                 worker2.UserName = "Ejer";
                 worker2.Password = "9876";
                 worker2.Status = "Employee";
-
+                worker2.Name = "Built in";
+                worker2.LastName = "Employee";
 
                 _workers.Add(worker1);
                 _workers.Add(worker2);

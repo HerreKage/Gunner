@@ -22,7 +22,7 @@ namespace Gunner_OrderList.Viewmodel
         private RelayCommand _addCommand;
 
         private Worker _selectedWorker = new Worker();
-        private Worker _newWorker;
+        private Worker _newWorker = new Worker();
 
         public WorkerVM()
         {
@@ -33,8 +33,6 @@ namespace Gunner_OrderList.Viewmodel
             _addCommand = new RelayCommand(Add,AlwaysTrue);
 
         }
-
-
 
         #region DeleteCommand
         public bool OrderIsSelected()
@@ -54,6 +52,8 @@ namespace Gunner_OrderList.Viewmodel
                 _workers.Remove(_selectedWorker);
                 _selectedWorker = null;
                 _workerCatalog.Save();
+                OnPropertyChanged("OwnerAccess");
+                OnPropertyChanged("Workers");
             }
         }
         #endregion
@@ -67,8 +67,24 @@ namespace Gunner_OrderList.Viewmodel
 
         public void Add()
         {
-            _workers.Add(_selectedWorker);
+            _newWorker.Name = _selectedWorker.Name;
+            _newWorker.Address = _selectedWorker.Address;
+            _newWorker.Email = _selectedWorker.Email;
+            _newWorker.LastName = _selectedWorker.LastName;
+            _newWorker.OwnerAccess = _selectedWorker.OwnerAccess;
+            _newWorker.Password = _selectedWorker.Password;
+            _newWorker.PhoneNumber = _selectedWorker.PhoneNumber;
+            _newWorker.Status = _selectedWorker.Status;
+            _newWorker.Town = _selectedWorker.Town;
+            _newWorker.UserName = _selectedWorker.UserName;
+
+            _workers.Add(_newWorker);
             _workerCatalog.Save();
+
+            _selectedWorker = new Worker();
+            _newWorker = new Worker();
+
+            OnPropertyChanged("SelectedWorker");
         }
 
         public ICommand AddCommand
@@ -88,7 +104,14 @@ namespace Gunner_OrderList.Viewmodel
 
         public bool OwnerAccess
         {
-            get { return _selectedWorker.OwnerAccess; }
+            get
+            {
+                if (_selectedWorker != null)
+                {
+                    return _selectedWorker.OwnerAccess;
+                }
+                return false;
+            }
             set
             {
                 _selectedWorker.OwnerAccess = value;

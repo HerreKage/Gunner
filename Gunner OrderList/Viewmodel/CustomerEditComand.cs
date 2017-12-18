@@ -11,7 +11,6 @@ namespace Gunner_OrderList.Viewmodel
     {
             private CustomerCatalog _catalog;
 
-            private Customer _customer;
             private CustomerVM _customerVM;
             private CustomerVM customerVM;
             private CustomerEditCommand _customereditCommand;
