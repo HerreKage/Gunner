@@ -58,15 +58,15 @@ namespace Gunner_OrderList.Model
 
                 Worker worker2 = new Worker();
 
-                worker2.UserName = "Ejer";
-                worker2.Password = "9876";
-                worker2.Status = "Employee";
-                worker2.Name = "fsda";
-                worker2.Address = "sfda";
-                worker2.Lastname = "sfdaa";
-                worker2.Town = "asdfsadfs";
-                worker2.PhoneNumber = "asdfdf";
-                worker2.Email = "afdsfdafsa";
+            worker2.UserName = "Ejer";
+            worker2.Password = "9876";
+            worker2.Status = "Employee";
+            worker2.Name = "fsda";
+            worker2.Address = "sfda";
+            worker2.PostNumber = "sfdaa";
+            worker2.Town = "asdfsadfs";
+            worker2.PhoneNumber = "asdfdf";
+            worker2.Email = "afdsfdafsa";
 
                 _workers.Add(worker1);
                 _workers.Add(worker2);

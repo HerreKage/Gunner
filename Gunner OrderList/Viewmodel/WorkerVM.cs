@@ -99,6 +99,7 @@ namespace Gunner_OrderList.Viewmodel
         public string Password { get; set; }
         public string Status { get; set; }
         public string Name { get; set; }
+        public string LastName { get; set; }
         public string Address { get; set; }
         public string PostNumber { get; set; }
         public string Town { get; set; }
@@ -122,6 +123,7 @@ namespace Gunner_OrderList.Viewmodel
                 {
                     UserName = _selectedWorker.UserName;
                     Name = _selectedWorker.Name;
+                    LastName = _selectedWorker.LastName;
                     Address = _selectedWorker.Address;
                     //PostNumber = _selectedWorker.PostNumber;
                     Town = _selectedWorker.Town;
@@ -134,6 +136,7 @@ namespace Gunner_OrderList.Viewmodel
 
                     OnPropertyChanged(nameof(UserName));
                     OnPropertyChanged(nameof(Name));
+                    OnPropertyChanged(nameof(LastName));
                     OnPropertyChanged(nameof(Address));
                     OnPropertyChanged(nameof(PostNumber));
                     OnPropertyChanged(nameof(Town));
