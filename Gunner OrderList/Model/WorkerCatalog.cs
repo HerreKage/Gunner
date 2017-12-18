@@ -51,22 +51,22 @@ namespace Gunner_OrderList.Model
                 worker1.Status = "Owner";
                 worker1.Name = "jan";
                 worker1.Address = "sfdadsf 1";
-                worker1.Lastname = "2300";
+                worker1.LastName = "2300";
                 worker1.Town = "fasfasd";
                 worker1.PhoneNumber = "12345678";
                 worker1.Email = "test@test.dk";
 
                 Worker worker2 = new Worker();
 
-            worker2.UserName = "Ejer";
-            worker2.Password = "9876";
-            worker2.Status = "Employee";
-            worker2.Name = "fsda";
-            worker2.Address = "sfda";
-            //worker2.PostNumber = "sfdaa";
-            worker2.Town = "asdfsadfs";
-            worker2.PhoneNumber = "asdfdf";
-            worker2.Email = "afdsfdafsa";
+                worker2.UserName = "Ejer";
+                 worker2.Password = "9876";
+                    worker2.Status = "Employee";
+                 worker2.Name = "fsda";
+                   worker2.Address = "sfda";
+                    worker2.LastName = "sfdaa";
+                    worker2.Town = "asdfsadfs";
+                    worker2.PhoneNumber = "asdfdf";
+                    worker2.Email = "afdsfdafsa";
 
                 _workers.Add(worker1);
                 _workers.Add(worker2);
