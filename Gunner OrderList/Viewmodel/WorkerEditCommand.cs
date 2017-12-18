@@ -40,6 +40,7 @@ namespace Gunner_OrderList.Viewmodel
         {
             _workerVM.SelectedWorker.UserName = _workerVM.UserName;
             _workerVM.SelectedWorker.Name = _workerVM.Name;
+            _workerVM.SelectedWorker.LastName = _workerVM.LastName;
             _workerVM.SelectedWorker.Address = _workerVM.Address;
             //_workerVM.SelectedWorker.PostNumber = _workerVM.PostNumber;
             _workerVM.SelectedWorker.Town = _workerVM.Town;

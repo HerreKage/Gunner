@@ -78,31 +78,31 @@
         </Grid>
 
         <Grid Margin="841,146,43,76" BorderBrush="Black" BorderThickness="2" Height="Auto" Background="White">
-            <TextBox HorizontalAlignment="Left" Margin="130,330,0,0" Text="{Binding SelectedWorker.UserName, Mode= TwoWay}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,330,0,0" Text="{Binding UserName, Mode= TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,335,0,0" Text="Brugernavn" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,30,0,0" Text="{Binding SelectedWorker.Name, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,30,0,0" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,35,0,0" Text="Navn" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,180,0,0" Text="{Binding SelectedWorker.Address, Mode=TwoWay}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,180,0,0" Text="{Binding Address, Mode=TwoWay}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,185,0,0" Text="Adresse" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,80,0,0" Text="{Binding SelectedWorker.LastName, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,80,0,0" Text="{Binding LastName, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,85,0,0" Text="Last Name" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,130,0,0" Text="{Binding SelectedWorker.Town, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,130,0,0" Text="{Binding Town, Mode=TwoWay}" VerticalAlignment="Top" Width="225"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,135,0,0" Text="By:" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,230,0,0" Text="{Binding SelectedWorker.PhoneNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,230,0,0" Text="{Binding PhoneNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,235,0,0" Text="Telefon" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,280,0,0" Text="{Binding SelectedWorker.Email, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,280,0,0" Text="{Binding Email, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,285,0,0" Text="Mail" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,380,0,0" Text="{Binding SelectedWorker.Password, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,380,0,0" Text="{Binding Password, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,385,0,0" Text="Kodeord" VerticalAlignment="Top" FontWeight="Bold"/>
             <CheckBox IsChecked="{Binding OwnerAccess, Mode=TwoWay}" Content="Owner Access" HorizontalAlignment="Left" Height="42" Margin="237,415,0,0" VerticalAlignment="Top" Width="77"/>
         </Grid>
 
-        <ListView ItemsSource="{Binding Workers}" Background="White" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}" HorizontalAlignment="Left" Height="428" Margin="49,179,0,0" VerticalAlignment="Top" Width="717" BorderThickness="2" BorderBrush="Black">
+        <ListView ItemsSource="{Binding DisplayWorkers}" Background="White" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}" HorizontalAlignment="Left" Height="428" Margin="49,179,0,0" VerticalAlignment="Top" Width="717" BorderThickness="2" BorderBrush="Black">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Worker">
                     <StackPanel Orientation="Horizontal" Height="50" Width="635" BorderThickness="0,0,0,2" BorderBrush="Blue">
                         <TextBlock Text="{Binding Name}" Margin="0,10,0,10" Width="92"/>
-                        <TextBlock  Text="{Binding LastName}" Margin="5,10,0,10" Width="105"/>
+                        <TextBlock Text="{Binding LastName}" Margin="5,10,0,10" Width="105"/>
                         <TextBlock Text="{Binding PhoneNumber}" Margin="20,10,0,10" Width="100"/>
                         <TextBlock Text="{Binding Town}" Margin="40,10,5,10" Width="109"/>
                         <TextBlock Text="{Binding Email}" Margin="0,10,15,10" Width="153"/>
@@ -111,8 +111,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button  Command="{Binding DeleteCommand}" Content="Slet" HorizontalAlignment="Left" Height="32" Margin="896,632,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Command ="{Binding AddCommand}" Content="Opret" HorizontalAlignment="Left" Margin="1026,632,0,0" VerticalAlignment="Top" Width="100" Height="32"/>
+        <Button  Command="{Binding DeleteCommand}" Content="Slet" HorizontalAlignment="Left" Height="32" Margin="841,632,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Command ="{Binding AddCommand}" Content="Opret" HorizontalAlignment="Left" Margin="990,632,0,0" VerticalAlignment="Top" Width="100" Height="32"/>
+        <Button Command ="{Binding EditWorkerCommand}" Content="Rediger" HorizontalAlignment="Left" Margin="1135,632,0,0" VerticalAlignment="Top" Width="100" Height="32"/>
         <StackPanel HorizontalAlignment="Left" Height="33" Margin="49,146,0,0" VerticalAlignment="Top" Width="717" Background="White" BorderThickness="2,2,2,0" BorderBrush="Black"  >
 
         </StackPanel>

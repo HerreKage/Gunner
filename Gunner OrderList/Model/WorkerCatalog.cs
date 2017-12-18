@@ -32,6 +32,7 @@ namespace Gunner_OrderList.Model
             worker1.Password = "1234";
             worker1.Status = "Owner";
             worker1.Name = "jan";
+            worker1.LastName = "Møller";
             worker1.Address = "sfdadsf 1";
             worker1.PostNumber = "2300";
             worker1.Town = "fasfasd";
@@ -44,6 +45,7 @@ namespace Gunner_OrderList.Model
             worker2.Password = "9876";
             worker2.Status = "Employee";
             worker2.Name = "fsda";
+            worker2.LastName = "hhhh";
             worker2.Address = "sfda";
             worker2.PostNumber = "sfdaa";
             worker2.Town = "asdfsadfs";
