@@ -64,7 +64,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Opret Bruger" Margin="370,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="110" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Content="Opret Bruger" Margin="368,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="110" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.WorkerPage"/>

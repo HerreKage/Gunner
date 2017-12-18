@@ -63,7 +63,7 @@ namespace Gunner_OrderList.Model
             worker2.Status = "Employee";
             worker2.Name = "fsda";
             worker2.Address = "sfda";
-            worker2.PostNumber = "sfdaa";
+            worker2.LastName = "sfdaa";
             worker2.Town = "asdfsadfs";
             worker2.PhoneNumber = "asdfdf";
             worker2.Email = "afdsfdafsa";
