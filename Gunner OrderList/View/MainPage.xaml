@@ -40,7 +40,7 @@
                     <Rectangle Fill="#FFCFE9FF" Grid.ColumnSpan="2" Grid.Row="1" Width="1280"/>
 
                     <Image Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/Mobilreklame Text.png" />
-                    <Button Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="50,0,0,0" VerticalAlignment="Top" Width="110" BorderThickness="0,0,0,5" BorderBrush="#CC4C93F2" >
+                    <Button   Background="Transparent"  Grid.Row="1" Grid.Column="0" Content="Til forside" Margin="30,0,0,0" VerticalAlignment="Top" Width="100" BorderThickness="0,0,0,5" BorderBrush="#CC4C93F2" >
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.MainPage"/>
@@ -48,7 +48,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Kunde liste" Margin="160,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="110" Click="Button_Click" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Content="Kunde liste" Margin="130,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="100" Click="Button_Click" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.CustomerPage"/>
@@ -56,7 +56,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Opret ordre" Margin="270,0,0,0" VerticalAlignment="Top" Width="110" Grid.Row="1" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Content="Opret ordre" Margin="230,0,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.OrderPage"/>
@@ -64,7 +64,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Content="Opret Bruger" Margin="380,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="110" BorderThickness="0,0,2,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Content="Opret Bruger" Margin="330,00,0,0" Grid.Row="1" VerticalAlignment="Top" Width="105">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.WorkerPage"/>
@@ -72,7 +72,7 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
 
-                    <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Content="Log ud" HorizontalAlignment="Right" VerticalAlignment="Top" Width="110" Height="33" Margin="0, 0, 55, 0" BorderThickness="2,0,2,0" BorderBrush="#66FFFFFF">
+                    <Button Background="Transparent" Grid.Column="1" Grid.Row="1"  Content="Log ud" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Height="33" Grid.RowSpan="1" BorderThickness="2,0,0,0" BorderBrush="#66FFFFFF">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:NavigateToPageAction TargetPage="Gunner_OrderList.View.LoginPage"/>
@@ -84,9 +84,9 @@
 
             <Grid>
 
-                <Button Command="{Binding ChangeListCommandCurrent}" Content="Current Lists" Margin="547,106,0,0" VerticalAlignment="Top" Width="109" Background="#FFCFE9FF"/>
+                <Button Command="{Binding ChangeListCommandCurrent}" Content="Current Lists" Margin="547,108,0,0" VerticalAlignment="Top" Width="109"/>
 
-                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="50,150,0,531" Background="White" BorderBrush="Black" BorderThickness="2">
+                <StackPanel Orientation="Horizontal" Height="Auto"  Margin="50,139,0,531" Background="White" BorderBrush="Black" BorderThickness="2">
                     <TextBlock Text="Ordre:" Margin="27,10,15,10" Width="50" FontWeight="Bold"/>
                     <TextBlock Text="Kunde:" Margin="15,10,15,10" Width="125" FontWeight="Bold" SelectionChanged="TextBlock_SelectionChanged_4"/>
                     <TextBlock Text="Produkt:" Margin="15,10,15,10" Width="125" FontWeight="Bold"/>
@@ -95,7 +95,7 @@
                     <TextBlock Text="NB:" Margin="15,10,5,10" Width="75" FontWeight="Bold" />
                 </StackPanel>
 
-                <ListView ItemsSource="{Binding DisplayedOrders}" Background="White" SelectedItem="{Binding SelectedOrder1, Mode=TwoWay}" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="50,190,0,0" >
+                <ListView ItemsSource="{Binding DisplayedOrders}" Background="White" SelectedItem="{Binding SelectedOrder1, Mode=TwoWay}" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="718" BorderBrush="Black" BorderThickness="2" Margin="50,187,0,0" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Order">
                             <StackPanel Orientation="Horizontal" Height="51" Width="702" BorderThickness="0,0,0,2" BorderBrush="Blue">
@@ -147,7 +147,7 @@
                     <TextBlock Text="Slut:" Margin="15,10,15,10" Width="75" FontWeight="Bold"/>
                     <TextBlock Text="NB:" Margin="15,10,5,10" Width="75" FontWeight="Bold" />
                 </StackPanel>
-                <Button Command="{Binding ChangeListCommandHistory}" Content="History" HorizontalAlignment="Left" Height="32" Margin="673,106,0,0" VerticalAlignment="Top" Width="95" Background="#FFCFE9FF"/>
+                <Button Command="{Binding ChangeListCommandHistory}" Content="History" HorizontalAlignment="Left" Height="32" Margin="673,108,0,0" VerticalAlignment="Top" Width="95"/>
             </Grid>
 
             <Button Command="{Binding EditCommand}" Content="Rediger" HorizontalAlignment="Left" Margin="233,609,0,0" VerticalAlignment="Top" Height="32" Width="100" Grid.Column="1">
@@ -161,20 +161,19 @@
         </Grid>
         <TextBlock HorizontalAlignment="Left" Margin="50,105,0,0" Text="{Binding TopText}" VerticalAlignment="Top" Width="Auto" FontWeight="Bold" FontSize="20"/>
 
-        <Grid Margin="850,150,50,140" BorderBrush="Black" BorderThickness="2" Background="White">
-
-            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Company}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.OrderNumber}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0" TextWrapping="Wrap" Text="Ordrenummer" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Product}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" TextWrapping="Wrap" Text="Produkt" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.TotalPrice}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" TextWrapping="Wrap" Text="Pris" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCustomer.Name}" VerticalAlignment="Top" Width="225"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Grid Margin="850,140,50,140" BorderBrush="Black" BorderThickness="2" Background="White">
+            <TextBox HorizontalAlignment="Left" Margin="130,20,0,0" Text="{Binding SelectedOrderCustomer.Company}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,25,0,0" Text="Kunde" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,70,0,0" Text="{Binding SelectedOrder.OrderNumber}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,75,0,0"  Text="Ordrenummer" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,120,0,0" Text="{Binding SelectedOrder.Product}" VerticalAlignment="Top" Width="225" MaxHeight="25"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,125,0,0" Text="Produkt" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,170,0,0" Text="{Binding SelectedOrder.TotalPrice}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,175,0,0" Text="Pris" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,220,0,0" Text="{Binding SelectedOrderCustomer.Name}" VerticalAlignment="Top" Width="225"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,225,0,0" Text="Att" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,270,0,20" TextWrapping="Wrap" Text="{Binding SelectedOrder.Description}" VerticalAlignment="Top" Width="225" MinHeight="50" Height="Auto"/>
-            <TextBlock HorizontalAlignment="Left" Margin="20,275,0,0" TextWrapping="Wrap" Text="Bemærkninger" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,275,0,0" Text="Bemærkninger" VerticalAlignment="Top" FontWeight="Bold"/>
         </Grid>
     </Grid>
 </Page>
