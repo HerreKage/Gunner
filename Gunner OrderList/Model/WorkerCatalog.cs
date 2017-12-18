@@ -23,52 +23,53 @@ namespace Gunner_OrderList.Model
             _workers = new ObservableCollection<Worker>();
 
             allWorker = new FileSource<Worker>(new FileStringPersistence(), new JSONConverter<Worker>(), "allWorker.json");
-            //ConvertListToObs(allWorker.Load().Result);
-
-
-            Worker worker1 = new Worker();
-
-            worker1.UserName = "Jan";
-            worker1.Password = "1234";
-            worker1.Status = "Owner";
-            worker1.Name = "jan";
-            worker1.Address = "sfdadsf 1";
-            worker1.PostNumber = "2300";
-            worker1.Town = "fasfasd";
-            worker1.PhoneNumber = "12345678";
-            worker1.Email = "test@test.dk";
-
-            Worker worker2 = new Worker();
-
-            worker2.UserName = "Ejer";
-            worker2.Password = "9876";
-            worker2.Status = "Employee";
-            worker2.Name = "fsda";
-            worker2.Address = "sfda";
-            worker2.PostNumber = "sfdaa";
-            worker2.Town = "asdfsadfs";
-            worker2.PhoneNumber = "asdfdf";
-            worker2.Email = "afdsfdafsa";
-
-            _workers.Add(worker1);
-            _workers.Add(worker2);
-
+            LoadList();
         }
 
-        /*private async void LoadList()
+        #region Load/Save
+        private async void LoadList()
         {
             List<Worker> ll = await allWorker.Load();
             ConvertListToObs(ll);
         }
-        */
+
         public void ConvertListToObs(List<Worker> list)
         {
-            if (list != null)
+            if (list.Count != 0)
             {
                 foreach (Worker worker in list)
                 {
                     _workers.Add(worker);
                 }
+            }
+            else
+            {
+                Worker worker1 = new Worker();
+
+                worker1.UserName = "Jan";
+                worker1.Password = "1234";
+                worker1.Status = "Owner";
+                worker1.Name = "jan";
+                worker1.Address = "sfdadsf 1";
+                worker1.Lastname = "2300";
+                worker1.Town = "fasfasd";
+                worker1.PhoneNumber = "12345678";
+                worker1.Email = "test@test.dk";
+
+                Worker worker2 = new Worker();
+
+                worker2.UserName = "Ejer";
+                worker2.Password = "9876";
+                worker2.Status = "Employee";
+                worker2.Name = "fsda";
+                worker2.Address = "sfda";
+                worker2.Lastname = "sfdaa";
+                worker2.Town = "asdfsadfs";
+                worker2.PhoneNumber = "asdfdf";
+                worker2.Email = "afdsfdafsa";
+
+                _workers.Add(worker1);
+                _workers.Add(worker2);
             }
         }
 
@@ -76,6 +77,7 @@ namespace Gunner_OrderList.Model
         {
             allWorker.Save(_workers.ToList());
         }
+        #endregion
 
         public static WorkerCatalog Instance
         {
