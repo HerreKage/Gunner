@@ -108,6 +108,7 @@
     <Compile Include="Model\CustomerCatalog.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Viewmodel\CustomerVM.cs" />
+    <Compile Include="Viewmodel\WorkerEditCommand.cs" />
     <Compile Include="Viewmodel\WorkerVM.cs" />
     <Compile Include="View\EmployeeMainPage.xaml.cs">
       <DependentUpon>EmployeeMainPage.xaml</DependentUpon>
