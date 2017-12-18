@@ -15,7 +15,6 @@ namespace Gunner_OrderList.Model
         private string _password;
         private string _status;
         private string _name;
-        private string _lastName;
         private string _address;
         private string _lastname;
         private string _town;
@@ -27,12 +26,28 @@ namespace Gunner_OrderList.Model
         public string Password { get => _password; set => _password = value; }
         public string Status { get => _status; set => _status = value; }
         public string Name { get => _name; set => _name = value; }
-        public string LastName { get => _lastName; set => _lastName = value; }
+        public string LastName { get => _lastname; set => _lastname = value; }
         public string Address { get => _address; set => _address = value; }
-        public string Lastname { get => _lastname; set => _lastname = value; }
         public string Town { get => _town; set => _town = value; }
         public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
         public string Email { get => _email; set => _email = value; }
-        //public bool Owner { get => _owner; set => _owner = value; }
+
+        public bool Owner
+        {
+            get { return _owner;}
+            set
+            {
+                //if (_owner == true)
+                //{
+                //    _status = "Owner";
+                //}
+                //else
+                //{
+                //    _status = "Employee";
+                //}
+
+                _owner = value;
+            }
+        }
     }
 }

@@ -294,7 +294,7 @@
                     </StackPanel>-->
 
                     <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10">
-                        <CalendarDatePicker  Date="{Binding NewOrder.StartDate, Mode=TwoWay}" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120" x:Name="arrivalCalendarDatePicker" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
+                        <CalendarDatePicker Date="{Binding NewOrder.StartDate, Mode=TwoWay}" PlaceholderText="Start" Margin="100, 0, 0, 0" Header="Start dato" Width="120" x:Name="arrivalCalendarDatePicker" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
                         <CalendarDatePicker Date="{Binding NewOrder.Deadline, Mode=TwoWay}" PlaceholderText="Slut" Margin="10, 0, 0, 0" Header="Slut dato" Width="120" x:Name="arrivalCalendarDatePicker1" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
                     </StackPanel>
 

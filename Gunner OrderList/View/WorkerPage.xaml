@@ -94,7 +94,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="25,285,0,0" Text="Mail" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Margin="130,380,0,0" Text="{Binding Password, Mode=TwoWay}" VerticalAlignment="Top" Width="225" Height="Auto"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,385,0,0" Text="Kodeord" VerticalAlignment="Top" FontWeight="Bold"/>
-            <CheckBox IsChecked="{Binding OwnerAccess, Mode=TwoWay}" Content="Owner Access" HorizontalAlignment="Left" Height="42" Margin="237,415,0,0" VerticalAlignment="Top" Width="77"/>
+            <CheckBox IsChecked="{Binding Owner, Mode=TwoWay}" Content="Owner Access" HorizontalAlignment="Left" Height="42" Margin="237,415,0,0" VerticalAlignment="Top" Width="77"/>
         </Grid>
 
         <ListView ItemsSource="{Binding DisplayWorkers}" Background="White" SelectedItem="{Binding SelectedWorker, Mode=TwoWay}" HorizontalAlignment="Left" Height="428" Margin="49,179,0,0" VerticalAlignment="Top" Width="717" BorderThickness="2" BorderBrush="Black">

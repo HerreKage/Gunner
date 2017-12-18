@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Store.Preview.InstallControl;
 using Gunner_OrderList.Annotations;
+using Gunner_OrderList.Viewmodel;
 using Gunner_OrderList.Model;
 
 namespace Gunner_OrderList.Viewmodel
@@ -19,11 +20,13 @@ namespace Gunner_OrderList.Viewmodel
         private WorkerCatalog _workerCatalog;   //Singleton
         private ObservableCollection<Worker> _workers;
         private ObservableCollection<Worker> _displayWorkers;
+
+
         private RelayCommand _deleteCommand;
         private RelayCommand _addCommand;
         private WorkerEditCommand _workerEditCommand;
         private Worker _selectedWorker = new Worker();
-        private Worker _newWorker;
+        private Worker _newWorker = new Worker();
 
         public WorkerVM()
         {
@@ -33,6 +36,7 @@ namespace Gunner_OrderList.Viewmodel
             _deleteCommand = new RelayCommand(Delete, OrderIsSelected);
             _workerEditCommand = new WorkerEditCommand(this, _workerCatalog);
         }
+
         public ObservableCollection<Worker> DisplayWorkers
         {
             get
@@ -65,6 +69,33 @@ namespace Gunner_OrderList.Viewmodel
             {
                 _workers.Remove(_selectedWorker);
                 _selectedWorker = null;
+                OnPropertyChanged("DisplayWorkers");
+
+                UserName = null;
+                Password = null;
+                Status = null;
+                Name = null;
+                LastName = null;
+                Address = null;
+                PostNumber = null;
+                Town = null;
+                PhoneNumber = null;
+                Email = null;
+                Owner = false;
+
+                OnPropertyChanged(nameof(UserName));
+                OnPropertyChanged(nameof(Name));
+                OnPropertyChanged(nameof(LastName));
+                OnPropertyChanged(nameof(Address));
+                OnPropertyChanged(nameof(PostNumber));
+                OnPropertyChanged(nameof(Town));
+                OnPropertyChanged(nameof(PhoneNumber));
+                OnPropertyChanged(nameof(Email));
+                OnPropertyChanged(nameof(Password));
+                OnPropertyChanged(nameof(Owner));
+
+                Refresh();
+                _workerCatalog.Save();
             }
         }
         #endregion
@@ -75,16 +106,39 @@ namespace Gunner_OrderList.Viewmodel
         {
             get
             {
-                //_addCommand = new WorkerAddCommand(_newWorker);
+                _addCommand = new RelayCommand( Add, AlwaysTrue  );
 
                 return _addCommand;
             }
         }
 
+        public void Add()
+        {
+            _newWorker.Name = Name;
+            _newWorker.LastName = LastName;
+            _newWorker.Address = Address;
+            _newWorker.Email = Email;
+            _newWorker.Owner = Owner;
+            _newWorker.Password = Password;
+            _newWorker.PhoneNumber = PhoneNumber;
+            _newWorker.Status = Status;
+            _newWorker.Town = Town;
+            _newWorker.UserName = UserName;
+            _workers.Add( _newWorker );
+            _newWorker = new Worker();
+
+            OnPropertyChanged("DisplayWorkers");
+            _workerCatalog.Save();
+        }
+
+        public bool AlwaysTrue()
+        {
+            return true;
+        }
+
         #endregion
 
         #region EditCommand
-        //Needs to put in
 
         public ICommand EditWorkerCommand
         {
@@ -105,7 +159,8 @@ namespace Gunner_OrderList.Viewmodel
         public string Town { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        //public bool Owner { get => _owner; set => _owner = value; }
+        public bool Owner { get; set; }
+
         #endregion
 
 
@@ -125,14 +180,12 @@ namespace Gunner_OrderList.Viewmodel
                     Name = _selectedWorker.Name;
                     LastName = _selectedWorker.LastName;
                     Address = _selectedWorker.Address;
-                    //PostNumber = _selectedWorker.PostNumber;
                     Town = _selectedWorker.Town;
                     PhoneNumber = _selectedWorker.PhoneNumber;
                     Email = _selectedWorker.Email;
                     Password = _selectedWorker.Password;
-                    //         Status = _selectedWorker.Status;
-
-                    // Owner = _selectedWorker.Owner;
+                    Status = _selectedWorker.Status;
+                    Owner = _selectedWorker.Owner;
 
                     OnPropertyChanged(nameof(UserName));
                     OnPropertyChanged(nameof(Name));
@@ -143,8 +196,8 @@ namespace Gunner_OrderList.Viewmodel
                     OnPropertyChanged(nameof(PhoneNumber));
                     OnPropertyChanged(nameof(Email));
                     OnPropertyChanged(nameof(Password));
-                    //OnPropertyChanged(nameof(Owner));
-                    //OnPropertyChanged(nameof(Status));
+                    OnPropertyChanged(nameof(Owner));
+                    OnPropertyChanged(nameof(Status));
                 }
                 _deleteCommand.RaiseCanExecuteChanged();
                 _workerEditCommand.RaiseCanExecuteChanged();
