@@ -36,12 +36,14 @@ namespace Gunner_OrderList
         {
             get
             {
-                ObservableCollection<Customer> newList = new ObservableCollection<Customer>();
-                foreach (var c in _customerCatalog.Customers)
-                {
-                    newList.Add(c);
-                }
-                return newList;
+
+                return _customers;
+                //ObservableCollection<Customer> newList = new ObservableCollection<Customer>();
+                //foreach (var c in _customerCatalog.Customers)
+                //{
+                //    newList.Add(c);
+                //}
+                //return newList;
 
             }
         }

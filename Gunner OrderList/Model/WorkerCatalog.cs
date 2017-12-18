@@ -49,24 +49,26 @@ namespace Gunner_OrderList.Model
                 worker1.UserName = "Jan";
                 worker1.Password = "1234";
                 worker1.Status = "Owner";
-                worker1.Name = "jan";
-                worker1.Address = "sfdadsf 1";
-                worker1.LastName = "2300";
-                worker1.Town = "fasfasd";
-                worker1.PhoneNumber = "12345678";
+                worker1.Name = "Jan";
+                worker1.Address = "street1";
+                worker1.LastName = "Bisbjerg";
+                worker1.Town = "Ballerup";
+                worker1.PhoneNumber = "43-65-23-56";
                 worker1.Email = "test@test.dk";
+                worker1.Owner = true;
 
                 Worker worker2 = new Worker();
 
                 worker2.UserName = "Ejer";
-                 worker2.Password = "9876";
-                    worker2.Status = "Employee";
-                 worker2.Name = "fsda";
-                   worker2.Address = "sfda";
-                    worker2.LastName = "sfdaa";
-                    worker2.Town = "asdfsadfs";
-                    worker2.PhoneNumber = "asdfdf";
-                    worker2.Email = "afdsfdafsa";
+                worker2.Password = "9876";
+                worker2.Status = "Employee";
+                worker2.Name = "Peter";
+                worker2.Address = "Janbenjvej 5";
+                worker2.LastName = "Smith";
+                worker2.Town = "Roskilde";
+                worker2.PhoneNumber = "54-87-34-23";
+                worker2.Email = "testing@gmial.com";
+                worker2.Owner = false;
 
                 _workers.Add(worker1);
                 _workers.Add(worker2);
