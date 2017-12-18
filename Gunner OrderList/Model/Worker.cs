@@ -29,7 +29,6 @@ namespace Gunner_OrderList.Model
         public string Name { get => _name; set => _name = value; }
         public string LastName { get => _lastName; set => _lastName = value; }
         public string Address { get => _address; set => _address = value; }
-        public string Lastname { get => _lastname; set => _lastname = value; }
         public string Town { get => _town; set => _town = value; }
         public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
         public string Email { get => _email; set => _email = value; }
