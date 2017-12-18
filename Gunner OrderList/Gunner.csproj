@@ -209,7 +209,7 @@
   <ItemGroup>
     <Reference Include="FilePersistency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\MVVMStarterLibrary-master\MVVMStarterLibrary-master\FilePersistency\obj\Debug\FilePersistency.dll</HintPath>
+      <HintPath>..\..\MVVMStarterLibrary\FilePersistency\obj\Debug\FilePersistency.dll</HintPath>
     </Reference>
     <Reference Include="PersistencyImplementation">
       <HintPath>..\..\MVVMStarterLibrary-master\MVVMStarterLibrary-master\CatalogImplementation\bin\Debug\PersistencyImplementation.dll</HintPath>
