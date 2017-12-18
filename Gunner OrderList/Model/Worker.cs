@@ -17,7 +17,7 @@ namespace Gunner_OrderList.Model
         private string _name;
         private string _lastName;
         private string _address;
-        private string _postNumber;
+        private string _lastname;
         private string _town;
         private string _phoneNumber;
         private string _email;
@@ -29,10 +29,10 @@ namespace Gunner_OrderList.Model
         public string Name { get => _name; set => _name = value; }
         public string LastName { get => _lastName; set => _lastName = value; }
         public string Address { get => _address; set => _address = value; }
-        public string PostNumber { get => _postNumber; set => _postNumber = value; }
+        public string Lastname { get => _lastname; set => _lastname = value; }
         public string Town { get => _town; set => _town = value; }
         public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
         public string Email { get => _email; set => _email = value; }
-        // public bool Owner { get => _owner; set => _owner = value; }
+        /public bool Owner { get => _owner; set => _owner = value; }
     }
 }

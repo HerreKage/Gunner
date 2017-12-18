@@ -143,10 +143,20 @@ namespace Gunner_OrderList
 
         public string TotalPrice
         {
-            get { _totalPrice =  Convert.ToString(Convert.ToInt32(_priceString) + Convert.ToInt32(_dptString) + Convert.ToInt32(_fragtString));
-                return _totalPrice.ToString();
+            get
+            {
+                int n1;
+                int n2;
+                int n3;
+                if (int.TryParse(_priceString, out n1) && int.TryParse(_dptString, out n2) && int.TryParse(_fragtString, out n3))
+                {
+                    _totalPrice = Convert.ToString(n1 + n2 + n3);
+                    return _totalPrice.ToString();
+                }
+                return "Kun tal i pris";
+
             }
-            set {_totalPrice = value; }
+            set { _totalPrice = value; }
         }
         #endregion
 
@@ -175,9 +185,9 @@ namespace Gunner_OrderList
         public string C751CString6 { get => _751CString6; set => _751CString6 = value; }
 #endregion
 
-#region Product Property
+        #region Product Property
 
-public bool AntalBool { get => _antalBool; set => _antalBool = value; }
+        public bool AntalBool { get => _antalBool; set => _antalBool = value; }
         public string AntalString { get => _antalString; set => _antalString = value; }
         public bool IamBool1 { get => _iamBool1; set => _iamBool1 = value; }
         public string IamString1 { get => _iamString1; set => _iamString1 = value; }
