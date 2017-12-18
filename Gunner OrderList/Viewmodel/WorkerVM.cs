@@ -21,7 +21,7 @@ namespace Gunner_OrderList.Viewmodel
         private ObservableCollection<Worker> _displayWorkers;
         private RelayCommand _deleteCommand;
         private RelayCommand _addCommand;
-        private WorkerEditCommand _workerEditCommand;
+        //private WorkerEditCommand _workerEditCommand;
         private Worker _selectedWorker = new Worker();
         private Worker _newWorker;
 
@@ -31,7 +31,7 @@ namespace Gunner_OrderList.Viewmodel
             _workers = _workerCatalog.Workers;
             _displayWorkers = _workerCatalog.Workers;
             _deleteCommand = new RelayCommand(Delete, OrderIsSelected);
-            _workerEditCommand = new WorkerEditCommand(this, _workerCatalog);
+            //_workerEditCommand = new WorkerEditCommand(this, _workerCatalog);
         }
         public ObservableCollection<Worker> DisplayWorkers
         {
@@ -86,10 +86,10 @@ namespace Gunner_OrderList.Viewmodel
         #region EditCommand
         //Needs to put in
 
-        public ICommand EditWorkerCommand
-        {
-            get { return _workerEditCommand; }
-        }
+        //public ICommand EditWorkerCommand
+        //{
+            //get { return _workerEditCommand; }
+        //}
 
         public void Refresh()
         {
@@ -144,7 +144,7 @@ namespace Gunner_OrderList.Viewmodel
                     //OnPropertyChanged(nameof(Status));
                 }
                 _deleteCommand.RaiseCanExecuteChanged();
-                _workerEditCommand.RaiseCanExecuteChanged();
+                //_workerEditCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged();
             }
         }

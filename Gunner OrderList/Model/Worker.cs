@@ -31,6 +31,6 @@ namespace Gunner_OrderList.Model
         public string Town { get => _town; set => _town = value; }
         public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
         public string Email { get => _email; set => _email = value; }
-        /public bool Owner { get => _owner; set => _owner = value; }
+        public bool Owner { get => _owner; set => _owner = value; }
     }
 }

@@ -31,9 +31,19 @@ namespace Gunner_OrderList
             _customerEditCommand = new CustomerEditCommand(this, _customerCatalog);
         }
 
+
         public ObservableCollection<Customer> DisplayCustomers
         {
-            get {return  _customerCatalog.Customers; }
+            get
+            {
+                ObservableCollection<Customer> newList = new ObservableCollection<Customer>();
+                foreach (var c in _customerCatalog.Customers)
+                {
+                    newList.Add(c);
+                }
+                return newList;
+
+            }
         }
 
         public Customer SelectedCustomer
