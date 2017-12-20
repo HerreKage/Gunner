@@ -121,9 +121,10 @@ namespace Gunner_OrderList.Viewmodel
             _newWorker.Owner = Owner;
             _newWorker.Password = Password;
             _newWorker.PhoneNumber = PhoneNumber;
-            _newWorker.Status = Status;
             _newWorker.Town = Town;
             _newWorker.UserName = UserName;
+            _newWorker.Owner = Owner;
+
             _workers.Add( _newWorker );
             _newWorker = new Worker();
 
