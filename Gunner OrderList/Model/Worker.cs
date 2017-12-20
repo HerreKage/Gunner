@@ -37,14 +37,14 @@ namespace Gunner_OrderList.Model
             get { return _owner;}
             set
             {
-                //if (_owner == true)
-                //{
-                //    _status = "Owner";
-                //}
-                //else
-                //{
-                //    _status = "Employee";
-                //}
+                if (value == true)
+                {
+                    _status = "Owner";
+                }
+                else
+                {
+                    _status = "Employee";
+                }
 
                 _owner = value;
             }

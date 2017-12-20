@@ -149,6 +149,7 @@ namespace Gunner_OrderList.Viewmodel
         {
             OnPropertyChanged(nameof(DisplayWorkers));
         }
+
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Status { get; set; }
@@ -162,9 +163,6 @@ namespace Gunner_OrderList.Viewmodel
         public bool Owner { get; set; }
 
         #endregion
-
-
-
 
         public Worker SelectedWorker
         {

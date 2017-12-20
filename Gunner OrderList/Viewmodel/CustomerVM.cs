@@ -18,7 +18,7 @@ namespace Gunner_OrderList
         private  ObservableCollection<Customer> _customers;
         private DeleteCommand _deleteCommand;
         private Customer _selectedCustomer = null;
-        private  ObservableCollection<Customer> _displayCustomers;
+        //private  ObservableCollection<Customer> _displayCustomers;
         private  CustomerCatalog _customerCatalog;
         private CustomerEditCommand _customerEditCommand;
 
@@ -27,7 +27,7 @@ namespace Gunner_OrderList
             _customerCatalog = CustomerCatalog.Instance;
             _customers = _customerCatalog.Customers;
             _deleteCommand= new DeleteCommand(this, _customerCatalog);
-            _displayCustomers = _customerCatalog.Customers;
+            //_displayCustomers = _customerCatalog.Customers;
             _customerEditCommand = new CustomerEditCommand(this, _customerCatalog);
         }
 
@@ -37,13 +37,13 @@ namespace Gunner_OrderList
             get
             {
 
-                return _customers;
-                //ObservableCollection<Customer> newList = new ObservableCollection<Customer>();
-                //foreach (var c in _customerCatalog.Customers)
-                //{
-                //    newList.Add(c);
-                //}
-                //return newList;
+                //return _displayCustomers;
+                ObservableCollection<Customer> newList = new ObservableCollection<Customer>();
+                foreach (var c in _customerCatalog.Customers)
+                {
+                    newList.Add(c);
+                }
+                return newList;
 
             }
         }
@@ -83,19 +83,12 @@ namespace Gunner_OrderList
             }
         }
         public string Company { get; set; }
-
         public string Name { get; set; }
-
         public string Address { get; set; }
-    
         public string ZipCode { get; set; }
-
         public string Town { get; set; }
-
         public string PhoneNumber { get; set; }
-
         public string Email { get; set; }
-
         public string CompanyNumber { get; set; }
 
         public ICommand DeletionCommand

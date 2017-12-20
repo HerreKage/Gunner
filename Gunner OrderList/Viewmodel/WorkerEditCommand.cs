@@ -42,16 +42,12 @@ namespace Gunner_OrderList.Viewmodel
             _workerVM.SelectedWorker.Name = _workerVM.Name;
             _workerVM.SelectedWorker.LastName = _workerVM.LastName;
             _workerVM.SelectedWorker.Address = _workerVM.Address;
-            //_workerVM.SelectedWorker.PostNumber = _workerVM.PostNumber;
             _workerVM.SelectedWorker.Town = _workerVM.Town;
             _workerVM.SelectedWorker.PhoneNumber = _workerVM.PhoneNumber;
             _workerVM.SelectedWorker.Email = _workerVM.Email;
             _workerVM.SelectedWorker.Password = _workerVM.Password;
-            //_workerVM.SelectedWorker.Status = _workerVM.Status;
+            _workerVM.SelectedWorker.Owner = _workerVM.Owner;
 
-
-
-            //_workerVM.SelectedWorker.Owner = _workerVM.Owner;
             // _catalog.EditCustomer(_customerVM.SelectedCustomer);
             _workerVM.Refresh();
 

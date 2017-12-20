@@ -46,6 +46,9 @@ namespace Gunner_OrderList.Viewmodel
             }
             else
             {
+                OrderCatalog orderCatalog = OrderCatalog.Instance;
+                CustomerCatalog customerCatalog = CustomerCatalog.Instance;
+
                 frame.Navigate(typeof(MainPage));
             }
              
